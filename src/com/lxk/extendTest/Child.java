@@ -7,6 +7,7 @@ package com.lxk.extendTest;
  */
 public class Child extends Parent {
 
+
     public Child() {
     }
 
