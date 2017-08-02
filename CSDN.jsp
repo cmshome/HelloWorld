@@ -28,5 +28,7 @@
 
 
 <div style="text-align: center;">
-    <img title="CSDN认证专家" src="http://img.blog.csdn.net/20170503151126372" alt="" style="width:60px; height:60px;">
+    <a href="http://blog.csdn.net/experts/rule.html" target="_blank">
+        <img title="CSDN认证专家" src="http://img.blog.csdn.net/20170503151126372" style="width:60px; height:60px;">
+    </a>
 </div>
