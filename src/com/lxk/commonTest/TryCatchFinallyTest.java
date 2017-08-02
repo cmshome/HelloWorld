@@ -2,17 +2,24 @@ package com.lxk.commonTest;
 
 /**
  * 测试 try{}catch(){}finally{}的具体执行顺序
+ * 结论：
+ * try catch finally 都有返回：最终都会得到finally的返回结果。
+ * try catch 都有返回 finally没有返回：try出现异常，会得到catch的返回结果。finally中的操作，不影响返回结果。
+ * try catch 都有返回 finally没有返回：try没有异常，会得到try的返回结果。  finally中的操作，不影响返回结果。
+ *
  * <p>
  * Created by lxk on 2016/11/11
  */
 public class TryCatchFinallyTest {
     public static void main(String[] args) {
-        testFunc1();
+        System.out.println(testFunc1());
         System.out.println(testFunc2());
     }
 
     /**
      * try里面return的结果在finally中修改有影响吗
+     * try正常结束，catch不会执行，finally没有返回，即使执行，也不影响返回结果。
+     * 最后返回的就是try里面正常结束的结果：1
      */
     private static int testFunc2() {
         int x = 1;
