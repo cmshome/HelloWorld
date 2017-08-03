@@ -33,6 +33,8 @@ public class OneWayLinkedList {
 
     /**
      * 输出单向链表
+     *
+     * @param linkedList 单向链表，链表头的位置开始。
      */
     public static void forLinkedList(Node<Integer, Integer> linkedList) {
         StringBuilder sb = new StringBuilder();
@@ -47,6 +49,8 @@ public class OneWayLinkedList {
 
     /**
      * 获得单向链表的最后一个节点
+     *
+     * @param linkedList 单向链表，链表头的位置开始。
      */
     public static Node<Integer, Integer> getLastNode(Node<Integer, Integer> linkedList) {
         while (linkedList.getNext() != null) {
@@ -57,6 +61,8 @@ public class OneWayLinkedList {
 
     /**
      * 获得链表的长度
+     *
+     * @param linkedList 单向链表，链表头的位置开始。
      */
     public static int getOneWayLinkedListSize(Node<Integer, Integer> linkedList) {
         int size = 0;
@@ -69,6 +75,11 @@ public class OneWayLinkedList {
 
     /**
      * 在链表指定位置之后插入元素
+     *
+     * @param index      指定位置之后插入元素
+     * @param key        插入元素的key
+     * @param value      插入元素的value
+     * @param linkedList 单向链表，链表头的位置开始。
      */
     public static void insertInLinkedList(int index, int key, int value, Node<Integer, Integer> linkedList) {
         int size = getOneWayLinkedListSize(linkedList);
@@ -87,6 +98,9 @@ public class OneWayLinkedList {
 
     /**
      * 在链表指定位置之后删除节点
+     *
+     * @param index      指定位置之后删除元素
+     * @param linkedList 单向链表，链表头的位置开始。
      */
     public static void removeInLinkedList(int index, Node<Integer, Integer> linkedList) {
         int size = getOneWayLinkedListSize(linkedList);

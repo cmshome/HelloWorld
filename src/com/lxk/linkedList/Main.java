@@ -2,7 +2,7 @@ package com.lxk.linkedList;
 
 import com.lxk.linkedList.oneWay.Node;
 
-import static com.lxk.linkedList.circularList.CircularOneWayList.getCircularOneWayList;
+import static com.lxk.linkedList.circularList.CircularOneWayList.*;
 import static com.lxk.linkedList.oneWay.OneWayLinkedList.*;
 
 /**
@@ -22,6 +22,7 @@ public class Main {
     private static void testCircularOneWayList() {
         Node<Integer, Integer> linkedList = getCircularOneWayList();//获得初始化链表
         //forLinkedList(linkedList);//打印
+        System.out.println(getCircularLinkedListSize(linkedList));
     }
 
     /**
