@@ -3,20 +3,72 @@ package com.lxk.lambdaTest;
 import com.google.common.collect.Lists;
 import com.lxk.model.User;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Java 8 之 lambda测试
+ * 中间操作：filter()、distinct()、sorted()、map()、flatMap()等，其一般是对数据集的整理（过滤、排序、匹配、抽取等）。
+ * 终结操作：如forEach()、allMatch()、anyMatch()、findAny()、 findFirst()，
+ * ----------数值计算类的方法有sum、max、min、average等等。
+ * ----------终止方法也可以是对集合的处理，如reduce()、 collect()等等
+ * <p>
  * <p>
  * Created by lxk on 2017/8/28
  */
 public class Main {
     public static void main(String[] args) {
         //testLoop();
-        testStreamFilter();
-        //testStreamMap();
+        //testStreamFilter();
+        testStreamMap();
         //testLoopOperate();
+        //testOperateNumber();
+        //testReduce();
+    }
+
+    /**
+     * T reduce(T identity, BinaryOperator<T> accumulator);
+     * identity：它允许用户提供一个循环计算的初始值。
+     * accumulator：计算的累加器，
+     */
+    private static void testReduce() {
+        //T reduce(T identity, BinaryOperator<T> accumulator);
+        System.out.println("给定个初始值，求和");
+        System.out.println(Stream.of(1, 2, 3, 4).reduce(100, (sum, item) -> sum + item));
+        System.out.println(Stream.of(1, 2, 3, 4).reduce(100, Integer::sum));
+        System.out.println("给定个初始值，求min");
+        System.out.println(Stream.of(1, 2, 3, 4).reduce(100, (min, item) -> Math.min(min, item)));
+        System.out.println(Stream.of(1, 2, 3, 4).reduce(100, Integer::min));
+        System.out.println("给定个初始值，求max");
+        System.out.println(Stream.of(1, 2, 3, 4).reduce(100, (max, item) -> Math.max(max, item)));
+        System.out.println(Stream.of(1, 2, 3, 4).reduce(100, Integer::max));
+
+        //Optional<T> reduce(BinaryOperator<T> accumulator);
+        // 注意返回值，上面的返回是T,泛型，传进去啥类型，返回就是啥类型。
+        // 下面的返回的则是Optional类型
+        System.out.println("无初始值，求和");
+        System.out.println(Stream.of(1, 2, 3, 4).reduce(Integer::sum).orElse(0));
+        System.out.println("无初始值，求max");
+        System.out.println(Stream.of(1, 2, 3, 4).reduce(Integer::max).orElse(0));
+        System.out.println("无初始值，求min");
+        System.out.println(Stream.of(1, 2, 3, 4).reduce(Integer::min).orElse(0));
+
+        System.out.println(Stream.of(1, 2, 3, 4).max(Integer::max));
+        System.out.println(Stream.of(1, 2, 3, 4).max(Comparator.naturalOrder()));
+
+    }
+
+    /**
+     * 测试用法，稍复杂的串行操作。
+     * 过滤空值；去重；排序；循环输出。
+     */
+    private static void testOperateNumber() {
+        List<Integer> integers = Arrays.asList(1, 3, null, 8, 7, 8, 13, 10);
+        integers.stream().filter(Objects::nonNull).distinct().sorted().forEach(System.out::println);
     }
 
     /**
@@ -65,6 +117,7 @@ public class Main {
         beforeLoop(list);
         lambdaLoop(list);
     }
+
     /**
      * 以前循环一个集合，for和foreach循环
      */
