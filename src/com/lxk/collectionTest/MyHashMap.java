@@ -11,11 +11,11 @@ public class MyHashMap {
     /**
      * Implements Map.put and related methods
      *
-     * @param hash hash for key
-     * @param key the key
-     * @param value the value to put
+     * @param hash         hash for key
+     * @param key          the key
+     * @param value        the value to put
      * @param onlyIfAbsent if true, don't change existing value(put 传 false)
-     * @param evict if false, the table is in creation mode.(put 传 true)
+     * @param evict        if false, the table is in creation mode.(put 传 true)
      * @return previous value, or null if none
      */
     //final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
@@ -27,7 +27,8 @@ public class MyHashMap {
     //    if ((tab = table) == null || (n = tab.length) == 0){
     //        n = (tab = resize()).length;
     //    }
-    //    //(n - 1) & hash：根据hash值算出插入点在底层数组的桶的位置，即下标值；为p赋值，也为i赋值（不管碰撞与否，都已经赋值了）
+    //    //(n - 1) & hash：根据hash值算出插入点在底层数组的桶的位置，即下标值；为i赋值
+    //    //p = tab[i]：为p赋值。（不管碰撞与否，都已经赋值了）
     //    //如果在数组上，没有发生碰撞，即当前要插入的位置上之前没有插入过值，则直接在此位置插入要插入的键值对
     //    if ((p = tab[i = (n - 1) & hash]) == null){
     //        tab[i] = newNode(hash, key, value, null);//插入的节点的next属性是null
@@ -44,7 +45,7 @@ public class MyHashMap {
     //            for (int binCount = 0; ; ++binCount) {//还未形成树结构，还是jdk 1.7的链表结构
     //                //差别就是1.7:是头插法，后来的留在数组上，先来的链在尾上；1.8:是先来的就留在数组上，后来的链在尾上
     //                //判断p.next是否为空，同时为e赋值，若为空，则p.next指向新添加的节点，这是在链表长度小于7的时候
-    //                if ((e = p.next) == null) {
+    //                if ((e = p.next) == null) { //给e赋值，同时判断p.next()也就是e是null，则下面的逻辑就是在这链表上添加新节点
     //                    //这个地方有个不好理解的地方：在判断条件里面，把e指向p.next，也就是说现在e=null而不是下下一行错误的理解。
     //                    //这也就解释了更新的时候，返回oldValue，新建的时候，是不在那地方返回的。
     //                    p.next = newNode(hash, key, value, null);//e = p.next,p.next指向新生成的节点，也就是说e指向新节点（错误）
