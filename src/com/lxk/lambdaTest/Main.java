@@ -1,12 +1,10 @@
 package com.lxk.lambdaTest;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.lxk.model.User;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -23,11 +21,32 @@ import java.util.stream.Stream;
 public class Main {
     public static void main(String[] args) {
         //testLoop();
-        //testStreamFilter();
-        testStreamMap();
         //testLoopOperate();
+        //testStreamFilter();
+        //testStreamMap();
         //testOperateNumber();
         //testReduce();
+        testCollect();
+    }
+
+    /**
+     * collect的基础方法
+     */
+    private static void testCollect() {
+        Stream stream = Stream.of(1, 2, 3, 4).filter(p -> p > 2);
+        List<Integer> collect = (List<Integer>) stream.collect(Collectors.toList());
+        collect.forEach(s -> System.out.print(s + " "));
+
+        List<User> users = getLoopList();
+        List<Map> resultList = users.stream().collect(Lists::newArrayList, (list, user) -> {
+            Map<String, String> userMap = Maps.newHashMap();
+            userMap.put(user.getName(), user.getPwd());
+            list.add(userMap);
+        }, List::addAll);
+        resultList.forEach(System.out::println);
+
+        Map<Integer, Integer> map = getLoopMap();
+        map.forEach((k, v) -> System.out.println("key " + k + " v " + v));
     }
 
     /**
@@ -98,30 +117,69 @@ public class Main {
      */
     private static void testLoopOperate() {
         List<User> list = getLoopList();
-        System.out.println("对集合进行操作：user's name + “_1” ");
+        lambdaOperateList(list);
+
+        Map<Integer, Integer> map = getLoopMap();
+        lambdaOperateMap(map);
+    }
+
+    private static void lambdaOperateList(List<User> list) {
+        System.out.println("对list集合进行操作：user's name + “_1” ");
         //list.forEach(user -> user.setName(user.getName() + "_1"));
         list.forEach(user -> {
             String name = user.getName();
             user.setName(name + "_1");
+
+            //在循环的时候，不能修改list结构(包括新增和删除).
+            //不然会出现此异常：Exception in thread "main" java.util.ConcurrentModificationException
+            //if(user.getPwd().contains("1")){
+            //    list.remove(user);
+            //}
+            //if(user.getPwd().contains("1")){a
+            //    list.add(new User("10","10"));
+            //}
         });
         //操作完，循环输出一下，看下是否操作OK。
         list.forEach(System.out::println);
         println();
     }
 
+    private static void lambdaOperateMap(Map<Integer, Integer> map) {
+        System.out.println("对map集合进行操作：map's value + 10 ");
+        map.forEach((k, v) -> {
+            v = v + 10;
+            map.put(k, v);//更新。
+
+            //在循环的时候，不能修改map结构(包括新增和删除).
+            //不然会出现此异常：Exception in thread "main" java.util.ConcurrentModificationException
+            //if(k == 1){
+            //    map.remove(k);
+            //}
+            //if(k == 9){
+            //    map.put(10,10);//添加，
+            //}
+        });
+        lambdaLoopMap(map);
+        println();
+    }
+
     /**
-     * 测试集合循环
+     * 测试集合(list,map)循环
      */
     private static void testLoop() {
         List<User> list = getLoopList();
-        beforeLoop(list);
-        lambdaLoop(list);
+        beforeLoopList(list);
+        lambdaLoopList(list);
+
+        Map<Integer, Integer> map = getLoopMap();
+        beforeLoopMap(map);
+        lambdaLoopMap(map);
     }
 
     /**
      * 以前循环一个集合，for和foreach循环
      */
-    private static void beforeLoop(List<User> list) {
+    private static void beforeLoopList(List<User> list) {
         for (User user : list) {
             System.out.println(user.toString());
         }
@@ -131,7 +189,7 @@ public class Main {
     /**
      * 使用lambda循环一个集合
      */
-    private static void lambdaLoop(List<User> list) {
+    private static void lambdaLoopList(List<User> list) {
         //三行循环效果相同
         //list.forEach(user -> System.out.println(user.toString()));
         //list.forEach(user -> System.out.println(user));//下面一行代码就是简写形式
@@ -139,9 +197,33 @@ public class Main {
         println();
     }
 
+    /**
+     * Java 7 的map的遍历
+     */
+    private static void beforeLoopMap(Map<Integer, Integer> map) {
+        System.out.println("Java 7 遍历map");
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            System.out.println("k " + entry.getKey() + " v " + entry.getValue());
+        }
+        for (Integer key : map.keySet()) {
+            System.out.println("k " + key);
+        }
+        for (Integer value : map.values()) {
+            System.out.println("v " + value);
+        }
+        println();
+    }
 
     /**
-     * 获得个循环的集合
+     * Java 8 的map的遍历
+     */
+    private static void lambdaLoopMap(Map<Integer, Integer> map) {
+        System.out.println("Java 8 遍历map");
+        map.forEach((k, v) -> System.out.println("k " + k + " v " + v));
+    }
+
+    /**
+     * 获得一个list集合
      */
     private static List<User> getLoopList() {
         List<User> all = Lists.newArrayList();
@@ -152,11 +234,21 @@ public class Main {
     }
 
     /**
+     * 获得一个map集合
+     */
+    private static Map<Integer, Integer> getLoopMap() {
+        Map<Integer, Integer> map = Maps.newHashMap();
+        for (int i = 0; i < 10; i++) {
+            map.put(i, i);
+        }
+        return map;
+    }
+
+    /**
      * 打印分行符公共方法
      */
     private static void println() {
         System.out.println("___________________我是分行符___________________");
     }
-
 
 }
