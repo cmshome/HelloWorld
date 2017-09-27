@@ -23,10 +23,10 @@ public class Main {
         //testLoop();
         //testLoopOperate();
         //testStreamFilter();
-        //testStreamMap();
+        testStreamMap();
         //testOperateNumber();
         //testReduce();
-        testCollect();
+        //testCollect();
     }
 
     /**
@@ -110,6 +110,8 @@ public class Main {
         List<String> nameList = list.stream().map(User::getName).collect(Collectors.toList());
         nameList.forEach(System.out::print);
         println();
+        List<Integer> all = Lists.newArrayList(100, 200, 300, 400, 500);
+        all.stream().map((cost) -> cost + .12 * cost).forEach(System.out::println);
     }
 
     /**
