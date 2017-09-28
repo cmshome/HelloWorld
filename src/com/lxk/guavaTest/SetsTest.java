@@ -3,7 +3,6 @@ package com.lxk.guavaTest;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -12,14 +11,25 @@ import java.util.Set;
  */
 public class SetsTest {
     public static void main(String[] args) {
-        List<String> big = Lists.newArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9");
-        List<String> small = Lists.newArrayList("1", "2", "3", "3", "2", "1");
-        long a = System.currentTimeMillis();
-        List<String> guava = getDifferenceSetByGuava(big, small);
-        System.out.println("\r<br> 执行耗时 : " + (System.currentTimeMillis() - a) / 1000f + " 秒 ");
-        //为了显示一致，我给集合排个序，因为guava是按newHashSet集合来整的，newHashSet又是无序的,so ...
-        Collections.sort(guava);
-        System.out.println(guava.toString());
+        //List<String> big = Lists.newArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9");
+        //List<String> small = Lists.newArrayList("1", "2", "3", "3", "2", "1");
+        //long a = System.currentTimeMillis();
+        //List<String> guava = getDifferenceSetByGuava(big, small);
+        //System.out.println("执行耗时 : " + (System.currentTimeMillis() - a) / 1000f + " 秒 ");
+        ////为了显示一致，我给集合排个序，因为guava是按newHashSet集合来整的，newHashSet又是无序的,so ...
+        //Collections.sort(guava);
+        //System.out.println(guava.toString());
+        testAddAllToSet();
+    }
+
+    /**
+     * 测试一下set的addAll方法，重复的就不添加，不重复的还是可以添加的。
+     */
+    private static void testAddAllToSet() {
+        List<String> small = Lists.newArrayList("1", "2", "3", "7", "2", "1");
+        Set<String> set = Sets.newHashSet("1","2");
+        set.addAll(small);
+        set.forEach(System.out::println);
     }
 
     /**
