@@ -19,7 +19,16 @@ public class SetsTest {
         ////为了显示一致，我给集合排个序，因为guava是按newHashSet集合来整的，newHashSet又是无序的,so ...
         //Collections.sort(guava);
         //System.out.println(guava.toString());
-        testAddAllToSet();
+        //testAddAllToSet();
+        testSetAddFailed();
+    }
+
+    /**
+     * set add失败返回false，成功true。
+     */
+    private static void testSetAddFailed() {
+        Set<String> set = Sets.newHashSet("1","2");
+        System.out.println(set.add("1"));
     }
 
     /**
