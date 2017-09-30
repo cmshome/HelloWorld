@@ -21,7 +21,14 @@ public class TimeTest {
         //System.out.println(t.toString());
         //System.out.println("\r<br> 执行耗时 : " + (System.currentTimeMillis() - a) / 1000f + " 秒 ");
         //testCalendar();
-        testStringToDate();
+        //testStringToDate();
+        turnLongToDate();
+    }
+
+    private static void turnLongToDate() {
+        Date ping = new Date(1506743427564L);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        System.out.println(format.format(ping));
     }
 
     private static void testStringToDate() {
@@ -43,6 +50,8 @@ public class TimeTest {
     private static void testCalendar() {
         //1490084570
 
+        //1490084570000L
+        //1506582060292
         Date ping = new Date(1490084570000L);
         Calendar cal = Calendar.getInstance();
         TimeFormatModel t = new TimeFormatModel();

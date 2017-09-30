@@ -27,8 +27,15 @@ public class SetsTest {
      * set add失败返回false，成功true。
      */
     private static void testSetAddFailed() {
-        Set<String> set = Sets.newHashSet("1","2");
-        System.out.println(set.add("1"));
+        //Set<String> set = Sets.newHashSet("1","2");
+        //String a = "a";
+        //set.add(a);
+        //System.out.println(set.add("1"));
+        //System.out.println(2 == 1 + 1);//运算符优先级的简单测试
+        List<String> list1 = Lists.newArrayList("1", "2", "3","1", "2", "3");
+        List<String> list2 = Lists.newArrayList("1", "2", "3","1", "2", "3","6");
+        Set<String> set1 = Sets.newHashSet(list1);
+        System.out.println(set1);
     }
 
     /**
