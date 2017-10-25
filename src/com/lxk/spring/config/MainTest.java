@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * 测试spring中@value注解的使用
  *
- * Created by lxk on 2017/3/3
+ * @author lxk on 2017/3/3
  */
 public class MainTest {
 

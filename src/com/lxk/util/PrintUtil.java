@@ -1,7 +1,7 @@
 package com.lxk.util;
 
 /**
- * Created by lxk on 2017/9/27
+ * @author lxk on 2017/9/27
  */
 public class PrintUtil {
     public static void divideLine() {

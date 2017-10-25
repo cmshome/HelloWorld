@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 测试 Collections.emptyList() 所得到的集合的操作
  * <p>
- * Created by lxk on 2017/3/23
+ * @author lxk on 2017/3/23
  */
 public class EmptyList {
     public static void main(String[] args) {

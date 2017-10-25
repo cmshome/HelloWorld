@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * 测试json和Java对象之间的转换
  * <p>
- * Created by lxk on 2017/6/15
+ * @author lxk on 2017/6/15
  */
 public class JsonTest {
     public static void main(String[] args) {

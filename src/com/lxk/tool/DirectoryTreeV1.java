@@ -1,7 +1,7 @@
 package com.lxk.tool;
 
 /**
- * Created by lxk on 2017/7/7
+ * @author lxk on 2017/7/7
  */
 
 import com.google.common.base.Function;

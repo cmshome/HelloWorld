@@ -1,7 +1,7 @@
 package com.lxk.threadTest.wayToThread;
 
 /**
- * Created by lxk on 2017/6/25
+ * @author lxk on 2017/6/25
  * 创建线程方式2实现
  * 继承Thread类，重写run函数
  */

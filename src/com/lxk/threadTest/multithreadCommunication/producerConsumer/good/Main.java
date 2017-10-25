@@ -3,7 +3,7 @@ package com.lxk.threadTest.multithreadCommunication.producerConsumer.good;
 /**
  * 多个生产者和多个消费者的多线程例子
  * <p>
- * Created by lxk on 2017/6/27
+ * @author lxk on 2017/6/27
  */
 /*
 JDK1.5 中提供了多线程升级解决方案。

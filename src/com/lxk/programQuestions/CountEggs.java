@@ -3,7 +3,7 @@ package com.lxk.programQuestions;
 /**
  * 一个数鸡蛋的程序题
  * <p>
- * Created by lxk on 2017/7/7
+ * @author lxk on 2017/7/7
  */
 public class CountEggs {
     public static void main(String[] args) {

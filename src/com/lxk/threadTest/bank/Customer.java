@@ -3,7 +3,7 @@ package com.lxk.threadTest.bank;
 /**
  * 顾客，实现runnable()接口，多个人可以一起存钱
  * <p>
- * Created by lxk on 2017/6/26
+ * @author lxk on 2017/6/26
  */
 public class Customer implements Runnable {
     private Bank b = new Bank();

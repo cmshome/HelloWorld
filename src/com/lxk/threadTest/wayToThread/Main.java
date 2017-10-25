@@ -5,7 +5,7 @@ import java.util.concurrent.FutureTask;
 /**
  * 线程测试（实现多线程的几种方式）
  * <p>
- * Created by lxk on 2016/11/12
+ * @author lxk on 2016/11/12
  */
 public class Main {
     public static void main(String[] args) {

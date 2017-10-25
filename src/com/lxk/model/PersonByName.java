@@ -5,7 +5,7 @@ import java.util.Comparator;
 /**
  * 测试model集合按某属性排序
  * <p>
- * Created by lxk on 2016/11/25
+ * @author lxk on 2016/11/25
  */
 public class PersonByName implements Comparator<Person_> {
 

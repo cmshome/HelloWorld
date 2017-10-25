@@ -3,7 +3,7 @@ package com.lxk.model;
 /**
  * 为测试代码块而写的model
  * <p>
- * Created by lxk on 2017/2/16
+ * @author lxk on 2017/2/16
  */
 public class CodeBlockModel {
     private String name;

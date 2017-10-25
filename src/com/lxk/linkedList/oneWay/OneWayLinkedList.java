@@ -3,7 +3,7 @@ package com.lxk.linkedList.oneWay;
 /**
  * 单向链表
  * <p>
- * Created by lxk on 2017/8/1
+ * @author lxk on 2017/8/1
  */
 public class OneWayLinkedList {
 

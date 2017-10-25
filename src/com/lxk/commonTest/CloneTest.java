@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 测试Java的clone方法
  * <p>
- * Created by lxk on 2017/2/28
+ * @author lxk on 2017/2/28
  */
 public class CloneTest {
     public static void main(String[] args) {

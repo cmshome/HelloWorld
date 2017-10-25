@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * guava Maps 测试实例
  * <p>
- * Created by lxk on 2016/11/14
+ * @author lxk on 2016/11/14
  */
 public class MapsTest {
     public static void main(String[] args) {

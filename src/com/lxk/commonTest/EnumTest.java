@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Java枚举用法测试
  * <p>
- * Created by lxk on 2016/12/15
+ * @author lxk on 2016/12/15
  */
 public class EnumTest {
     public static void main(String[] args) {

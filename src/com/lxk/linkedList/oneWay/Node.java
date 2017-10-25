@@ -1,7 +1,7 @@
 package com.lxk.linkedList.oneWay;
 
 /**
- * Created by lxk on 2017/8/1
+ * @author lxk on 2017/8/1
  */
 public class Node<K, V> {
     private final K key;

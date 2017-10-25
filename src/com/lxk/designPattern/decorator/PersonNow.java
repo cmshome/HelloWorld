@@ -6,7 +6,7 @@ package com.lxk.designPattern.decorator;
  * 装饰类通常会通过构造方法接收被装饰的对象。
  * 并基于被装饰的对象的功能，提供更强的功能。
  * <p>
- * Created by lxk on 2016/11/24
+ * @author lxk on 2016/11/24
  */
 public class PersonNow implements Person {
     private PersonBefore p;

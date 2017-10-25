@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * String字符串测试
  * <p>
- * Created by lxk on 2017/2/8
+ * @author lxk on 2017/2/8
  */
 public class StringTest {
     public static void main(String[] args) {

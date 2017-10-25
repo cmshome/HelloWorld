@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * poi jar 包测试（写Excel文件）
  * <p>
- * Created by lxk on 2016/11/15
+ * @author lxk on 2016/11/15
  */
 public class PoiTest {
     public static void main(String[] args) {

@@ -6,7 +6,7 @@ import com.lxk.linkedList.oneWay.OneWayLinkedList;
 /**
  * 循环链表
  * <p>
- * Created by lxk on 2017/8/1
+ * @author lxk on 2017/8/1
  */
 public class CircularOneWayList {
 

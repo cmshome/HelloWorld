@@ -1,7 +1,7 @@
 package com.lxk.reflect.classloaderAndForName;
 
 /**
- * Created by lxk on 2017/2/21
+ * @author lxk on 2017/2/21
  */
 public class Point {
     static {

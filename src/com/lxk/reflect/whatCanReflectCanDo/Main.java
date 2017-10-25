@@ -5,7 +5,7 @@ import com.lxk.model.Car;
 /**
  * 反射具体能干些什么的测试
  * <p>
- * Created by lxk on 2017/7/19
+ * @author lxk on 2017/7/19
  */
 public class Main {
     public static void main(String[] args) {

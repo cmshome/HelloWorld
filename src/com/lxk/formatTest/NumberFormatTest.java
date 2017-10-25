@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 /**
  * 数字格式化测试
  * <p>
- * Created by lxk on 2017/1/22
+ * @author lxk on 2017/1/22
  */
 public class NumberFormatTest {
     public static void main(String[] args) {

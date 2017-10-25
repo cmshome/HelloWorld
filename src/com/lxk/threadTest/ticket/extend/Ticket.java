@@ -1,7 +1,7 @@
 package com.lxk.threadTest.ticket.extend;
 
 /**
- * Created by lxk on 2017/6/25
+ * @author lxk on 2017/6/25
  */
 public class Ticket extends Thread {
     //private int ticket = 100;//创建一个对象就有100张票。错误一：几个线程都打印一次100-1。不合适。所以，如下操作，换成静态变量。

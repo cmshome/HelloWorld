@@ -3,7 +3,7 @@ package com.lxk.designPattern.singleton;
 /**
  * 饱汉式（懒汉式）----就是有钱，豪，用的时候再new（线程不安全）
  * <p>
- * Created by lxk on 2017/3/23
+ * @author lxk on 2017/3/23
  */
 public class SingletonPattern2 {
     //这个就不能加final，因为要在其他地方给他再次赋值呢。

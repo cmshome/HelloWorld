@@ -12,7 +12,7 @@ import java.util.Set;
 /**
  * 取两个集合的差集
  * <p>
- * Created by lxk on 2017/2/17
+ * @author lxk on 2017/2/17
  */
 public class GetDifferenceSet {
     public static void main(String[] args) {

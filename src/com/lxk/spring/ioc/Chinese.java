@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 /**
  * Person的实现类（Chinese实现Person接口）
  *
- * Created by lxk on 2017/3/22
+ * @author lxk on 2017/3/22
  */
 @Component("chinese")
 class Chinese implements Person {

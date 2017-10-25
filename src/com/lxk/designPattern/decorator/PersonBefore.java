@@ -4,7 +4,7 @@ package com.lxk.designPattern.decorator;
  * 被装饰的类
  * (被增强对象)
  * <p>
- * Created by lxk on 2016/11/24
+ * @author lxk on 2016/11/24
  */
 public class PersonBefore implements Person {
     @Override

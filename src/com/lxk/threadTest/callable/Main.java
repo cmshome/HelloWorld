@@ -7,7 +7,7 @@ import java.util.concurrent.Future;
 /**
  * 测试多线程中Callable的用法
  * <p>
- * Created by lxk on 2017/6/29
+ * @author lxk on 2017/6/29
  */
 public class Main {
     public static void main(String[] args) {

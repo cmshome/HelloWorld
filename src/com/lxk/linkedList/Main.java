@@ -8,7 +8,7 @@ import static com.lxk.linkedList.oneWay.OneWayLinkedList.*;
 /**
  * 链表测试
  * <p>
- * Created by lxk on 2017/8/1
+ * @author lxk on 2017/8/1
  */
 public class Main {
     public static void main(String[] args) {

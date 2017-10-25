@@ -7,7 +7,7 @@ import java.util.Arrays;
 /**
  * 数组测试
  * <p>
- * Created by lxk on  2017/2/10
+ * @author lxk on  2017/2/10
  */
 public class ArraysTest {
     public static void main(String[] args) {

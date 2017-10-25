@@ -3,7 +3,7 @@ package com.lxk.extendTest;
 /**
  * this通常指代当前对象，super通常指代父类
  * <p>
- * Created by lxk on 2017/4/26
+ * @author lxk on 2017/4/26
  */
 public class Child extends Parent {
 

@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
  * C：3 4 1 2 3 4....
  * D：4 1 2 3 4 1....
  * <p>
- * Created by lxk on 2017/7/14
+ * @author lxk on 2017/7/14
  */
 public class Main {
     public static void main(String[] args) {

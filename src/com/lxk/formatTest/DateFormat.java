@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * 日期格式化测试
  * <p>
- * Created by lxk on 2016/11/4
+ * @author lxk on 2016/11/4
  */
 public class DateFormat {
     public static void main(String[] args) {

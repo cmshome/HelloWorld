@@ -3,7 +3,7 @@ package com.lxk.threadTest.bank;
 /**
  * 银行model，一个总金额属性。
  * <p>
- * Created by lxk on 2017/6/26
+ * @author lxk on 2017/6/26
  */
 public class Bank {
     private int sum;

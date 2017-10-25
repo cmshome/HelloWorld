@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * 打印螺旋矩阵【蛇形矩阵】
  * <p>
- * Created by lxk on 2017/4/17
+ * @author lxk on 2017/4/17
  */
 public class PrintSnakeMatrixTest {
     private int n; //

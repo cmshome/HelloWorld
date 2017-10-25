@@ -3,7 +3,7 @@ package com.lxk.threadTest.ticket.implement;
 /**
  * 测试：静态同步函数和非静态的差别
  * <p>
- * Created by lxk on 2017/6/25
+ * @author lxk on 2017/6/25
  */
 public class TicketStatic implements Runnable {
     private static int tick = 100;

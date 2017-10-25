@@ -3,7 +3,7 @@ package com.lxk.model;
 /**
  * 坐标model 测试泛型用
  * <p>
- * Created by lxk on 2017/6/14
+ * @author lxk on 2017/6/14
  */
 public class Point<T extends Number> {
     private T x;

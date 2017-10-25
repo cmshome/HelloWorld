@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by lxk on 2016/11/10
+ * @author lxk on 2016/11/10
  */
 public class XmlTest {
     public static void main(String[] args) {

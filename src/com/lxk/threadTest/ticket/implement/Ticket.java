@@ -1,7 +1,7 @@
 package com.lxk.threadTest.ticket.implement;
 
 /**
- * Created by lxk on 2017/6/25
+ * @author lxk on 2017/6/25
  */
 public class Ticket implements Runnable {
     private int tick = 100;

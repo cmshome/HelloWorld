@@ -3,7 +3,7 @@ package com.lxk.programQuestions;
 /**
  * 计算1到n之间的数中出现1的次数，如1，，，10，11；这些数之中出现1的次数是4.
  * <p>
- * Created by lxk on 2017/7/7
+ * @author lxk on 2017/7/7
  */
 public class CountNumberOf1 {
     public static void main(String[] args) {

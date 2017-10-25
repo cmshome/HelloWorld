@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * 依赖注入，使用注解实现
  * <p>
- * Created by lxk on 2017/3/22
+ * @author lxk on 2017/3/22
  */
 public class Main {
     public static void main(String[] args) {

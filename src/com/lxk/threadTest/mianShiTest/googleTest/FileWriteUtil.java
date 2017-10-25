@@ -6,7 +6,7 @@ import java.io.IOException;
 /**
  * 此类，是四个线程共享的，
  * <p>
- * Created by lxk on 2017/7/14
+ * @author lxk on 2017/7/14
  */
 public class FileWriteUtil {
     private int currentThreadNum = 1;

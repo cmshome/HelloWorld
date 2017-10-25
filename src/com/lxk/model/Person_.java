@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 测试model集合按某属性排序
  * <p>
- * Created by lxk on 2016/11/25
+ * @author lxk on 2016/11/25
  */
 public class Person_ implements Serializable, Cloneable {
     private static final long serialVersionUID = 1L;

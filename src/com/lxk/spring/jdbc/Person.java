@@ -1,7 +1,7 @@
 package com.lxk.spring.jdbc;
 
 /**
- * Created by lxk on 2016/11/28
+ * @author lxk on 2016/11/28
  */
 public class Person {
     private Long id;

@@ -6,7 +6,7 @@ package com.lxk.threadTest.deadLoack;
  * 死锁。
  * 同步中嵌套同步。
  * <p>
- * Created by lxk on 2017/6/26
+ * @author lxk on 2017/6/26
  */
 public class Main {
     public static void main(String[] args) {

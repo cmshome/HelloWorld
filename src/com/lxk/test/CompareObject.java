@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Compare the difference between two objects
  * <p>
- * Created by lxk on 2017/3/12
+ * @author lxk on 2017/3/12
  */
 public class CompareObject {
     public static void main(String[] args) {

@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * 时间相关的测试
  * <p>
- * Created by lxk on 2017/2/22
+ * @author lxk on 2017/2/22
  */
 public class TimeTest {
     public static void main(String[] args) {

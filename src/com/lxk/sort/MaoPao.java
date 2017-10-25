@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * 冒泡排序
  * <p>
- * Created by lxk on 2017/7/11
+ * @author lxk on 2017/7/11
  */
 public class MaoPao {
     public static void main(String[] args) {

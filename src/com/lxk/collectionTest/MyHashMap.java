@@ -4,7 +4,7 @@ package com.lxk.collectionTest;
  * 学习HashMap 1.8源码中的put方法
  * 详细代码注释
  * <p>
- * Created by lxk on 2017/4/20
+ * @author lxk on 2017/4/20
  */
 public class MyHashMap {
 

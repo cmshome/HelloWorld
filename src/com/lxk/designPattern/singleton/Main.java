@@ -3,7 +3,7 @@ package com.lxk.designPattern.singleton;
 /**
  * 单例模式测试类
  * <p>
- * Created by lxk on 2017/3/23
+ * @author lxk on 2017/3/23
  */
 public class Main {
     public static void main(String[] args) {

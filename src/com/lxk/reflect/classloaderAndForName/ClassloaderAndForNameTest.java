@@ -7,7 +7,7 @@ package com.lxk.reflect.classloaderAndForName;
  * 而classLoader只干一件事情，就是将.class文件加载到jvm中，不会执行static中的内容,只有在newInstance才会去执行static块。
  * 静态代码块的执行外，竟然还有一个静态方法被执行，就是给静态变量赋值的静态方法被执行了。
  * <p>
- * Created by lxk on 2017/2/21
+ * @author lxk on 2017/2/21
  */
 public class ClassloaderAndForNameTest {
     public static void main(String[] args) {

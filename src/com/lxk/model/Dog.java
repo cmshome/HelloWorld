@@ -5,7 +5,7 @@ import com.google.common.base.Objects;
 /**
  * 测试boolean属性的getter和setter
  * <p>
- * Created by lxk on 2016/12/23
+ * @author lxk on 2016/12/23
  */
 public class Dog {
     private String name;

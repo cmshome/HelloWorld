@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 配置文件节点 model
  * <p>
- * Created by lxk on 2016/11/10
+ * @author lxk on 2016/11/10
  */
 public class XmlModel {
     /**

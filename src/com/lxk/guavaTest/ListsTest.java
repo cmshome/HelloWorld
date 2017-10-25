@@ -1,18 +1,67 @@
 package com.lxk.guavaTest;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
+import com.lxk.model.Car;
+import com.lxk.model.Dog;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * guava Lists 测试实例
  *
- * Created by lxk on 2016/11/7
+ * @author lxk on 2016/11/7
  */
 public class ListsTest {
 
     public static void main(String[] args) {
-        testLists();
+        //emptyListToArray();
+        //objectListToString();
+        simpleListToString();
+        //testLists();
+
+    }
+
+    private static void simpleListToString() {
+        List<String> list = Lists.newArrayList();
+        System.out.println(list.toString());
+        Joiner joiner = Joiner.on(",").skipNulls();//跳过null
+        String s = joiner.join(list);
+        System.out.println(s);
+    }
+
+
+    /**
+     * list.toString()
+     */
+    private static void objectListToString() {
+        List<String> s = Lists.newArrayList();
+        List<String> ss = Lists.newArrayList();
+        List<Car> list1 = Lists.newArrayList();
+        List<Car> list2 = Lists.newArrayList();
+        Dog dog = new Dog(true, true);
+        List<Dog> dogs = Lists.newArrayList();
+        dogs.add(dog);
+        for (int i = 0; i < 5; i++) {
+            s.add(i + "saa");
+            ss.add(i + "saa");
+            list1.add(new Car("i", 100 + i, dogs));
+            list2.add(new Car("i", 100 + i, dogs));
+        }
+        //List<普通类型>，直接toString()，可以输出内容。
+        System.out.println(s.toString().equals(ss.toString()));
+        System.out.println(s.toString());
+        //List<对象类型>，直接toString()，若对应model没复写toString()方法，输出是地址；复写toString()之后，输出就不是地址。
+        System.out.println(list1.toString());
+        System.out.println(list2.toString());
+        System.out.println(list1.toString().equals(list2.toString()));
+    }
+
+    private static void emptyListToArray() {
+        List<String> list = Lists.newArrayList();
+        String[] array = list.toArray(new String[list.size()]);
+        System.out.println(Arrays.toString(array));
     }
 
     /**

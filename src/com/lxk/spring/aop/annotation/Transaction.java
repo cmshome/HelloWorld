@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * 切面类
  * <p>
- * Created by lxk on 2016/11/28
+ * @author lxk on 2016/11/28
  */
 @Aspect
 @Component(value = "transaction")

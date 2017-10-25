@@ -8,7 +8,7 @@ package com.lxk.commonTest;
  * try catch 都有返回 finally没有返回：try没有异常，会得到try的返回结果。  finally中的操作，不影响返回结果。
  *
  * <p>
- * Created by lxk on 2016/11/11
+ * @author lxk on 2016/11/11
  */
 public class TryCatchFinallyTest {
     public static void main(String[] args) {

@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * 测试 SimpleDateFormat 声明为静态变量能在toString中使用吗(能用但是线程不安全，这么声明不合适。)
  * <p>
- * Created by lxk on 2017/2/28
+ * @author lxk on 2017/2/28
  */
 public class TimeFormatModel {
     private Date date;

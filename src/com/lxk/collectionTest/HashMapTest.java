@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 /**
- * Created by lxk on 2017/4/11
+ * @author lxk on 2017/4/11
  */
 public class HashMapTest {
     public static void main(String[] args) {

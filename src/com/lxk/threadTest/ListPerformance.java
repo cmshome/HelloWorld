@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
- * Created by lxk on 2017/2/10
+ * @author lxk on 2017/2/10
  */
 public class ListPerformance {
     private final int threadNumber;

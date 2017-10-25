@@ -6,7 +6,7 @@ import java.util.Properties;
 /**
  * 读写properties文件测试
  * <p>
- * Created by lxk on 2017/4/25
+ * @author lxk on 2017/4/25
  */
 public class Main {
     public static void main(String[] args) {

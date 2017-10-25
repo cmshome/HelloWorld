@@ -3,7 +3,7 @@ package com.lxk.commonTest;
 /**
  * 测试 Integer 常量池问题。
  * <p>
- * Created by lxk on 2017/2/23
+ * @author lxk on 2017/2/23
  */
 public class IntegerTest {
     public static void main(String[] args) {

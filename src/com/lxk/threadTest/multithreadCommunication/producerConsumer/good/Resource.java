@@ -5,7 +5,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Created by lxk on 2017/6/27
+ * @author lxk on 2017/6/27
  */
 public class Resource {
     private String name;

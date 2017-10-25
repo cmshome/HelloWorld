@@ -3,7 +3,7 @@ package com.lxk.fileTest.propertyFileTest;
 import java.util.*;
 
 /**
- * Created by lxk on 2017/5/2
+ * @author lxk on 2017/5/2
  */
 public class OrderedProperties extends Properties {
     private static final long serialVersionUID = -4627607243846121965L;

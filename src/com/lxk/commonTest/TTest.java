@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * 测试泛型
  * <p>
- * Created by lxk on 2017/6/14
+ * @author lxk on 2017/6/14
  */
 public class TTest {
     public static void main(String[] args) {

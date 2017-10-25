@@ -1,7 +1,7 @@
 package com.lxk.threadTest.multithreadCommunication.producerConsumer.bad;
 
 /**
- * Created by lxk on 2017/6/27
+ * @author lxk on 2017/6/27
  */
 public class Consumer implements Runnable {
     private Resource res;

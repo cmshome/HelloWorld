@@ -3,7 +3,7 @@ package com.lxk.classInitTest;
 /**
  * 子类
  * <p>
- * Created by lxk on 2017/4/20
+ * @author lxk on 2017/4/20
  */
 public class Child extends Parent {
 

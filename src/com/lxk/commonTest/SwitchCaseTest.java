@@ -5,7 +5,7 @@ import com.lxk.model.enumModel.SeasonEnum;
 /**
  * 测试switch case可以使用【字符串，枚举，int，char，】
  * <p>
- * Created by lxk on 2017/7/7
+ * @author lxk on 2017/7/7
  */
 public class SwitchCaseTest {
     public static void main(String[] args) {

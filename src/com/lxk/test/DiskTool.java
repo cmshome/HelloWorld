@@ -6,7 +6,7 @@ import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarException;
 
 /**
- * Created by lxk on 2017/1/5
+ * @author lxk on 2017/1/5
  */
 public class DiskTool {
 

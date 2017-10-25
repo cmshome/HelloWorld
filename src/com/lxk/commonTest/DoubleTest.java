@@ -9,7 +9,7 @@ import java.text.DecimalFormat;
  * float和double只能用来做科学计算或者是工程计算.
  * 在商业计算中我们要用 java.math.BigDecimal
  * <p>
- * Created by lxk on 2017/9/27
+ * @author lxk on 2017/9/27
  */
 public class DoubleTest {
     public static void main(String[] args) {

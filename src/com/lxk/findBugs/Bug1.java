@@ -11,7 +11,7 @@ import java.util.Date;
  * security or other important properties, you will need to do something different. Storing a copy of the
  * object is better approach in many situations.
  * <p>
- * Created by lxk on 2017/3/23
+ * @author lxk on 2017/3/23
  */
 public class Bug1 {
     public static void main(String[] args) {

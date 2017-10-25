@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * 看似简单，实则暗藏玄机的几个程序题。作对的寥寥无几。
  * <p>
- * Created by lxk on 2017/2/23
+ * @author lxk on 2017/2/23
  */
 public class Questions {
     /**

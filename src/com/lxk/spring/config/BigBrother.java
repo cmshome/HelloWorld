@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by lxk on 2017/3/3
+ * @author lxk on 2017/3/3
  */
 @Component("p")
 public class BigBrother {

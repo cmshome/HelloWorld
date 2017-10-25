@@ -3,7 +3,7 @@ package com.lxk.model;
 /**
  * 用户model
  * <p>
- * Created by lxk on 2017/8/31
+ * @author lxk on 2017/8/31
  */
 public class User {
     private String name;

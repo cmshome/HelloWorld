@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * ConcurrentModificationException的出现情况
  * <p>
- * Created by lxk on 2016/11/11
+ * @author lxk on 2016/11/11
  */
 public class ConcurrentModificationExceptionTest {
     public static void main(String[] args) {

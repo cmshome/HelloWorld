@@ -13,7 +13,7 @@ package com.lxk.threadTest.bank;
  * 2，明确共享数据。
  * 3，明确多线程运行代码中哪些语句是操作共享数据的。
  * <p>
- * Created by lxk on 2017/6/26
+ * @author lxk on 2017/6/26
  */
 public class Main {
     public static void main(String[] args) {

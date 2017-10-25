@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by lxk on 2017/2/28
+ * @author lxk on 2017/2/28
  */
 public class SetsTest {
     public static void main(String[] args) {

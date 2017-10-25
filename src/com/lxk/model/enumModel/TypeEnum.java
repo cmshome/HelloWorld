@@ -3,7 +3,7 @@ package com.lxk.model.enumModel;
 /**
  * 常用类型(带参数的枚举常量，这个只是在书上不常见，实际使用还是很多的，看懂这个，使用就不是问题啦。)
  * <p>
- * Created by lxk on 2017/7/7
+ * @author lxk on 2017/7/7
  */
 public enum TypeEnum {
     FIREWALL("firewall"),

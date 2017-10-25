@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * Created by lxk on 2017/1/5
+ * @author lxk on 2017/1/5
  */
 public class SigarUtils {
     private static Sigar sigar;

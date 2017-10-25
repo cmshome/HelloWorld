@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Created by lxk on 2016/11/28
+ * @author lxk on 2016/11/28
  */
 @Repository(value = "personDaoImpl")
 public class PersonDaoImpl implements PersonDao {

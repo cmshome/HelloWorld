@@ -19,7 +19,7 @@ import java.util.*;
 /**
  * 最开始新建的测试类，各种测试都有。
  * <p>
- * Created by lxk on 2016/8/31
+ * @author lxk on 2016/8/31
  */
 public class NoGroupTest {
     public static void main(String[] args) {

@@ -1,7 +1,7 @@
 package com.lxk.model;
 
 /**
- * Created by lxk on 2017/3/23
+ * @author lxk on 2017/3/23
  */
 public class Student implements Cloneable {
     private String name;

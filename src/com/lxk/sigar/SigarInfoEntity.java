@@ -3,7 +3,7 @@ package com.lxk.sigar;
 /**
  * 单个节点信息model
  * <p>
- * Created by lxk on 2017/1/5
+ * @author lxk on 2017/1/5
  */
 public class SigarInfoEntity {
     private String value;

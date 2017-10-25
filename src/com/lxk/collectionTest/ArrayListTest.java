@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by lxk on 2017/2/13
+ * @author lxk on 2017/2/13
  */
 public class ArrayListTest {
     public static void main(String[] args) {

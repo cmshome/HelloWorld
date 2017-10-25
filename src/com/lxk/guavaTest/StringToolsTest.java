@@ -6,7 +6,7 @@ import com.google.common.base.Strings;
 /**
  * 测试 String处理相关的几个工具
  * <p>
- * Created by lxk on 2016/11/18
+ * @author lxk on 2016/11/18
  */
 public class StringToolsTest {
     public static void main(String[] args) {

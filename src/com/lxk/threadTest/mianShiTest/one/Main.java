@@ -5,7 +5,7 @@ package com.lxk.threadTest.mianShiTest.one;
  * 子线程循环 10 次，接着主线程循环 100 次，接着又回到子线程循环 10 次，
  * 接着再回到主线程又循环 100 次，如此循环50次，试写出代码。
  * <p>
- * Created by lxk on 2017/7/14
+ * @author lxk on 2017/7/14
  */
 public class Main {
     public static void main(String[] args) {

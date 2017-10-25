@@ -9,7 +9,7 @@ import java.util.List;
  * 如何写好程序代码注释
  * 代码既不是给自己写的，但也是给自己写的。
  * <p>
- * Created by lxk on 2016/11/8
+ * @author lxk on 2016/11/8
  */
 public class JavaDocTest {
     public static void main(String[] args) {

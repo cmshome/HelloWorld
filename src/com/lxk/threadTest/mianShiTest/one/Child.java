@@ -1,7 +1,7 @@
 package com.lxk.threadTest.mianShiTest.one;
 
 /**
- * Created by lxk on 2017/7/14
+ * @author lxk on 2017/7/14
  */
 public class Child implements Runnable {
     private Object object;

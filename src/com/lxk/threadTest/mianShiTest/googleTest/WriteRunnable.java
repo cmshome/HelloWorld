@@ -1,7 +1,7 @@
 package com.lxk.threadTest.mianShiTest.googleTest;
 
 /**
- * Created by lxk on 2017/7/14
+ * @author lxk on 2017/7/14
  */
 public class WriteRunnable implements Runnable {
     private final FileWriteUtil util;

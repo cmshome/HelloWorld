@@ -9,7 +9,7 @@ import java.util.Set;
 /**
  * 读写properties文件测试（带顺序的读和写）
  * <p>
- * Created by lxk on 2017/5/2
+ * @author lxk on 2017/5/2
  */
 public class MainOrder {
     public static void main(String[] args) {

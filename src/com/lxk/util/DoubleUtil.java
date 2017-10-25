@@ -6,7 +6,7 @@ import java.math.RoundingMode;
 
 /**
  * 精确计算 double and float
- * Created by lxk on 2017/9/27
+ * @author lxk on 2017/9/27
  */
 public class DoubleUtil implements Serializable {
     private static final long serialVersionUID = -3345205828566485102L;

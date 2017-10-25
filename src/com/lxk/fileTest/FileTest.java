@@ -9,7 +9,7 @@ import java.util.Properties;
 /**
  * 文件测试
  * <p>
- * Created by lxk on 2017/5/16
+ * @author lxk on 2017/5/16
  */
 public class FileTest {
     public static void main(String[] args) {

@@ -3,7 +3,7 @@ package com.lxk.designPattern.singleton;
 /**
  * 饿汉式--就是屌丝，穷，不给准备好，担心饿死。类加载就给准备好
  * <p>
- * Created by lxk on 2017/3/23
+ * @author lxk on 2017/3/23
  */
 public class SingletonPattern1 {
     //有的会加final修饰符（更为严谨），添加final修饰符之后，指向的引用不能再做更改。

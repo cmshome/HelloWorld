@@ -10,7 +10,7 @@ package com.lxk.classInitTest;
  * 5.子类的【普通成员变量被普通成员方法赋值】和【普通代码块】，按在代码中出现的顺序依次执行。
  * 6.执行子类的构造方法。
  * <p>
- * Created by lxk on 2017/4/20
+ * @author lxk on 2017/4/20
  */
 public class ClassInitTest {
     public static void main(String[] args) {

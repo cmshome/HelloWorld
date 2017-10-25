@@ -9,7 +9,7 @@ import java.util.concurrent.Callable;
  * （3）call()方法可抛出异常，而run()方法是不能抛出异常的。
  * （4）运行Callable任务可拿到一个Future对象，
  * <p>
- * Created by lxk on 2017/6/27
+ * @author lxk on 2017/6/27
  */
 public class ThreadWay3 implements Callable<Integer> {
 

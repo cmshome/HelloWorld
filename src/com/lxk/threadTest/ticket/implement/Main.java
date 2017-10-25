@@ -3,7 +3,7 @@ package com.lxk.threadTest.ticket.implement;
 /**
  * 卖票例子（实现Runnable接口，实现多线程）
  * <p>
- * Created by lxk on 2017/6/25
+ * @author lxk on 2017/6/25
  */
 public class Main {
     public static void main(String[] args) {

@@ -3,7 +3,7 @@ package com.lxk.commonTest;
 /**
  * 常用方法测试
  * <p>
- * Created by lxk on 2017/7/14
+ * @author lxk on 2017/7/14
  */
 public class MathTest {
     public static void main(String[] args) {

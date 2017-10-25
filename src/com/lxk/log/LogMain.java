@@ -6,7 +6,7 @@ import org.apache.log4j.PropertyConfigurator;
 /**
  * 测试log日志
  * <p>
- * Created by lxk on 2017/3/9
+ * @author lxk on 2017/3/9
  */
 public class LogMain {
     public static void main(String[] args) {

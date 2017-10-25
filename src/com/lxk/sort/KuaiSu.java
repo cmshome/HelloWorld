@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * 快速排序
  * <p>
- * Created by lxk on 2017/7/11
+ * @author lxk on 2017/7/11
  */
 public class KuaiSu {
     public static void main(String[] args) {

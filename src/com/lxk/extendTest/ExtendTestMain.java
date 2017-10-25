@@ -3,7 +3,7 @@ package com.lxk.extendTest;
 /**
  * 测试继承中的super用法
  *
- * Created by lxk on 2017/4/26
+ * @author lxk on 2017/4/26
  */
 public class ExtendTestMain {
     public static void main(String[] args) {

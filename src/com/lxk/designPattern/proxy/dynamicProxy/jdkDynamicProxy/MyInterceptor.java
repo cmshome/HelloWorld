@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 /**
  * 动态代理-拦截器
  * <p>
- * Created by lxk on 2016/11/25
+ * @author lxk on 2016/11/25
  */
 public class MyInterceptor implements InvocationHandler {
     private Object target;//目标类

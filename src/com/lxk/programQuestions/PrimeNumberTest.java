@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 求1-100的素数测试
  * <p>
- * Created by lxk on 2017/3/2
+ * @author lxk on 2017/3/2
  */
 public class PrimeNumberTest {
     public static void main(String[] args) {

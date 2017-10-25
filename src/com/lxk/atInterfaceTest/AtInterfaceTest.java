@@ -24,7 +24,7 @@ class Person {
 }
 
 /**
- * Created by lxk on 2016/9/29
+ * @author lxk on 2016/9/29
  *
  * 注解测试
  */

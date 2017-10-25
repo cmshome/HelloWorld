@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * 定义一些常量Map<?,?>
  * <p>
- * Created by lxk on 2016/11/17
+ * @author lxk on 2016/11/17
  */
 interface ConstantMap {
     Map<Integer, String> INTEGER_STRING_MAP =

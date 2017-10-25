@@ -3,7 +3,7 @@ package com.lxk.threadTest.ticket.extend;
 /**
  * 卖票例子（继承Thread类，实现多线程）
  * <p>
- * Created by lxk on 2017/6/25
+ * @author lxk on 2017/6/25
  */
 public class Main {
     public static void main(String[] args) {

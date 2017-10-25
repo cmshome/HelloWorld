@@ -1,7 +1,7 @@
 package com.lxk.threadTest.multithreadCommunication.producerConsumer.good;
 
 /**
- * Created by lxk on 2017/6/27
+ * @author lxk on 2017/6/27
  */
 public class Producer implements Runnable {
     private Resource res;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by lxk on 2017/1/5
+ * @author lxk on 2017/1/5
  */
 public class SigarMain {
     public static void main(String[] args) {

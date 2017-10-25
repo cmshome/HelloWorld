@@ -4,7 +4,7 @@ package com.lxk.commonTest;
  * 测试for循环，第三个条件是i++和++i的差别
  * 发现效果是一样的
  * <p>
- * Created by lxk on 2017/4/21
+ * @author lxk on 2017/4/21
  */
 public class ForTest {
     public static void main(String[] args) {

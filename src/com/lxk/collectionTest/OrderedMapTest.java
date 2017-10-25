@@ -11,7 +11,7 @@ import java.util.Map;
  *      treeMap，         有序，但跟添加顺序无关。
  *      linkedHashMap，   有序，且跟添加顺序一致。
  * <p>
- * Created by lxk on 2017/5/24
+ * @author lxk on 2017/5/24
  */
 public class OrderedMapTest {
     public static void main(String[] args) {

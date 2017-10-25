@@ -3,7 +3,7 @@ package com.lxk.classInitTest;
 /**
  * 父类
  * <p>
- * Created by lxk on 2017/4/20
+ * @author lxk on 2017/4/20
  */
 public class Parent {
     static {

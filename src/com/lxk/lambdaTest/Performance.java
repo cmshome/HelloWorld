@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 测试性能(Java 8 的循环和Java 7 的循环耗时的对比测试)
  * <p>
- * Created by lxk on 2017/8/31
+ * @author lxk on 2017/8/31
  */
 public class Performance {
     public static void main(String[] args) {

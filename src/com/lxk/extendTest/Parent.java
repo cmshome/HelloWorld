@@ -1,7 +1,7 @@
 package com.lxk.extendTest;
 
 /**
- * Created by lxk on 2017/4/26
+ * @author lxk on 2017/4/26
  */
 public class Parent {
     public int age = 18;

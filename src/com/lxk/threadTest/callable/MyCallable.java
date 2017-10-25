@@ -5,7 +5,7 @@ import java.util.concurrent.Callable;
 /**
  * 实现Callable<T>接口来实现多线程
  * <p>
- * Created by lxk on 2017/6/29
+ * @author lxk on 2017/6/29
  */
 public class MyCallable implements Callable<String> {
     private int flag = 0;
