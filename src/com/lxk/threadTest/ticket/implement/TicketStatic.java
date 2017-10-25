@@ -9,6 +9,7 @@ public class TicketStatic implements Runnable {
     private static int tick = 100;
     boolean flag = true;
 
+    @Override
     public void run() {
         if (flag) {
             while (true) {

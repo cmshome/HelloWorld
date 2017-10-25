@@ -20,8 +20,9 @@ public class Resource {
         lock.lock();
         try{
             //if(flag)//这么写还是会bug，可能多消费，或者多生产。
-            while(flag)
+            while(flag) {
                 producerCondition.await();//t1,t2
+            }
             this.name = name+"--"+count++;
 
             System.out.println(Thread.currentThread().getName()+"...生产者.."+this.name);
@@ -39,8 +40,9 @@ public class Resource {
         lock.lock();
         try {
             //if(!flag)//用if还是 会出现bug。
-            while (!flag)
+            while (!flag) {
                 consumerCondition.await();//t3(放弃资格) t4(放弃资格)
+            }
             System.out.println(Thread.currentThread().getName() + "...消费者........." + this.name);
             flag = false;
             producerCondition.signal();

@@ -15,8 +15,9 @@ class FileWriterDemo2 {
             System.out.println("catch:" + e.toString());
         } finally {
             try {
-                if (fw != null)
+                if (fw != null) {
                     fw.close();
+                }
             } catch (IOException e) {
                 System.out.println(e.toString());
             }

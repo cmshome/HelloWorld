@@ -26,14 +26,16 @@ class CopyTextByBuf {
             throw new RuntimeException("读写失败");
         } finally {
             try {
-                if (bufr != null)
+                if (bufr != null) {
                     bufr.close();
+                }
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
             try {
-                if (bufw != null)
+                if (bufw != null) {
                     bufw.close();
+                }
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }

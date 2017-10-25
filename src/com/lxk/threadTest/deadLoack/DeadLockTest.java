@@ -7,6 +7,7 @@ class Test implements Runnable {
         this.flag = flag;
     }
 
+    @Override
     public void run() {
         if (flag) {
             while (true) {

@@ -91,14 +91,15 @@ public class TimesUtils {
      */
     public static int ago(int number, int unit) {
         int ago = 0, now = now();
-        if (unit == HOUR)
+        if (unit == HOUR) {
             ago = now - number * 3600;
-        else if (unit == DAY)
+        } else if (unit == DAY) {
             ago = now - number * 24 * 3600;
-        else if (unit == MINUTE)
+        } else if (unit == MINUTE) {
             ago = now - number * 60;
-        else if (unit == SECOND)
+        } else if (unit == SECOND) {
             ago = now - number;
+        }
         return ago;
     }
 
@@ -108,8 +109,9 @@ public class TimesUtils {
      * @return
      */
     public static String strftime(Date time, String type) {
-        if (time == null)
+        if (time == null) {
             time = new Date();
+        }
         SimpleDateFormat sd = new SimpleDateFormat(type);
         return sd.format(time);
     }
@@ -126,8 +128,9 @@ public class TimesUtils {
      * @return
      */
     public static int getSecondsOfDay(Calendar cal) {
-        if (cal == null)
+        if (cal == null) {
             cal = Calendar.getInstance();
+        }
         return getMinuteOfDay(cal) * 60 + cal.get(Calendar.SECOND);
     }
 
@@ -148,8 +151,9 @@ public class TimesUtils {
      * @return minute of day.
      */
     public static int getMinuteOfDay(Calendar cal) {
-        if (cal == null)
+        if (cal == null) {
             cal = Calendar.getInstance();
+        }
         return cal.get(Calendar.HOUR_OF_DAY) * 60 + cal.get(Calendar.MINUTE);
     }
 
@@ -191,12 +195,13 @@ public class TimesUtils {
         Long to_date;
         long now = Calendar.getInstance().getTimeInMillis() / 1000 - 2 * TimesUtils.SECOND_IN_MINUTE;
         if (selected_time <= now) {
-            if (selected_time + 12 * 60 * 60 <= now)
+            if (selected_time + 12 * 60 * 60 <= now) {
                 to_date = selected_time + 12 * 60 * 60;
-            else {
+            } else {
                 to_date = now;
-                if (selected_time + TimesUtils.SECOND_IN_MINUTE > now)
+                if (selected_time + TimesUtils.SECOND_IN_MINUTE > now) {
                     to_date = selected_time + TimesUtils.SECOND_IN_MINUTE;
+                }
             }
         } else {
             to_date = selected_time;

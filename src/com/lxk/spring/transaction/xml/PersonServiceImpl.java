@@ -11,7 +11,8 @@ public class PersonServiceImpl implements PersonService{
 		this.personDao = personDao;
 	}
 
-	public void savePerson() {
+	@Override
+    public void savePerson() {
 		this.personDao.savePerson();
 		//int a = 1/0;
 		//this.personDao.savePerson();

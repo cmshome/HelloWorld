@@ -244,6 +244,7 @@ public class NoGroupTest {
      */
     private static void testOutAllDir() {
         FileFilter fileFilter = new FileFilter() {
+            @Override
             public boolean accept(File file) {
                 return file.isDirectory();
             }

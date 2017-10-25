@@ -10,6 +10,7 @@ public class Consumer implements Runnable {
         this.res = res;
     }
 
+    @Override
     public void run() {
         while (true) {
             try {

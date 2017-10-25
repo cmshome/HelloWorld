@@ -16,8 +16,9 @@ public class FileIOUtil {
             return new String(buffer, charset);
         } finally {
             try {
-                if (readStream != null)
+                if (readStream != null) {
                     readStream.close();
+                }
             } catch (IOException ignored) {
             }
         }
@@ -33,8 +34,9 @@ public class FileIOUtil {
             readStream.write(buffer, 0, buffer.length);
         } finally {
             try {
-                if (readStream != null)
+                if (readStream != null) {
                     readStream.close();
+                }
             } catch (IOException ignored) {
             }
         }

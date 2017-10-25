@@ -19,6 +19,7 @@ public class WriteRunnable implements Runnable {
         this.value = value;
     }
 
+    @Override
     public void run() {
         /*
          * 假设循环6次，一直循环可以使用while(true)或者for(;;)

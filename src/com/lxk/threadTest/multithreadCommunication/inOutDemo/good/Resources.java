@@ -9,8 +9,12 @@ public class Resources {
     private boolean flag = false;
 
     public synchronized void set(String name, String sex) {
-        if(flag)
-            try {this.wait();} catch (Exception ignore) {}
+        if(flag) {
+            try {
+                this.wait();
+            } catch (Exception ignore) {
+            }
+        }
         this.name = name;
         this.sex = sex;
         this.flag = true;
@@ -18,8 +22,12 @@ public class Resources {
     }
 
     public synchronized void out() {
-        if(!this.flag)
-            try {this.wait();} catch (Exception ignore) {}
+        if(!this.flag) {
+            try {
+                this.wait();
+            } catch (Exception ignore) {
+            }
+        }
         System.out.println(this.name + "...." + this.sex);
         flag = false;
         notify();

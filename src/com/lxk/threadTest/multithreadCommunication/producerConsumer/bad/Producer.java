@@ -10,6 +10,7 @@ public class Producer implements Runnable {
         this.res = res;
     }
 
+    @Override
     public void run() {
         while (true) {
             res.set("+商品+");

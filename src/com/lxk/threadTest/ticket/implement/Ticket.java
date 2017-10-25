@@ -8,6 +8,7 @@ public class Ticket implements Runnable {
     boolean flag = true;
     //Object object = new Object();
 
+    @Override
     public void run() {
         if (flag) {
             while (true) {

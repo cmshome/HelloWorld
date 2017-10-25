@@ -52,8 +52,12 @@ public class Dog {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Dog)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Dog)) {
+            return false;
+        }
         Dog dog = (Dog) o;
         return Objects.equal(getName(), dog.getName());
     }

@@ -10,6 +10,7 @@ public class Input implements Runnable {
         this.r = r;
     }
 
+    @Override
     public void run() {
         int x = 0;
         while (true) {

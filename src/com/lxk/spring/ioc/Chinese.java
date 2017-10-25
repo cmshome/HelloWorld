@@ -16,5 +16,6 @@ class Chinese implements Person {
     private Axe axe;
 
     /** 实现Person接口的useAxe方法 */
+    @Override
     public void useAxe() { System.out.println(axe.chop()); }
 }

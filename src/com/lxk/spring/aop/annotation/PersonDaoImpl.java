@@ -11,10 +11,12 @@ import java.util.List;
 @Repository(value = "personDaoImpl")
 public class PersonDaoImpl implements PersonDao {
 
+    @Override
     public void deletePerson() {
         System.out.println("delete perosn");
     }
 
+    @Override
     public List<Person> getPerson() throws Exception {
         List<Person> personList = Lists.newArrayList();
         Person person1 = new Person();
@@ -32,10 +34,12 @@ public class PersonDaoImpl implements PersonDao {
         return personList;
     }
 
+    @Override
     public void savePerson() {
         System.out.println("delete perosn");
     }
 
+    @Override
     public void updatePerson() {
         System.out.println("delete perosn");
     }

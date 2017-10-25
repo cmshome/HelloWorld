@@ -24,14 +24,20 @@ public class KuaiSu {
             int i = start, j = end, x = array[start];
             while (i < j) {
                 while (i < j && array[j] >= x) // 从右向左找第一个小于x的数
+                {
                     j--;
-                if (i < j)
+                }
+                if (i < j) {
                     array[i++] = array[j];
+                }
 
                 while (i < j && array[i] < x) // 从左向右找第一个大于等于x的数
+                {
                     i++;
-                if (i < j)
+                }
+                if (i < j) {
                     array[j--] = array[i];
+                }
             }
             array[i] = x;
             quickSort(array, start, i - 1); // 递归调用

@@ -15,6 +15,7 @@ public class Child extends Parent {
         super(age, name);
     }
 
+    @Override
     public void say() {
         System.out.println("this is Child say !");
         super.say();
