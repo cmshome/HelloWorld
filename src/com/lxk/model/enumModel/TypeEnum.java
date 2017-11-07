@@ -10,6 +10,9 @@ public enum TypeEnum {
     SECRET("secretMac"),
     BALANCE("f5");
 
+    /**
+     * 枚举的自定义属性（默认属性是name和ordinal）
+     */
     private String typeName;
 
     TypeEnum(String typeName) {

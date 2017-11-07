@@ -9,14 +9,46 @@ import java.util.List;
 /**
  * Java枚举用法测试
  * <p>
+ *
  * @author lxk on 2016/12/15
  */
 public class EnumTest {
     public static void main(String[] args) {
-        forEnum();
-        useEnumInJava();
-        testNewEnum();
-        testEnumEqual();
+        //forEnum();
+        //useEnumInJava();
+        //testNewEnum();
+        //testEnumEqual();
+        testSwitchCase();
+    }
+
+    private static void testSwitchCase() {
+        String typeName = "f5";
+        //这几行注释呢，你可以试着三选一，测试一下效果。
+        //String typeName = "firewall";
+        //String typeName = "secretMac";
+        TypeEnum typeEnum = TypeEnum.fromTypeName(typeName);
+        if (typeEnum == null) {
+            return;
+        }
+        switch (typeEnum) {
+            case FIREWALL:
+                System.out.println("枚举名称(即默认自带的属性 name 的值)是：" + typeEnum.name());
+                System.out.println("排序值(默认自带的属性 ordinal 的值)是：" + typeEnum.ordinal());
+                System.out.println("枚举的自定义属性 typeName 的值是：" + typeEnum.getTypeName());
+                break;
+            case SECRET:
+                System.out.println("枚举名称(即默认自带的属性 name 的值)是：" + typeEnum.name());
+                System.out.println("排序值(默认自带的属性 ordinal 的值)是：" + typeEnum.ordinal());
+                System.out.println("枚举的自定义属性 typeName 的值是：" + typeEnum.getTypeName());
+                break;
+            case BALANCE:
+                System.out.println("枚举名称(即默认自带的属性 name 的值)是：" + typeEnum.name());
+                System.out.println("排序值(默认自带的属性 ordinal 的值)是：" + typeEnum.ordinal());
+                System.out.println("枚举的自定义属性 typeName 的值是：" + typeEnum.getTypeName());
+                break;
+            default:
+                System.out.println("default");
+        }
     }
 
     /**
@@ -35,6 +67,7 @@ public class EnumTest {
 
     /**
      * 测试新建某个枚举的枚举变量
+     *
      * @see GameEnum
      * @see com.lxk.collectionTest.GetDifferenceSet#getDifferenceSetByGuava(List, List)
      */
