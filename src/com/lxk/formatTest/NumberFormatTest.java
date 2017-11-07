@@ -1,34 +1,62 @@
 package com.lxk.formatTest;
 
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 /**
  * 数字格式化测试
  * <p>
+ *
  * @author lxk on 2017/1/22
  */
 public class NumberFormatTest {
     public static void main(String[] args) {
-        float scale = 34.236323F;
-        DecimalFormat format = new DecimalFormat("##0.00");
-        String dd = format.format(scale);
-        System.out.println(dd);
-        //下面简写
-        long num = 1;
+        Float result;
         //result = 9.313226E-10,也就是0.0000000009313226
-        float result = ((float) num) / (1024L * 1024L * 1024L);
-        System.out.println(result);
-        System.out.println(format.format(result));
-        System.out.println("-------------我是分界线---1----------");
-        showFormat(scale);
-        System.out.println("-------------我是分界线---2----------");
+        //result = ((float) 1L) / (1024L * 1024L * 1024L);
+        //result = 1230.5F;
+        result = 1230.55F;
+        //result = 1230.466F;
+        System.out.println("-------------我是分界线-------------");
         showFormat(result);
-        System.out.println("-------------我是分界线---3----------");
-        long c = 299792458L;
-        showFormat((float) c);
+        //result = 10.5F;
+        //result = 10.4F;
+        result = 10.6F;
+        System.out.println("-------------我是分界线-------------");
+        showFormatMore(result);
     }
 
-    private static void showFormat(float value) {
+    /**
+     * 测试各种舍入模式的不同
+     *
+     * @param result 待格式化的参数
+     */
+    private static void showFormatMore(Float result) {
+        System.out.println("初始值：" + result.toString());
+        DecimalFormat decimalFormat = new DecimalFormat("0");
+        decimalFormat.setRoundingMode(RoundingMode.HALF_EVEN);
+        System.out.println("HALF_EVEN：" + decimalFormat.format(result));
+        decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
+        System.out.println("HALF_UP：" + decimalFormat.format(result));
+        decimalFormat.setRoundingMode(RoundingMode.HALF_DOWN);
+        System.out.println("HALF_DOWN：" + decimalFormat.format(result));
+        decimalFormat.setRoundingMode(RoundingMode.FLOOR);
+        System.out.println("FLOOR：" + decimalFormat.format(result));
+        decimalFormat.setRoundingMode(RoundingMode.CEILING);
+        System.out.println("CEILING：" + decimalFormat.format(result));
+        decimalFormat.setRoundingMode(RoundingMode.UP);
+        System.out.println("UP：" + decimalFormat.format(result));
+        decimalFormat.setRoundingMode(RoundingMode.DOWN);
+        System.out.println("DOWN：" + decimalFormat.format(result));
+    }
+
+    /**
+     * 打印数据遭格式化之后的效果(默认是HALF_EVEN，他不是四舍五入，)
+     *
+     * @param value 待格式化的参数
+     */
+    private static void showFormat(Float value) {
+        System.out.println("初始值：" + value.toString());
         //取一位整数
         System.out.println(new DecimalFormat("0").format(value));
         //取一位整数和两位小数
