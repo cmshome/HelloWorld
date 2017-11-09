@@ -32,3 +32,17 @@
         <img title="CSDN认证专家" src="http://img.blog.csdn.net/20170503151126372" style="width:60px; height:60px;">
     </a>
 </div>
+
+
+<div style="text-align:center">
+    <a href="http://blog.csdn.net/qq_27093465/article/details/78491807" target="_blank">
+        <img src="http://img.blog.csdn.net/20171107094235209"
+             title="对，你没看错，扫一扫，红包是你的，多的有5块的，少的怎么也得一毛多呢！扫一扫，不吃亏，不上当，以湿胸的人品担保。"
+             style="width:256px; height:310px; margin-left:-8px">
+    </a>
+    <marquee style="letter-spacing:5px; color:#ff1c1a; font-weight:bold">
+        扫一扫，红包是你的！对，你没看错，天天都有效，可以直接保存，天天扫，天天拿。不信？搞一哈，就造啦！！！
+    </marquee>
+</div>
+
+
