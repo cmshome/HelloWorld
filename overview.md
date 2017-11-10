@@ -75,5 +75,8 @@
 *  [IntelliJ IDEA 中js代码报如下警告的解决方法](http://blog.csdn.net/qq_27093465/article/details/51510039)
 *  [Unchecked cast: 'java.lang.Object' to 'java.util.List<java.lang.xxx>'](http://blog.csdn.net/qq_27093465/article/details/51910411)
 
+## 看完此博文，有没有要感谢下大师兄的呢？
+*  [听说有些老铁，要感谢下大师兄？扫一扫，领红包啦。一毛不嫌少，一块不嫌多。](http://blog.csdn.net/qq_27093465/article/details/78491807) 
+
 ## 番外篇（可以忽略）
 *  [eclipse常用的快捷键--------(真正常用的)](http://blog.csdn.net/qq_27093465/article/details/50512893) 
