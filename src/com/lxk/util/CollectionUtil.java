@@ -10,7 +10,7 @@ import java.util.List;
  * @author lxk on 2017/11/13
  */
 public class CollectionUtil {
-    private static final int SIZE = 100000;
+    private static final int SIZE = 1000000;
 
     /**
      * 获得底层是数组的list集合
