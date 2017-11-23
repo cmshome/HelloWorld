@@ -16,8 +16,11 @@ public class Input implements Runnable {
         while (true) {
             synchronized (r) {
 
-                if (r.flag){
-                    try {r.wait();} catch (Exception ignore) {}
+                if (r.flag) {
+                    try {
+                        r.wait();
+                    } catch (Exception ignore) {
+                    }
                 }
 
                 if (x == 0) {

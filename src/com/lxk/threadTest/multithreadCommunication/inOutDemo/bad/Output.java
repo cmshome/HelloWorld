@@ -13,9 +13,12 @@ public class Output implements Runnable {
     @Override
     public void run() {
         while (true) {
-            synchronized ( r) {
+            synchronized (r) {
                 if (!r.flag) {
-                    try {r.wait();} catch (Exception ignore) {}
+                    try {
+                        r.wait();
+                    } catch (Exception ignore) {
+                    }
                 }
                 System.out.println(r.name + "...." + r.sex);
                 r.flag = false;

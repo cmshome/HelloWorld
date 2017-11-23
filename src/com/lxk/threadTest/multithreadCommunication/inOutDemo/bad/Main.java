@@ -3,7 +3,7 @@ package com.lxk.threadTest.multithreadCommunication.inOutDemo.bad;
 /**
  * 两个线程，一个负责写，一个负责读，交互着来。
  * （未优化的代码，易于理解。）
- * <p>
+ *
  * @author lxk on 2017/6/27
  */
 public class Main {

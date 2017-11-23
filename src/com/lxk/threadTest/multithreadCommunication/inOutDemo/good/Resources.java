@@ -9,7 +9,7 @@ public class Resources {
     private boolean flag = false;
 
     public synchronized void set(String name, String sex) {
-        if(flag) {
+        if (flag) {
             try {
                 this.wait();
             } catch (Exception ignore) {
@@ -22,7 +22,7 @@ public class Resources {
     }
 
     public synchronized void out() {
-        if(!this.flag) {
+        if (!this.flag) {
             try {
                 this.wait();
             } catch (Exception ignore) {
