@@ -12,15 +12,22 @@ package com.lxk.threadTest.bank;
  * 1，明确哪些代码是多线程运行代码。
  * 2，明确共享数据。
  * 3，明确多线程运行代码中哪些语句是操作共享数据的。
- * <p>
+ *
  * @author lxk on 2017/6/26
  */
 public class Main {
     public static void main(String[] args) {
-        Customer c = new Customer();
+        //一个银行and多个客户
+        Bank bank = new Bank();
+        int time = 10000;
+        int money = 100;
+        //这个客户存钱
+        Customer c1 = new Customer(bank, Customer.TYPE_ADD, time, money);
+        //这个客户取钱
+        Customer c2 = new Customer(bank, Customer.TYPE_REDUCE, time, money);
 
-        Thread t1 = new Thread(c);
-        Thread t2 = new Thread(c);
+        Thread t1 = new Thread(c1);
+        Thread t2 = new Thread(c2);
         t1.start();
         t2.start();
     }
