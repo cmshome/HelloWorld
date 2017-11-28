@@ -23,11 +23,12 @@ public class SerializableTest {
         FlyPig flyPig = new FlyPig();
         flyPig.setColor("black");
         flyPig.setName("naruto");
+        flyPig.setCar("0000");
         // ObjectOutputStream 对象输出流，将 flyPig 对象存储到E盘的 flyPig.txt 文件中，完成对 flyPig 对象的序列化操作
-        ObjectOutputStream oo = new ObjectOutputStream(new FileOutputStream(new File("d:/flyPig.txt")));
-        oo.writeObject(flyPig);
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File("d:/flyPig.txt")));
+        oos.writeObject(flyPig);
         System.out.println("FlyPig 对象序列化成功！");
-        oo.close();
+        oos.close();
     }
 
     /**
