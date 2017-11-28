@@ -18,7 +18,7 @@ public class Main {
                     o.wait();
                 } catch (InterruptedException ignore) {
                 }
-                System.out.println("第" + (i + 1) + "...主100");
+                System.out.println("第" + (i + 1) + "...主...100");
                 i++;
                 o.notify();
             }

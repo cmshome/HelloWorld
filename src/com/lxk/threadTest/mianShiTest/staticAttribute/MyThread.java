@@ -5,13 +5,13 @@ package com.lxk.threadTest.mianShiTest.staticAttribute;
  */
 public class MyThread implements Runnable {
 
-    private static Integer i = 0;
+    private Integer i = 0;
 
     @Override
     public void run() {
         while (true) {
             synchronized (i) {
-                if (i < 100) {
+                if (i < 10000) {
                     i++;
                     String currentThreadName = Thread.currentThread().getName();
                     System.out.println(currentThreadName + " i = " + i);

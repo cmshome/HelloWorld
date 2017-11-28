@@ -1,6 +1,8 @@
 package com.lxk.threadTest.mianShiTest.staticAttribute;
 
 /**
+ * 首先是2个线程一起执行，再有就是i++他不是原子操作。
+ *
  * @author lxk on 2017/11/17
  */
 public class Main {
