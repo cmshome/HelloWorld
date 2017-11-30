@@ -42,7 +42,7 @@
 *  [IntelliJ IDEA 中一次性折叠所有Java代码的快捷键设置 collapse all](http://blog.csdn.net/qq_27093465/article/details/71405885) 
 *  [IntelliJ IDEA 如何重命名变量、文件、文件夹。--（说高级点就是【重构】）](http://blog.csdn.net/qq_27093465/article/details/74931709) 
 
-## 一些特别的设置
+## 一些高级的设置
 *  [IntelliJ IDEA(Android Studio)中如何设置使得占用C盘空间尽量少(相关核心文件和目录介绍)](http://blog.csdn.net/qq_27093465/article/details/52385643)
 *  [IntelliJ IDEA 中如何设置同时打开多个文件且分行显示---即如何设置tabs](http://blog.csdn.net/qq_27093465/article/details/52537364)
 *  [IntelliJ IDEA 中如何设置如：sys直接输出一行等等的快捷编辑操作----即：代码的快捷编辑模板(Live Templates)设置](http://blog.csdn.net/qq_27093465/article/details/52691572)
@@ -55,6 +55,7 @@
 *  [IntelliJ IDEA 安装插件 (vue)](http://blog.csdn.net/qq_27093465/article/details/51312418) 
 *  [Lombok Requires Annotation Processing Annotation processing seems to be disabled for the project "xx](http://blog.csdn.net/qq_27093465/article/details/53490490)
 *  [Intellij IDEA findbugs 插件 下载、安装、使用详解(2017年实测mac和windows都可用)](http://blog.csdn.net/qq_27093465/article/details/64923239)
+*  [IntelliJ IDEA 插件 阿里巴巴Java开发手册（Alibaba Java Coding Guidelines）](http://blog.csdn.net/qq_27093465/article/details/78338932)
 
 ## 项目相关
 *  [IntelliJ IDEA 中创建HelloWorld项目示例(非Maven项目)](http://blog.csdn.net/qq_27093465/article/details/52795186)
@@ -68,6 +69,7 @@
 *  [Intellij IDEA 出现“Usage of API documented as @since 1.6+”的解决办法](http://blog.csdn.net/qq_27093465/article/details/69372028)
 *  [Intellij IDEA 中 .properties文件中文显示乱码问题的解决](http://blog.csdn.net/qq_27093465/article/details/70757149)
 *  [Cannot start compilation: the output path is not specified for module "HelloWorld". Specify the outp](http://blog.csdn.net/qq_27093465/article/details/76085444)
+*  [IntelliJ IDEA 更新版本之后，中文输入法不能正常使用的解决办法](http://blog.csdn.net/qq_27093465/article/details/78647517)
 
 ## 各种警告，如何应对
 *  [IntelliJ IDEA 中js代码报如下警告的解决方法](http://blog.csdn.net/qq_27093465/article/details/50802104) 
@@ -75,8 +77,8 @@
 *  [IntelliJ IDEA 中js代码报如下警告的解决方法](http://blog.csdn.net/qq_27093465/article/details/51510039)
 *  [Unchecked cast: 'java.lang.Object' to 'java.util.List<java.lang.xxx>'](http://blog.csdn.net/qq_27093465/article/details/51910411)
 
-## 看完此博文，有没有要感谢下大师兄的呢？
+## 要不要感谢下大师兄呢？
 *  [听说有些老铁，要感谢下大师兄？扫一扫，领红包啦。一毛不嫌少，一块不嫌多。](http://blog.csdn.net/qq_27093465/article/details/78491807) 
 
-## 番外篇（可以忽略）
+## 番外篇
 *  [eclipse常用的快捷键--------(真正常用的)](http://blog.csdn.net/qq_27093465/article/details/50512893) 
