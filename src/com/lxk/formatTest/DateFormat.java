@@ -10,11 +10,15 @@ import java.util.Date;
 /**
  * 日期格式化测试
  * <p>
+ *
  * @author lxk on 2016/11/4
  */
 public class DateFormat {
     public static void main(String[] args) {
+        dateTest();
+    }
 
+    private static void noGroup() {
         Long currentFrom = TimesUtils.getTimeForDay();
         long nowDate = Calendar.getInstance().getTimeInMillis();
         //result.put("date", nowDate);//服务器时间 1478793600
@@ -33,8 +37,6 @@ public class DateFormat {
             e.printStackTrace();
         }
 
-
-        //dateTest();
 
         //Calendar aw = Calendar.getInstance();//获得时间的另一种方式，测试效果一样
         //System.out.println(aw.getTime().getTime());
