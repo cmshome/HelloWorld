@@ -11,6 +11,5 @@ public class Main {
         Thread t2 = new Thread(new MyThread());
         t1.start();
         t2.start();
-
     }
 }
