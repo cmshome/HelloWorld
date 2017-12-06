@@ -9,7 +9,9 @@ public class IntegerTest {
     public static void main(String[] args) {
         testIntegerCache();
         testIntAndIntegerCache();
+        valueIsNumber("ewq");
     }
+
 
     /**
      * 测试 Integer 常量池问题，
@@ -46,5 +48,15 @@ public class IntegerTest {
         bb = 128;
         System.out.println(aa == bb);       //false
         System.out.println(aa.equals(bb));  //true
+    }
+
+    private static boolean valueIsNumber(Object value) {
+        try {
+            Integer parseInt = Integer.parseInt(value.toString());
+            System.out.println(parseInt);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
