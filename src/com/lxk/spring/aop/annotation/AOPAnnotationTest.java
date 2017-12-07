@@ -6,6 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * 测试切面编程AOP（注解实现）
+ * 得使用 jdk1.7的版本才可以运行，不然报错。
  * <p>
  * @author lxk on 2016/11/28
  */
