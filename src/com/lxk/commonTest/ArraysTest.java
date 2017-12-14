@@ -7,18 +7,32 @@ import java.util.Arrays;
 /**
  * 数组测试
  * <p>
+ *
  * @author lxk on  2017/2/10
  */
 public class ArraysTest {
     public static void main(String[] args) {
         String order = "1128";
-        if (!order.equals("1128")) {
+        if (!"1128".equals(order)) {
             testArraysCopy();
             testArrayInit();
-        } else {
             testJavaBeanArray();
+        } else {
+            int[] arr = {1, 2, 3, 4, 5};
+            changeValue(arr);
+            System.out.println(Arrays.toString(arr));
         }
     }
+
+    /**
+     * 数组当参数，是地址传递。
+     */
+    private static void changeValue(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] *= 2;
+        }
+    }
+
 
     /**
      * 测试对象数组的默认情况，默认全是null，基础知识啦。
