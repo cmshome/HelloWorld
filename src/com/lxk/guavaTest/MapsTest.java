@@ -8,11 +8,25 @@ import java.util.Map;
 /**
  * guava Maps 测试实例
  * <p>
+ *
  * @author lxk on 2016/11/14
  */
 public class MapsTest {
     public static void main(String[] args) {
-        testMaps();
+        //testMaps();
+        mapRemoveTest();
+    }
+
+    /**
+     * 当remove一个hashMap里面未put的key时，一切正常。
+     */
+    private static void mapRemoveTest() {
+        Map<String, String> map = Maps.newHashMap();
+        map.put("1", "1");
+        map.remove("");
+        System.out.println(map.toString());
+        System.out.println(map.isEmpty());
+
     }
 
     /**
