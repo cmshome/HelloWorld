@@ -121,6 +121,7 @@ public class DateTest {
         System.out.println("localDateTime 设置当前值：" + localDateTime);
         System.out.println("getDayOfWeek：" + localDateTime.getDayOfWeek());
         System.out.println("getDayOfWeek 的 ordinal 值：" + localDateTime.getDayOfWeek().ordinal());
+        System.out.println("getDayOfWeek 的 value 就是周几的值：" + localDateTime.getDayOfWeek().getValue());
         LocalDateTime weekStart = localDateTime.minusDays(localDateTime.getDayOfWeek().ordinal()).withHour(0).withMinute(0).withSecond(0);
         System.out.println("weekStart：" + weekStart);
         /*
