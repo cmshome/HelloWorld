@@ -2,6 +2,8 @@ package com.lxk.util;
 
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -166,29 +168,20 @@ public class TimesUtils {
     //    cal.setTimeInMillis(datetime * 1000L);
     //    return DateFormatConstant.DATE_TIME_FORMAT.format(cal);
     //}
-    
+
     /**
-	 * 获取当天0点的秒数
-	 * @return
-	 */
-	public static Long getTimeForDay(){
-		Calendar c = Calendar.getInstance();
-		c.set(Calendar.HOUR_OF_DAY, 0);
-		c.set(Calendar.MINUTE, 0);
-		c.set(Calendar.SECOND, 0);
-		c.set(Calendar.MILLISECOND, 0);
-		Long s = c.getTimeInMillis()/1000;
-		return s;//当日0点开始
-	}
-	
-	/**
-	 * 获取当前时间的秒数
-	 * @return
-	 */
-	public static Long getSecondsCurrent() {
-        Calendar ca = Calendar.getInstance();
-        Long currentSeconds = ca.getTimeInMillis() / 1000;
-        return currentSeconds;
+     * 获取当天0点的秒数
+     */
+    public static Long getDayStartSecond() {
+        //当日0点开始
+        return LocalDateTime.now().withHour(0).withMinute(0).withSecond(0).withNano(0).atZone(ZoneOffset.systemDefault()).toEpochSecond();
+    }
+
+    /**
+     * 获取当前时间的秒数
+     */
+    public static Long getSecondsCurrent() {
+        return LocalDateTime.now().atZone(ZoneOffset.systemDefault()).toEpochSecond();
     }
 
     public static Long getRange(Long selected_time) {

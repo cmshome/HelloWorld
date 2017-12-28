@@ -24,7 +24,18 @@ public class StringTest {
         //testStringPool();
         //testIndexOf();
         //testSplitPlus();
-        testNewStringArray();
+        //testNewStringArray();
+        testStringIntern();
+    }
+
+    /**
+     * intern方法测试，讲字符串加入到常量池 native 方法。
+     */
+    private static void testStringIntern() {
+        String s1 = "go" + "od";
+        String s2 = "ja" + "va";
+        System.out.println(s1.intern() == s1);
+        System.out.println(s2.intern() == s2);
     }
 
     /**

@@ -11,7 +11,47 @@ import java.time.temporal.TemporalAdjusters;
  */
 public class DateTest {
     public static void main(String[] args) {
-        java8DateTest();
+        //java8DateTest();
+        dateTimeFormatterTest();
+        //easyTest();
+    }
+
+    /**
+     * 日期格式化测试
+     */
+    private static void dateTimeFormatterTest() {
+        /*
+         * 解析日期
+         */
+        String dateStr = "2016年10月25日";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年MM月dd日");
+        LocalDate date = LocalDate.parse(dateStr, formatter);
+        System.out.println(date);
+
+        /*
+         * 日期转换为字符串
+         */
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println("未格式化时：" + now);
+        //HH 和 hh 的差别：前者是24小时制，后者是12小时制。
+        String formatString = "yyyy年MM月dd日 HH:mm:SS" +
+                " 上下午标志 a" +
+                " E" +
+                " 一年中的第D天" +
+                " 一月中的第F个星期" +
+                " 一年中的第w个星期" +
+                " 一月中的第W个星期";
+        DateTimeFormatter format = DateTimeFormatter.ofPattern(formatString);
+        System.out.println(now.format(format));
+        format = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm a");
+        System.out.println(now.format(format));
+        format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a");
+        System.out.println(now.format(format));
+    }
+
+    private static void easyTest() {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        System.out.println(localDateTime.withDayOfMonth(1));
     }
 
     /**
@@ -151,6 +191,8 @@ public class DateTest {
         String startTime = "2016-11-13 23:59";
         localDateTime = LocalDateTime.parse(startTime, sf);
         System.out.println(localDateTime);
+        //格式化一下
+        System.out.println(localDateTime.format(sf));
     }
 
 

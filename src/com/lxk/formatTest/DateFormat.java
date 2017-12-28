@@ -15,20 +15,52 @@ import java.util.Date;
  */
 public class DateFormat {
     public static void main(String[] args) {
-        dateTest();
+        //dateTest();
+        //formatDataTest();
+        noGroup();
+    }
+
+    private static void formatDataTest() {
+        /*
+         * 日期转期望格式的字符串
+         */
+        //HH 和 hh 的差别：前者是24小时制，后者是12小时制。
+        String formatString = "yyyy年MM月dd日 HH:mm:SS" +
+                " 上下午标志 a" +
+                " E" +
+                " 一年中的第D天" +
+                " 一月中的第F个星期" +
+                " 一年中的第w个星期" +
+                " 一月中的第W个星期" +
+                " Z" +
+                " z";
+        SimpleDateFormat sdf = new SimpleDateFormat(formatString);
+        String dateString = sdf.format(new Date());
+        System.out.println(dateString);
+        /*
+         * 字符串转日期
+         */
+        Date date;
+        try {
+            date = sdf.parse(dateString);
+            System.out.println(date);
+        } catch (ParseException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void noGroup() {
-        Long currentFrom = TimesUtils.getTimeForDay();
+        Long dayStartSecond = TimesUtils.getDayStartSecond();
         long nowDate = Calendar.getInstance().getTimeInMillis();
         //result.put("date", nowDate);//服务器时间 1478793600
-        long minute = (nowDate / 1000 - currentFrom) / 60;
+        long minute = (nowDate / 1000 - dayStartSecond) / 60;
 
         Date s = new Date();
         //System.out.println(minute);
 
         String date = "2016-12-07T16:00:00.000Z";
-        date = date.replace("Z", " UTC");//注意在 UTC 字符串前面还有个空格。不然异常。
+        //注意在 UTC 字符串前面还有个空格。不然异常。
+        date = date.replace("Z", " UTC");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS Z");
         try {
             Date d = sdf.parse(date);
@@ -48,14 +80,20 @@ public class DateFormat {
         //System.out.println(totalBytes);
     }
 
+    /**
+     * SimpleDateFormat 格式化日期
+     * 日期 - >  格式化过的字符串
+     */
     private static void dateTest() {
         Date ss = new Date();
         System.out.println("一般日期输出：" + ss);
-        System.out.println("时间戳：" + ss.getTime());
+        System.out.println("时间戳 获得的是毫秒：" + ss.getTime());
         //Date aw = Calendar.getInstance().getTime();//获得时间的另一种方式，测试效果一样
         SimpleDateFormat format0 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String time = format0.format(ss.getTime());//这个就是把时间戳经过处理得到期望格式的时间
+        //这个就是把时间戳经过处理得到期望格式的时间
+        String time = format0.format(ss.getTime());
         System.out.println("格式化结果0：" + time);
+
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
         time = format1.format(ss.getTime());
         System.out.println("格式化结果1：" + time);
