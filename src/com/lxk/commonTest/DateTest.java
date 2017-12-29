@@ -12,8 +12,8 @@ import java.time.temporal.TemporalAdjusters;
 public class DateTest {
     public static void main(String[] args) {
         //java8DateTest();
-        dateTimeFormatterTest();
-        //easyTest();
+        //dateTimeFormatterTest();
+        easyTest();
     }
 
     /**
@@ -51,7 +51,17 @@ public class DateTest {
 
     private static void easyTest() {
         LocalDateTime localDateTime = LocalDateTime.now();
-        System.out.println(localDateTime.withDayOfMonth(1));
+        //把当前时间修改为11月，其他部分不变。
+        System.out.println(localDateTime.withMonth(11));
+        //最后都变成秒啦，所以，纳秒部分归零与否，已经不影响啦。
+        long second = localDateTime.withHour(0).withMinute(0).withSecond(0).atZone(ZoneId.systemDefault()).toEpochSecond();
+        System.out.println(second);
+        second = localDateTime.withHour(0).withMinute(0).withSecond(0).withNano(0).atZone(ZoneId.systemDefault()).toEpochSecond();
+        System.out.println(second);
+        //ZoneOffset继承ZoneId，调用的都是一个底层方法。
+        // 打印结果：Asia/Shanghai
+        System.out.println(ZoneOffset.systemDefault());
+        System.out.println(ZoneId.systemDefault());
     }
 
     /**
