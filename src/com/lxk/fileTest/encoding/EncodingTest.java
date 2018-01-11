@@ -23,6 +23,14 @@ public class EncodingTest {
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if (inputStreamReader != null) {
+                try {
+                    inputStreamReader.close();
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
 
     }
