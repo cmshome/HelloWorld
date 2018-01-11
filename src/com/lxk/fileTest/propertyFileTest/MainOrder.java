@@ -39,13 +39,15 @@ public class MainOrder {
         }
 
         System.out.println("---------（方式二）------------");
-        Set<Object> keys = properties.keySet();//返回属性key的集合
+        //返回属性key的集合
+        Set<Object> keys = properties.keySet();
         for (Object key : keys) {
             System.out.println(key.toString() + "=" + properties.get(key));
         }
 
         System.out.println("---------（方式三）------------");
-        Set<Map.Entry<Object, Object>> entrySet = properties.entrySet();//返回的属性键值对实体
+        //返回的属性键值对实体
+        Set<Map.Entry<Object, Object>> entrySet = properties.entrySet();
         for (Map.Entry<Object, Object> entry : entrySet) {
             System.out.println(entry.getKey() + "=" + entry.getValue());
         }
@@ -102,7 +104,8 @@ public class MainOrder {
                 }
             }
 
-            FileOutputStream fileOutputStream = new FileOutputStream(filePath + "/es-source-lxk-test.properties", false);//true表示追加打开,false每次都是清空再重写
+            //true表示追加打开,false每次都是清空再重写
+            FileOutputStream fileOutputStream = new FileOutputStream(filePath + "/es-source-lxk-test.properties", false);
             //prop.store(oFile, "此参数是保存生成properties文件中第一行的注释说明文字");//这个会两个地方乱码
             //prop.store(new OutputStreamWriter(oFile, "utf-8"), "汉字乱码");//这个就是生成的properties文件中第一行的注释文字乱码
             outputStreamWriter = new OutputStreamWriter(fileOutputStream, "utf-8");
