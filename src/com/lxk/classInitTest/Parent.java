@@ -11,7 +11,7 @@ public class Parent {
     }
 
     {
-        System.out.println("父类：普通代码块");
+        System.out.println("父类：构造代码块");
     }
 
     private static String staticStringInParent = initStaticStringInParent();

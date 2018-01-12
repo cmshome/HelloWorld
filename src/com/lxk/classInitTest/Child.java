@@ -11,7 +11,7 @@ public class Child extends Parent {
     private static String staticStringInChild = initStaticStringInChild();
 
     {
-        System.out.println("子类：普通代码块");
+        System.out.println("子类：构造代码块");
     }
 
     static {
