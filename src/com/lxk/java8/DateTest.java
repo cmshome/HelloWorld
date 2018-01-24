@@ -1,11 +1,11 @@
-package com.lxk.commonTest;
+package com.lxk.java8;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
 
 /**
- * 测试日期的使用
+ * 测试 Java 1.8 日期 API 的使用
  *
  * @author lxk on 2017/12/26
  */
