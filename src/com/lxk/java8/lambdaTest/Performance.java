@@ -1,4 +1,4 @@
-package com.lxk.lambdaTest;
+package com.lxk.java8.lambdaTest;
 
 import com.google.common.collect.Lists;
 
