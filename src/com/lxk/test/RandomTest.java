@@ -15,8 +15,27 @@ import java.util.Set;
  */
 public class RandomTest {
     public static void main(String[] args) {
-        Integer integer = 10;
-        getFullRandomArray(integer);
+        //Integer integer = 10;
+        //getFullRandomArray(integer);
+        randomMa(200);
+    }
+
+    /**
+     * 将传入参数随机分五份。五份之和为传入参数。
+     *
+     * @param sum 传入参数
+     */
+    private static void randomMa(int sum) {
+        Integer one = new Random().nextInt(sum);
+        System.out.println(one);
+        Integer two = new Random().nextInt(sum - one);
+        System.out.println(two);
+        Integer three = new Random().nextInt(sum - one - two);
+        System.out.println(three);
+        Integer four = new Random().nextInt(sum - one - two - three);
+        System.out.println(four);
+        Integer five = sum - one - two - three - four;
+        System.out.println(five);
     }
 
     /**
