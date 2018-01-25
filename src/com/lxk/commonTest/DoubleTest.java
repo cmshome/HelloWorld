@@ -3,6 +3,7 @@ package com.lxk.commonTest;
 import com.lxk.util.DoubleUtil;
 import com.lxk.util.PrintUtil;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 /**
@@ -13,9 +14,29 @@ import java.text.DecimalFormat;
  */
 public class DoubleTest {
     public static void main(String[] args) {
-        testDouble();
-        PrintUtil.divideLine();
-        testDoubleExact();
+        //testDouble();
+        //PrintUtil.divideLine();
+        //testDoubleExact();
+        testBigDecimal();
+    }
+
+
+    /**
+     * BigDecimal的测试，要精确。
+     * 还要使得科学计数法的数字，做完全的展示。
+     */
+    private static void testBigDecimal() {
+        Double d = 1.6D;
+        //不准确的初始化
+        BigDecimal bigDecimal = new BigDecimal(d);
+        System.out.println(bigDecimal);
+
+        //使得结果精确的初始化姿势
+        bigDecimal = new BigDecimal(d.toString());
+        System.out.println(bigDecimal);
+
+        bigDecimal = new BigDecimal("6.214822313132341212666E+18");
+        System.out.println(bigDecimal.toPlainString());
     }
 
     /**
