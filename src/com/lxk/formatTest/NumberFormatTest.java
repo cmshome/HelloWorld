@@ -1,5 +1,6 @@
 package com.lxk.formatTest;
 
+import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
@@ -11,6 +12,32 @@ import java.text.DecimalFormat;
  */
 public class NumberFormatTest {
     public static void main(String[] args) {
+        //beforeTestGroup();
+        scientificNumber();
+    }
+
+    /**
+     * 科学计数法的还原
+     */
+    private static void scientificNumber() {
+        double bigValue = 6.21482E+18D;
+        System.out.println(bigValue);
+
+        DecimalFormat df = new DecimalFormat("0");
+        System.out.println(df.format(bigValue));
+
+        double num2 = 50123.12;
+        System.out.println(num2);
+        BigDecimal bd2 = new BigDecimal(num2);
+        System.out.println(bd2.toPlainString());
+        System.out.println(df.format(num2));
+
+        BigDecimal bd = new BigDecimal("1.1920928955078125e-7");
+        String str = bd.toPlainString();
+        System.out.println(str);
+    }
+
+    private static void beforeTestGroup() {
         Float result;
         //result = 9.313226E-10,也就是0.0000000009313226
         //result = ((float) 1L) / (1024L * 1024L * 1024L);
