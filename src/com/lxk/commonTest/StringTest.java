@@ -33,14 +33,17 @@ public class StringTest {
 
     /**
      * 可变参数的测试
+     * 可变参数的定义，必须是放在参数列表的最后面
      */
     private static void testManyArgs() {
-        System.out.println(isNotNullOrEmpty("a"));
-        System.out.println(isNotNullOrEmpty("a", "b"));
-        System.out.println(isNotNullOrEmpty("a", "b", ""));
+        int d = 1;
+        System.out.println(isNotNullOrEmpty(d, "a"));
+        System.out.println(isNotNullOrEmpty(d, "a", "b"));
+        System.out.println(isNotNullOrEmpty(d, "a", "b", ""));
     }
 
-    private static boolean isNotNullOrEmpty(String... arg) {
+    private static boolean isNotNullOrEmpty(int d, String... arg) {
+        System.out.println(d);
         for (String s : arg) {
             if (Strings.isNullOrEmpty(s)) {
                 return false;
