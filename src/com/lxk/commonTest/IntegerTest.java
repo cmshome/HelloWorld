@@ -1,15 +1,34 @@
 package com.lxk.commonTest;
 
+import java.math.BigDecimal;
+import java.util.UUID;
+
 /**
  * 测试 Integer 常量池问题。
- * <p>
+ *
  * @author lxk on 2017/2/23
  */
 public class IntegerTest {
     public static void main(String[] args) {
-        testIntegerCache();
-        testIntAndIntegerCache();
-        valueIsNumber("ewq");
+        //testIntegerCache();
+        //testIntAndIntegerCache();
+        //valueIsNumber("ewq");
+        testRandom();
+    }
+
+    /**
+     * 考虑最后的那个邀请码的情况
+     * 快来领支付宝红包！人人可领，天天可领！复制此消息，打开最新版支付宝就能领取！
+     * 04QOHe67OA
+     */
+    private static void testRandom() {
+        //一位上的数的情况：字母大小写，外加十个数字。
+        System.out.println(26 * 2 + 10);
+        BigDecimal all = new BigDecimal(Math.pow(62, 10) + "");
+        String big = all.toPlainString();
+        System.out.println(big);
+        System.out.println(big.length());
+        System.out.println(UUID.randomUUID());
     }
 
 
