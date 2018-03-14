@@ -9,7 +9,7 @@ import java.time.temporal.TemporalAdjusters;
  *
  * @author lxk on 2017/12/26
  */
-public class DateTest {
+public class DateJava8Test {
     public static void main(String[] args) {
         //java8DateTest();
         //dateTimeFormatterTest();
