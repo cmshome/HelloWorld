@@ -13,7 +13,8 @@ public class ArrayListTest {
     public static void main(String[] args) {
         //test1();
         //testSortList();
-        testAddAllNull();
+        //testAddAllNull();
+        haveSameMember();
     }
 
     /**
@@ -49,4 +50,15 @@ public class ArrayListTest {
         System.out.println(list.toString());
     }
 
+    /**
+     * 取2个list的交集
+     */
+    private static void haveSameMember() {
+        List<String> list1 = Lists.newArrayList("1","2","3","4","5","6");
+        List<String> list2 = Lists.newArrayList("8","2","44");
+        list2.retainAll(list1);
+        System.out.println(list1);
+        System.out.println(list2);
+
+    }
 }
