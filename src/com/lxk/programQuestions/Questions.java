@@ -149,7 +149,7 @@ public class Questions {
     /**
      * 用递归算法写一段程序实现 1+2+...+1000000
      */
-    private static long questions7(long sum) {
+    public static long questions7(long sum) {
         if (sum == 0) {
             return sum;
         }
