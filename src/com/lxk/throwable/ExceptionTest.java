@@ -19,21 +19,25 @@ public class ExceptionTest {
 
     /**
      * 常见的运行时异常：
-     * 1，空指针异常
-     * 2，类转换异常
-     * 3，下标越界异常
-     * 4,
+     * 1，空指针异常：NullPointerException
+     * 2，类转换异常：ClassCastException
+     * 3，下标越界异常：IndexOutOfBoundsException
+     * 4，并发操作异常：ConcurrentModificationException
+     * 5，参数不合法：IllegalArgumentException
      */
     private static void runtimeException() {
         //nullPointerException();
         //classCastException();
         //indexOutOfBoundsException();
         //concurrentModificationExceptionTest();
-        arr();
+        illegalArgumentException();
     }
 
-    private static void arr() {
-        String[] array = new String[10];
+    /**
+     * 参数不合法，list集合初始化容量不能小于0。
+     */
+    private static void illegalArgumentException() {
+        List<String> list = Lists.newArrayListWithExpectedSize(-9);
     }
 
     /**
