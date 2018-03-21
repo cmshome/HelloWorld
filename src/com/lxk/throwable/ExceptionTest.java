@@ -1,18 +1,70 @@
-package com.lxk.concurrentModificationExceptionTest;
+package com.lxk.throwable;
 
 import com.google.common.collect.Lists;
+import com.lxk.extendTest.Child;
+import com.lxk.extendTest.Parent;
 
 import java.util.Iterator;
 import java.util.List;
 
 /**
- * ConcurrentModificationException的出现情况
- * <p>
- * @author lxk on 2016/11/11
+ * 常见的异常（运行时异常:runtimeException，一般异常。）
+ *
+ * @author lxk on 2018/3/21
  */
-public class ConcurrentModificationExceptionTest {
+public class ExceptionTest {
     public static void main(String[] args) {
+        runtimeException();
+    }
+
+    /**
+     * 常见的运行时异常：
+     * 1，空指针异常
+     * 2，类转换异常
+     * 3，下标越界异常
+     * 4,
+     */
+    private static void runtimeException() {
+        //nullPointerException();
+        //classCastException();
+        //indexOutOfBoundsException();
+        //concurrentModificationExceptionTest();
+        arr();
+    }
+
+    private static void arr() {
+        String[] array = new String[10];
+    }
+
+    /**
+     * 多线程操作时的异常
+     */
+    private static void concurrentModificationExceptionTest() {
         modCountTest();
+    }
+
+    /**
+     * 下标越界异常
+     */
+    private static void indexOutOfBoundsException() {
+        List<String> list = Lists.newArrayList();
+        list.add(3,"lxk");
+    }
+
+    /**
+     * 类转换异常
+     */
+    private static void classCastException() {
+        Parent parent = new Parent();
+        Child child = (Child) parent;
+    }
+
+    /**
+     * 空指针异常
+     */
+    private static void nullPointerException() {
+        String a = null;
+        a.equals("ss");
     }
 
     /**
@@ -20,12 +72,17 @@ public class ConcurrentModificationExceptionTest {
      */
     private static void modCountTest() {
         List<String> list = Lists.newArrayList();
-        setListData(list);//给list设值:{0-9}
+        //给list设值:{0-9}
+        setListData(list);
         System.out.println("原来未修改集合" + list);
-        //wrongWay0(list);  //1：使用迭代器迭代的时候，集合结构遭到修改
-        //rightWay1(list);  //  for循环删除安全
-        //wrongWay1(list);  //2：for each 删除集合元素
-        wrongWay2(list);    //3：多线程并发操作一个集合时候
+        //1：使用迭代器迭代的时候，集合结构遭到修改
+        wrongWay0(list);
+        //for循环删除安全
+        rightWay1(list);
+        //2：for each 删除集合元素
+        wrongWay1(list);
+        //3：多线程并发操作一个集合时候
+        wrongWay2(list);
         System.out.println("被修改过的集合" + list);
     }
 
@@ -46,8 +103,10 @@ public class ConcurrentModificationExceptionTest {
         while (iterator.hasNext()) {
             String temp = iterator.next();
             if (iterator.next().equals("5")) {
-                //iterator.remove();//正确移除集合元素姿势
-                list.remove(temp);//抛异常移除集合元素姿势
+                //正确移除集合元素姿势
+                //iterator.remove();
+                //抛异常移除集合元素姿势
+                list.remove(temp);
             }
         }
     }
@@ -104,5 +163,4 @@ public class ConcurrentModificationExceptionTest {
             }
         }).start();
     }
-
 }

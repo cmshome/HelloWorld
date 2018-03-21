@@ -1,12 +1,14 @@
-package com.lxk.exception;
+package com.lxk.throwable;
 
 import com.lxk.model.Test;
 import com.lxk.programQuestions.Questions;
 
 /**
+ * 这俩不叫exception，叫error。是throwable接口下主要的2个实现
+ *
  * @author lxk on 2018/3/15
  */
-public class ExceptionTest {
+public class ErrorTest {
     public static void main(String[] args) {
         stackOverflowError();
         outOfMemoryError();
