@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.lxk.extendTest.Child;
 import com.lxk.extendTest.Parent;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -24,13 +25,21 @@ public class ExceptionTest {
      * 3，下标越界异常：IndexOutOfBoundsException
      * 4，并发操作异常：ConcurrentModificationException
      * 5，参数不合法：IllegalArgumentException
+     * 6，不支持的操作：UnsupportedOperationException
      */
     private static void runtimeException() {
         //nullPointerException();
         //classCastException();
         //indexOutOfBoundsException();
         //concurrentModificationExceptionTest();
-        illegalArgumentException();
+        //illegalArgumentException();
+        unsupportedOperationException();
+    }
+
+    private static void unsupportedOperationException() {
+        String[] arr = new String[] {"str1", "str2"};
+        List<String> listSpecial = Arrays.asList(arr);
+        listSpecial.add("ss");
     }
 
     /**
