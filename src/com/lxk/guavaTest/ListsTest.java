@@ -26,7 +26,8 @@ public class ListsTest {
     private static void simpleListToString() {
         List<String> list = Lists.newArrayList();
         System.out.println(list.toString());
-        Joiner joiner = Joiner.on(",").skipNulls();//跳过null
+        //跳过null
+        Joiner joiner = Joiner.on(",").skipNulls();
         String s = joiner.join(list);
         System.out.println(s);
     }
