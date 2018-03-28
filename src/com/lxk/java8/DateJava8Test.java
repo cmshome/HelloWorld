@@ -12,8 +12,8 @@ import java.time.temporal.TemporalAdjusters;
 public class DateJava8Test {
     public static void main(String[] args) {
         //java8DateTest();
-        //dateTimeFormatterTest();
-        easyTest();
+        dateTimeFormatterTest();
+        //easyTest();
     }
 
     /**
@@ -34,7 +34,7 @@ public class DateJava8Test {
         LocalDateTime now = LocalDateTime.now();
         System.out.println("未格式化时：" + now);
         //HH 和 hh 的差别：前者是24小时制，后者是12小时制。
-        String formatString = "yyyy年MM月dd日 HH:mm:SS" +
+        String formatString = "yyyy年MM月dd日 HH:mm:ss:SSS" +
                 " 上下午标志 a" +
                 " E" +
                 " 一年中的第D天" +
