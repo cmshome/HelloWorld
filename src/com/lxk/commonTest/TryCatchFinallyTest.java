@@ -19,6 +19,7 @@ public class TryCatchFinallyTest {
 
     /**
      * System.exit(0); //退出jvm，只有这种情况finally不执行。
+     * 下面2个return都阻挡不了打印语句的执行。
      */
     private static void whenFinallyNoRun() {
         try {
@@ -26,9 +27,11 @@ public class TryCatchFinallyTest {
         } catch (Exception exception){
             System.out.println("catch exception: " + exception.getMessage());
             //jvm stop
-            System.exit(0);
+            //System.exit(0);
+            return;
         } finally {
             System.out.println("finally is running !");
+            return;
         }
 
     }
