@@ -12,8 +12,25 @@ package com.lxk.commonTest;
  */
 public class TryCatchFinallyTest {
     public static void main(String[] args) {
-        System.out.println(testFunc1());
-        System.out.println(testFunc2());
+        //System.out.println(testFunc1());
+        //System.out.println(testFunc2());
+        whenFinallyNoRun();
+    }
+
+    /**
+     * System.exit(0); //退出jvm，只有这种情况finally不执行。
+     */
+    private static void whenFinallyNoRun() {
+        try {
+            throw new Exception("我抛弃你啦。");
+        } catch (Exception exception){
+            System.out.println("catch exception: " + exception.getMessage());
+            //jvm stop
+            System.exit(0);
+        } finally {
+            System.out.println("finally is running !");
+        }
+
     }
 
     /**
