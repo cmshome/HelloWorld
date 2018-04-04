@@ -15,25 +15,44 @@ import java.util.List;
  */
 public class ExceptionTest {
     public static void main(String[] args) {
-        runtimeException();
+        //runtimeException();
+        checkedException();
+    }
+
+    /**
+     * Checked异常都是可以被处理的异常
+     * ClassNotFoundException
+     * NoSuchMethodException
+     * IOException
+     */
+    private static void checkedException() {
     }
 
     /**
      * 常见的运行时异常：
-     * 1，空指针异常：NullPointerException
-     * 2，类转换异常：ClassCastException
-     * 3，下标越界异常：IndexOutOfBoundsException
-     * 4，并发操作异常：ConcurrentModificationException
-     * 5，参数不合法：IllegalArgumentException
-     * 6，不支持的操作：UnsupportedOperationException
+     * 1，空指针异常：      NullPointerException
+     * 2，类转换异常：      ClassCastException
+     * 3，下标越界异常：    IndexOutOfBoundsException
+     * 4，并发操作异常：    ConcurrentModificationException
+     * 5，参数不合法：      IllegalArgumentException
+     * 6，不支持的操作：    UnsupportedOperationException
+     * 7，除数为0：         ArithmeticException
      */
     private static void runtimeException() {
-        //nullPointerException();
-        //classCastException();
-        //indexOutOfBoundsException();
-        //concurrentModificationExceptionTest();
-        //illegalArgumentException();
+        nullPointerException();
+        classCastException();
+        indexOutOfBoundsException();
+        concurrentModificationExceptionTest();
+        illegalArgumentException();
         unsupportedOperationException();
+        arithmeticException();
+    }
+
+    /**
+     * ArithmeticException
+     */
+    private static void arithmeticException() {
+        System.out.println(100 / 0);
     }
 
     private static void unsupportedOperationException() {
