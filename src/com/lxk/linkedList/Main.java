@@ -13,7 +13,7 @@ import static com.lxk.linkedList.oneWay.OneWayLinkedList.*;
 public class Main {
     public static void main(String[] args) {
         testOneWayLinkedList();//单向链表
-        testCircularOneWayList();//循环链表
+        //testCircularOneWayList();//循环链表
     }
 
     /**
@@ -29,16 +29,30 @@ public class Main {
      * 测试单向链表
      */
     private static void testOneWayLinkedList() {
-        Node<Integer, Integer> linkedList = getOneWayLinkedList();//获得初始化链表---头插法
-        //Node<Integer, Integer> linkedList = getOneWayLinkedListTail();//获得初始化链表---尾插法
-        int size = getOneWayLinkedListSize(linkedList);
-        System.out.println("oneWayLinkedList's size：" + size);//链表长度
-        forLinkedList(linkedList);//打印
-        insertInLinkedList(5, 10, 10, linkedList);//在下标为5的节点之后插入
-        forLinkedList(linkedList);//打印
-        removeInLinkedList(5, linkedList);//在下标为5的节点之后删除
-        forLinkedList(linkedList);//打印
+        ////获得初始化链表---头插法
+        //Node<Integer, Integer> linkedList = getOneWayLinkedList(6);
+        ////获得初始化链表---尾插法
+        ////Node<Integer, Integer> linkedList = getOneWayLinkedListTail();
+        //int size = getOneWayLinkedListSize(linkedList);
+        ////链表长度
+        //System.out.println("oneWayLinkedList's size：" + size);
+        ////打印
+        //forLinkedList(linkedList);
+        ////在下标为5的节点之后插入
+        //insertInLinkedList(5, 10, 10, linkedList);
+        ////打印
+        //forLinkedList(linkedList);
+        ////在下标为5的节点之后删除
+        //removeInLinkedList(5, linkedList);
+        ////打印
+        //forLinkedList(linkedList);
+
+        Node<Integer, Integer> linkedList = getOneWayLinkedList(6);
+        forLinkedList(linkedList);
+        Node<Integer, Integer> node = reverseLinkedList(linkedList);
+        forLinkedList(node);
     }
+
 
 
 }

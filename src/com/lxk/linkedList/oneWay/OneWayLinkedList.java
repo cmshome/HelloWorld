@@ -10,10 +10,11 @@ public class OneWayLinkedList {
     /**
      * 获得单向链表（头插法生成的单向链表--后来的在链表头部）
      */
-    public static Node<Integer, Integer> getOneWayLinkedList() {
+    public static Node<Integer, Integer> getOneWayLinkedList(int length) {
         Node<Integer, Integer> temp = null;
-        for (int i = 1; i <= 6; i++) {
-            temp = new Node<>(i, i, temp);//头插法：先来的在链尾
+        for (int i = 1; i <= length; i++) {
+            //头插法：先来的在链尾
+            temp = new Node<>(i, i, temp);
         }
         return temp;
     }
@@ -23,9 +24,11 @@ public class OneWayLinkedList {
      */
     public static Node<Integer, Integer> getOneWayLinkedListTail() {
         Node<Integer, Integer> headWillMove = new Node<>(1, 1, null);
-        Node<Integer, Integer> headNoMove = headWillMove;//headWillMove，但是这个headNoMove是一直指向链表头的。返回他就对了。
+        //headWillMove，但是这个headNoMove是一直指向链表头的。返回他就对了。
+        Node<Integer, Integer> headNoMove = headWillMove;
         for (int i = 2; i <= 6; i++) {
-            headWillMove.setNext(new Node<>(i, i, null));//尾插法：先来的在链头
+            //尾插法：先来的在链头
+            headWillMove.setNext(new Node<>(i, i, null));
             headWillMove = headWillMove.getNext();
         }
         return headNoMove;
@@ -119,6 +122,23 @@ public class OneWayLinkedList {
             }
             linkedList = linkedList.getNext();
         }
+    }
+
+    /**
+     * 逆序单链表
+     *
+     * @param linkedList 单链表
+     */
+    public static Node<Integer, Integer> reverseLinkedList(Node<Integer, Integer> linkedList) {
+        Node<Integer, Integer> reverse = null;
+        Node<Integer, Integer> current = linkedList;
+        while (current != null) {
+            Node<Integer, Integer> temp = current;
+            current = current.getNext();
+            temp.setNext(reverse);
+            reverse = temp;
+        }
+        return reverse;
     }
 
 }
