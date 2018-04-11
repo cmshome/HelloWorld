@@ -49,7 +49,8 @@ public class Main {
 
         Node<Integer, Integer> linkedList = getOneWayLinkedList(6);
         forLinkedList(linkedList);
-        Node<Integer, Integer> node = reverseLinkedList(linkedList);
+        //Node<Integer, Integer> node = reverse1(linkedList);
+        Node<Integer, Integer> node = reverse2(linkedList);
         forLinkedList(node);
     }
 

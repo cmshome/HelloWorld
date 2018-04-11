@@ -3,6 +3,7 @@ package com.lxk.linkedList.oneWay;
 /**
  * 单向链表
  * <p>
+ *
  * @author lxk on 2017/8/1
  */
 public class OneWayLinkedList {
@@ -127,11 +128,11 @@ public class OneWayLinkedList {
     /**
      * 逆序单链表
      *
-     * @param linkedList 单链表
+     * @param head 单链表
      */
-    public static Node<Integer, Integer> reverseLinkedList(Node<Integer, Integer> linkedList) {
+    public static Node<Integer, Integer> reverse1(Node<Integer, Integer> head) {
         Node<Integer, Integer> reverse = null;
-        Node<Integer, Integer> current = linkedList;
+        Node<Integer, Integer> current = head;
         while (current != null) {
             Node<Integer, Integer> temp = current;
             current = current.getNext();
@@ -139,6 +140,25 @@ public class OneWayLinkedList {
             reverse = temp;
         }
         return reverse;
+    }
+
+    /**
+     * 逆序单链表（递归）
+     *
+     * @param head 单链表
+     */
+    public static Node<Integer, Integer> reverse2(Node<Integer, Integer> head) {
+        //当为空或者本节点为末尾节点的时候
+        if (head == null || head.getNext() == null) {
+            return head;
+        }
+        Node<Integer, Integer> reversedHead = reverse2(head.getNext());
+        //获取先前的下一个节点，让该节点指向自身
+        head.getNext().setNext(head);
+        //破坏以前自己指向下一个节点
+        head.setNext(null);
+        //层层传递给最上面的
+        return reversedHead;
     }
 
 }
