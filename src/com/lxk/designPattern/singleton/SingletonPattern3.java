@@ -8,7 +8,23 @@ package com.lxk.designPattern.singleton;
  * @author lxk on 2017/3/23
  */
 public class SingletonPattern3 {
-    private static SingletonPattern3 singletonInstance;
+    /**
+     * 说是加上volatile，禁止指令重排，造成的bug。
+     * singletonInstance = new SingletonPattern3();
+     * 看似一句话，但分三个步骤。
+     * 1，memory = allocate(); //1：分配对象的内存空间
+     * 2，ctorInstance(memory); //2：初始化对象
+     * 3，instance = memory; //3：设置instance指向刚分配的内存地址
+     * 但是经过重排序后如下：
+     * 1，memory = allocate(); //1：分配对象的内存空间
+     * 2，instance = memory; //3：设置instance指向刚分配的内存地址，此时对象还没被初始化，此时，instance已经不为null啦。
+     * 3，ctorInstance(memory); //2：初始化对象
+     * 在线程A初始化完成这段内存之前，线程B虽然进不去同步代码块，
+     * 但是在同步代码块之前的判断就会发现instance不为空，但是在第一个IF判断就不为空了。
+     * 此时线程B获得instance对象进行使用就可能发生错误。
+     *
+     */
+    private static volatile SingletonPattern3 singletonInstance;
 
     private SingletonPattern3() {
     }
