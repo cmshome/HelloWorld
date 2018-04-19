@@ -10,7 +10,7 @@ package com.lxk.designPattern.decorator;
  * 并基于被装饰的对象的功能，提供更强的功能。
  */
 
-class PersonDemo {
+public class Main {
     public static void main(String[] args) {
         PersonBefore p = new PersonBefore();
         //p.eat();//这个是需求1.0
