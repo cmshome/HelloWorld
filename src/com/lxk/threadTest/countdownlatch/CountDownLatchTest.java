@@ -28,7 +28,7 @@ public class CountDownLatchTest {
         //创建固定大小的线程池
         //阿里建议不使用Executors去创建线程池，因为这个隐藏了线程池的实现
         //使用ThreadPoolExecutor去创建，更加明确线程池的运行规则，规避资源耗尽的风险。
-        ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("BasicThreadPoolJob-CachedThreadPool-%d").build();
+        ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("my-ThreadPool-%d").build();
         ExecutorService executor = new ThreadPoolExecutor(6,
                 10,
                 5,
@@ -61,10 +61,13 @@ public class CountDownLatchTest {
                               BlockingQueue<Runnable> workQueue,
                               ThreadFactory threadFactory,
                               RejectedExecutionHandler handler)
-
-
-
-
      */
     }
+            /*
+                （1）CountDownLatch的计数器只能使用一次。而CyclicBarrier的计数器可以使用reset() 方法重置。
+                     所以CyclicBarrier能处理更为复杂的业务场景，比如如果计算发生错误，可以重置计数器，并让线程们重新执行一次。
+                （2）CyclicBarrier还提供其他有用的方法，比如getNumberWaiting方法可以获得CyclicBarrier阻塞的线程数量。
+                     isBroken方法用来知道阻塞的线程是否被中断。比如以下代码执行完之后会返回true。
+                （3）CountDownLatch会阻塞主线程，CyclicBarrier不会阻塞主线程，只会阻塞子线程。
+            */
 }
