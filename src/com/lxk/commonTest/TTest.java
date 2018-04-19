@@ -10,14 +10,38 @@ import java.util.List;
 
 /**
  * 测试泛型
- * <p>
+ * E   — Element，    常用在java Collection里，如：List<E>,Iterator<E>,Set<E>
+ * K,V — Key，Value， 代表Map的键值对
+ * N   — Number，     数字
+ * T   — Type，       类型，如String，Integer等等
+ *
  * @author lxk on 2017/6/14
  */
 public class TTest {
     public static void main(String[] args) {
-        testQuestionMark();
-        testSuperT();
         testExtendsT();
+        //认识泛型 以其中的 通配符 ？
+        testQuestionMark();
+        //泛型在继承的时候的使用
+        testSuperT();
+
+
+
+        //泛型方法的使用
+        testMethodT("sss");
+        //自动装箱操作 int -> Integer
+        testMethodT(12);
+
+    }
+
+    /**
+     * 静态不静态就差个static
+     *
+     * @param t   参数
+     * @param <T> 参数的类型
+     */
+    private static <T> void testMethodT(T t) {
+        System.out.println(t.toString());
     }
 
     /**
@@ -31,6 +55,9 @@ public class TTest {
         Point<Float> floatPoint = new Point<>(10.f, 10.f);
         Point<Double> doublePoint = new Point<>(10.d, 10.d);
         //Point<String> stringPoint = new Point<>("你猜", "我不猜");
+
+        //通配符  ?  无边界通配符
+        //无边界通配符？则只能用于填充泛型变量T，表示通配任何类型
         Point<?> point;
         point = integerPoint;
         System.out.println("x:"+point.getX()+" y:" + point.getY());
@@ -41,24 +68,46 @@ public class TTest {
         System.out.println("x:"+point.getX()+" y:" + point.getY());
         //point = stringPoint;//若是在类中使用了extends number，那么这个类型就必须得是数字啦
         //System.out.println("x:"+point.getX()+" y:" + point.getY());
+
+
+
+        //无边界通配符
         List<Point<?>> list = Lists.newArrayList();
         list.add(integerPoint);
         list.add(floatPoint);
         list.add(doublePoint);
         System.out.println(list.toString());
+
+        //边界通配符
+        Point<? extends Number> numberPoint;
+        numberPoint = new Point<>(1,1);
+        numberPoint = new Point<>(123L,1234L);
+        System.out.println(numberPoint.getX());
+        //能取值，不能设值。
+        //numberPoint.setX(12);
+        //类似的道理：人是对象，但是对象不一定是人。
     }
 
 
     /**
      * 测试Java泛型中的extends
+     * 希望泛型类型只能是某一部分类型，你会希望是Number或其子类类型。这个想法其实就是给泛型参数添加一个界限。
      */
     private static void testExtendsT() {
+        Point<? extends Number> point;
+        point = new Point<>(10, 10);
+        point = new Point<>(10f, 10f);
+        point = new Point<>(10d, 10d);
+        //直接类型检查不合适，编译阶段就报错。
+        //point = new Point<String>("", "");
+
+
     }
 
     /**
+     * 通配符  ？
      * 测试Java泛型中的super
-     * <? super XXX>则表示填充为任意XXX的父类
-     *
+     * 如果说 <? extends XXX>指填充为派生于XXX的任意子类的话，那么<? super XXX>则表示填充为任意XXX的父类！
      */
     private static void testSuperT() {
         List<? super Manager> sup;
