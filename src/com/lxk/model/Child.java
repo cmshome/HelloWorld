@@ -1,4 +1,4 @@
-package com.lxk.extendTest;
+package com.lxk.model;
 
 /**
  * this通常指代当前对象，super通常指代父类

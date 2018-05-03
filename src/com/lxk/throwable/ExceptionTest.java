@@ -1,8 +1,8 @@
 package com.lxk.throwable;
 
 import com.google.common.collect.Lists;
-import com.lxk.extendTest.Child;
-import com.lxk.extendTest.Parent;
+import com.lxk.model.Child;
+import com.lxk.model.Parent;
 
 import java.util.Arrays;
 import java.util.Iterator;

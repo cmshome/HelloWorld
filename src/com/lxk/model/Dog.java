@@ -26,6 +26,14 @@ public class Dog {
         this.alive = alive;
     }
 
+    /**
+     * @param detail 狗叫的内容
+     */
+    public String bark(String detail) {
+        System.out.println("barking " + detail);
+        return detail;
+    }
+
     public String getName() {
         return name;
     }

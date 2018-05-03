@@ -1,5 +1,7 @@
 package com.lxk.extendTest;
 
+import com.lxk.model.Child;
+
 /**
  * 测试继承中的super用法
  *

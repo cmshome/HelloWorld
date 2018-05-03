@@ -1,4 +1,4 @@
-package com.lxk.extendTest;
+package com.lxk.model;
 
 /**
  * @author lxk on 2017/4/26
