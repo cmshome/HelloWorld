@@ -50,8 +50,10 @@ public class ArraysTest {
     private static void testArrayInit() {
         Object[][] ss = new Object[2][2];
         Object[][] ww = {{12, 12}, {12, 12}};
-        System.out.println(Arrays.toString(ss));//直接toString()，打印的是地址。
-        System.out.println(Arrays.deepToString(ss));//直接toString()，打印的是地址。
+        //直接toString()，打印的是地址。
+        System.out.println(Arrays.toString(ss));
+        //直接toString()，打印的是地址。
+        System.out.println(Arrays.deepToString(ss));
         System.out.println(Arrays.deepToString(ww));
     }
 

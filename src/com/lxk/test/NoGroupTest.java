@@ -49,6 +49,7 @@ public class NoGroupTest {
     /**
      * 使用随机算法产生一个数，要求把1-1000W之间这些数全部生成。
      * （考察高效率，解决产生冲突的问题）
+     * {@link com.lxk.random.Main#createRandom4()}
      */
     private static void testRandom() {
         int value = 10000000;
