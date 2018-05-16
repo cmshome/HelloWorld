@@ -10,5 +10,6 @@ public class Main {
         SingletonPattern1 singletonPattern1 = SingletonPattern1.getSingletonInstance();
         SingletonPattern2 singletonPattern2 = SingletonPattern2.getSingletonInstance();
         SingletonPattern3 singletonPattern3 = SingletonPattern3.getSingletonInstance();
+        SingletonPattern4 singletonPattern4 = SingletonPattern4.getSingletonInstance();
     }
 }
