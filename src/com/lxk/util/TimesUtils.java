@@ -2,6 +2,7 @@ package com.lxk.util;
 
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.Calendar;
@@ -24,6 +25,12 @@ public class TimesUtils {
             SECOND_IN_YEAR = SECOND_IN_MONTH * 12,
             DAYS_IN_WEEK = 7;
 
+    /**
+     * 计算两个时间点之间的天数
+     */
+    public static long getBetweenDay(LocalDate start, LocalDate end) {
+        return end.toEpochDay() - start.toEpochDay();
+    }
 
     /**
      * 获取几分钟前的秒数
@@ -31,10 +38,11 @@ public class TimesUtils {
      * @param minutes
      * @return
      */
-    public static String getSeconds_minutes_ago(int minutes) {
+    public static String getSecondsMinutesAgo(int minutes) {
         Calendar ca = Calendar.getInstance();
         ca.set(Calendar.SECOND, 0);
-        ca.add(Calendar.MINUTE, -2);//当前时间减去2分钟
+        //当前时间减去2分钟
+        ca.add(Calendar.MINUTE, -2);
         ca.add(Calendar.MINUTE, -minutes);
         return "" + ca.getTimeInMillis() / 1000;
     }

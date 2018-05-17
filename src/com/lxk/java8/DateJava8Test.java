@@ -1,5 +1,7 @@
 package com.lxk.java8;
 
+import com.lxk.util.TimesUtils;
+
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
@@ -12,8 +14,18 @@ import java.time.temporal.TemporalAdjusters;
 public class DateJava8Test {
     public static void main(String[] args) {
         //java8DateTest();
-        dateTimeFormatterTest();
+        //dateTimeFormatterTest();
         //easyTest();
+        getBetweenDay();
+    }
+
+    /**
+     * 计算两个时间点之间的天数
+     */
+    private static void getBetweenDay() {
+        LocalDate start = LocalDate.of(2018, 2, 12);
+        LocalDate now = LocalDate.now();
+        System.out.println("儿子今天是 " + TimesUtils.getBetweenDay(start, now) + " 天啦。");
     }
 
     /**
