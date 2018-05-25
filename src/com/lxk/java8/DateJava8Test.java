@@ -174,8 +174,11 @@ public class DateJava8Test {
         long epochSecond = System.currentTimeMillis() / 1000L;
         //默认使用系统时区
         ZoneId zoneId = ZoneOffset.systemDefault();
-        //之所以这么初始化，是因为根据传入的时间进行操作
+        /*
+         * 之所以这么初始化，是因为根据传入的时间进行操作(从秒数实例化LocalDateTime对象)
+         */
         LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochSecond(epochSecond), zoneId);
+
         //LocalDateTime.now();//也可以这么获得当前时间
         System.out.println("localDateTime 初始化值：" + localDateTime);
         System.out.println("getYear：" + localDateTime.getYear());
