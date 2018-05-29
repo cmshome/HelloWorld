@@ -4,6 +4,7 @@ import com.lxk.model.TimeFormatModel;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.Calendar;
@@ -42,6 +43,9 @@ public class TimeTest {
 
         long epochSecond = localDateTime.atZone(ZoneOffset.systemDefault()).toEpochSecond();
         System.out.println(epochSecond);
+
+        Instant now = Instant.now();
+        System.out.println(now.getEpochSecond());
     }
 
     /**
