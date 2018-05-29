@@ -16,8 +16,8 @@ public class DoubleTest {
     public static void main(String[] args) {
         //testDouble();
         //PrintUtil.divideLine();
-        //testDoubleExact();
-        testBigDecimal();
+        testDoubleExact();
+        //testBigDecimal();
     }
 
 
@@ -26,6 +26,9 @@ public class DoubleTest {
      * 还要使得科学计数法的数字，做完全的展示。
      */
     private static void testBigDecimal() {
+        System.out.println(BigDecimal.ZERO);
+        System.out.println(BigDecimal.ONE);
+        System.out.println(BigDecimal.TEN);
         Double d = 1.6D;
         //不准确的初始化
         BigDecimal bigDecimal = new BigDecimal(d);
@@ -60,8 +63,10 @@ public class DoubleTest {
         System.out.println("0.05 + 0.01 = " + DoubleUtil.add(0.05, 0.01));
         System.out.println("1.0 - 0.42 = " + DoubleUtil.sub(1.0, 0.42));
         System.out.println("4.015 * 100 = " + DoubleUtil.mul(4.015, 100d));
-        System.out.println("123.3 / 100 = " + DoubleUtil.divide(123.3, 100d));//保留两位
-        System.out.println("123.3 / 100 = " + DoubleUtil.divide(123.3, 100d, 3));//保留三位
+        //保留两位
+        System.out.println("123.3 / 100 = " + DoubleUtil.divide(123.3, 100d));
+        //保留三位
+        System.out.println("123.3 / 100 = " + DoubleUtil.divide(123.3, 100d, 3));
         System.out.println(DoubleUtil.round(4.025d, 2));
     }
 }

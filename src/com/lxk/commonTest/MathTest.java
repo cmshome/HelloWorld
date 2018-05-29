@@ -1,5 +1,8 @@
 package com.lxk.commonTest;
 
+import java.math.BigDecimal;
+import java.util.Random;
+
 /**
  * 常用方法测试
  *
@@ -11,7 +14,8 @@ public class MathTest {
         //testAbs();
         //testSqrt();
         //testCeilFloor();
-        testSpecial();
+        //testSpecial();
+        testRandomFloat();
     }
 
     private static void testSpecial() {
@@ -65,6 +69,21 @@ public class MathTest {
         //结果是：1000.0
         System.out.println(Math.pow(10, 3));
     }
+
+    /**
+     * 随机生成小数
+     */
+    private static void testRandomFloat() {
+        Random rand = new Random();
+        Double aa = (Math.pow(0.1, 4));
+        BigDecimal b = new BigDecimal(aa.toString());
+        //取四位，四舍五入。
+        aa = b.setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
+        //aa:1.0E-4     输出是科学计数法
+        System.out.println("aa:" + aa);
+        System.out.println("aa:" + b);
+    }
+
 
 
 }
