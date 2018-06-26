@@ -11,11 +11,11 @@ import java.util.Random;
 public class MathTest {
     public static void main(String[] args) {
         //testPow();
-        //testAbs();
+        testAbs();
         //testSqrt();
         //testCeilFloor();
         //testSpecial();
-        testRandomFloat();
+        //testRandomFloat();
     }
 
     private static void testSpecial() {
@@ -59,7 +59,8 @@ public class MathTest {
     private static void testAbs() {
         //int, long, float, double
         //1
-        System.out.println(Math.abs(-1));
+        long aa = -100;
+        System.out.println(Math.abs(aa));
     }
 
     /**

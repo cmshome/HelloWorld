@@ -17,10 +17,12 @@ public class DateJava8Test {
         //dateTimeFormatterTest();
         //easyTest();
         getBetweenDay();
+        //localTimeTest();
     }
 
     /**
      * 计算两个时间点之间的天数
+     * LocalDate start = LocalDate.of(1990, 8, 17);
      */
     private static void getBetweenDay() {
         LocalDate start = LocalDate.of(2018, 2, 12);

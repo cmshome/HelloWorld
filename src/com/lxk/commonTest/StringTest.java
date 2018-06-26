@@ -18,7 +18,7 @@ public class StringTest {
         //testValueAndAddressTransmit();
         //testStringBufferAndStringBuilder();
         //testStringNewLine();
-        //testSplit();
+        testSplit();
         //testStringPool2();
         //testListToString();
         //testReverseString();
@@ -28,7 +28,14 @@ public class StringTest {
         //testSplitPlus();
         //testNewStringArray();
         //testStringIntern();
-        testManyArgs();
+        //testManyArgs()
+        // testTrim();
+    }
+
+    private static void testTrim() {
+        String abc = "   lxk  sls    ";
+        //lxk  sls
+        System.out.println(abc.trim());
     }
 
     /**
@@ -175,6 +182,9 @@ public class StringTest {
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i]);
         }
+        String a = "as|sad";
+        String[] split = a.split("\\|");
+        System.out.println(Arrays.toString(split));
     }
 
     /**

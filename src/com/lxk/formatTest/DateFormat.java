@@ -25,7 +25,7 @@ public class DateFormat {
          * 日期转期望格式的字符串
          */
         //HH 和 hh 的差别：前者是24小时制，后者是12小时制。
-        String formatString = "yyyy年MM月dd日 HH:mm:SS" +
+        String formatString = "yyyy年MM月dd日 HH:mm:ss" +
                 " 上下午标志 a" +
                 " E" +
                 " 一年中的第D天" +
