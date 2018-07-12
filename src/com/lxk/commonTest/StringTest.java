@@ -28,7 +28,17 @@ public class StringTest {
         //testSplitPlus();
         //testNewStringArray();
         //testStringIntern();
-        testManyArgs();
+        //testManyArgs();
+        testTrim();
+    }
+
+    /**
+     * 测试：trim返回新的字符串，不修改原来的字符串。
+     */
+    private static void testTrim() {
+        String s = "     123     ";
+        System.out.println(s.trim());
+        System.out.println(s);
     }
 
     /**
