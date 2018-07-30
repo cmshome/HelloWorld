@@ -14,6 +14,15 @@ import java.util.List;
  * @author lxk on 2017/2/8
  */
 public class StringTest {
+    private static final String HEL = "Hel";
+    private static final String LO = "lo";
+    private static final String HEL_;
+    private static final String LO_;
+
+    static {
+        HEL_ = "Hel";
+        LO_ = "lo";
+    }
     public static void main(String[] args) {
         //testValueAndAddressTransmit();
         //testStringBufferAndStringBuilder();
@@ -29,7 +38,47 @@ public class StringTest {
         //testNewStringArray();
         //testStringIntern();
         //testManyArgs();
-        testTrim();
+        //testTrim();
+        testAddress();
+    }
+
+    /**
+     * 测试经典的字符串常量池问题。
+     */
+    private static void testAddress() {
+        String s1 = "Hello";
+        String s2 = "Hello";
+        String s3 = "Hel" + "lo";
+        String s4 = "Hel" + new String("lo");
+        String s5 = new String("Hello");
+        String s6 = s5.intern();
+        String s7 = "H";
+        String s8 = "ello";
+        String s9 = s7 + s8;
+
+        // true 都是字面量，编译期间就可以确定值
+        System.out.println(s1 == s2);
+        // true 同理，字面量，编译期间可以确定值
+        System.out.println(s1 == s3);
+        // false 但new String("lo")这部分不是已知字面量，是一个不可预料的部分，编译器不会优化，必须等到运行时才可以确定结果，
+        System.out.println(s1 == s4);
+        // false  虽然s7、s8在赋值的时候使用的字符串字面量，但是拼接成s9的时候，s7、s8作为两个变量，都是不可预料的
+        System.out.println(s1 == s9);
+        // false 都是new出来的，肯定不会相等的
+        System.out.println(s4 == s5);
+        // true  ，intern方法会尝试将Hello字符串添加到常量池中，并返回其在常量池中的地址
+        System.out.println(s1 == s6);
+
+        String s10 = HEL + LO;
+        // true s10是虽然是加出来的，但是a0和a1都是static final 编译期间，就已经知道啦。所以，s10，也是常量。
+        System.out.println(s1 == s10);
+
+        String s11 = HEL_ + LO_;
+        // true s11也是加出来的，但是后面的2个是通过静态代码块赋值的，静态代码块，只有在类加载的时候，才执行。所以，后面的2个是不确定值。
+        System.out.println(s1 == s11);
+
+
+
     }
 
     /**
@@ -92,20 +141,26 @@ public class StringTest {
         String string = "aaa456ac";
 
         //查找指定字符是在字符串中的下标。在则返回所在字符串下标；不在则返回-1.
-        System.out.println(string.indexOf("b"));//indexOf(String str)；返回结果：-1，"b"不存在
+        //indexOf(String str)；返回结果：-1，"b"不存在
+        System.out.println(string.indexOf("b"));
 
         // 从第四个字符位置开始往后继续查找，包含当前位置
-        System.out.println(string.indexOf("a", 3));//indexOf(String str, int fromIndex)；返回结果：6
+        //indexOf(String str, int fromIndex)；返回结果：6
+        System.out.println(string.indexOf("a", 3));
 
         //（与之前的差别：上面的参数是 String 类型，下面的参数是 int 类型）参考数据：a-97,b-98,c-99
 
         // 从头开始查找是否存在指定的字符
-        System.out.println(string.indexOf(99));//indexOf(int ch)；返回结果：7
-        System.out.println(string.indexOf('c'));//indexOf(int ch)；返回结果：7
+        //indexOf(int ch)；返回结果：7
+        System.out.println(string.indexOf(99));
+        //indexOf(int ch)；返回结果：7
+        System.out.println(string.indexOf('c'));
 
         //从fromIndex查找ch，这个是字符型变量，不是字符串。字符a对应的数字就是97。
-        System.out.println(string.indexOf(97, 3));//indexOf(int ch, int fromIndex)；返回结果：6
-        System.out.println(string.indexOf('a', 3));//indexOf(int ch, int fromIndex)；返回结果：6
+        //indexOf(int ch, int fromIndex)；返回结果：6
+        System.out.println(string.indexOf(97, 3));
+        //indexOf(int ch, int fromIndex)；返回结果：6
+        System.out.println(string.indexOf('a', 3));
 
         //这个就是灵活运用String类提供的方法，拆分提供的字符串。
         String s = "D:\\Android\\sdk\\add-ons";
@@ -143,7 +198,8 @@ public class StringTest {
         }
         System.out.println(sb.toString().substring(0, sb.lastIndexOf(",")));
         System.out.println("等效的快捷方式");
-        Joiner joiner = Joiner.on(",").skipNulls();//跳过null
+        //跳过null
+        Joiner joiner = Joiner.on(",").skipNulls();
         //System.out.println(joiner.join(s));
         System.out.println(joiner.join(s.toArray()));
     }
@@ -181,7 +237,8 @@ public class StringTest {
         String ss = ",aa,bb,cc,dd,,,";
         String[] array = ss.split(",");
 
-        System.out.println(array.length);//结果是5，而不是预想中的8
+        //结果是5，而不是预想中的8
+        System.out.println(array.length);
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i]);
         }
