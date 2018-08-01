@@ -2,9 +2,11 @@ package com.lxk.java8;
 
 import com.lxk.util.TimesUtils;
 
+import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
+import java.util.Date;
 
 /**
  * 测试 Java 1.8 日期 API 的使用
@@ -16,7 +18,28 @@ public class DateJava8Test {
         //java8DateTest();
         //dateTimeFormatterTest();
         //easyTest();
-        getBetweenDay();
+        //getBetweenDay();
+        getYMD();
+    }
+
+    /**
+     * Date 和 LocalDate 互相转换。
+     */
+    private static void getYMD() {
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy MM dd HH mm ss");
+        System.out.println(simpleDateFormat.format(date));
+        Instant instant = date.toInstant();
+        ZoneId zoneId = ZoneId.systemDefault();
+        // atZone()方法返回在指定时区从此Instant生成的ZonedDateTime。
+        LocalDate localDate = instant.atZone(zoneId).toLocalDate();
+        System.out.println(localDate);
+
+
+        ZonedDateTime zdt = localDate.atStartOfDay(zoneId);
+        Date ls = Date.from(zdt.toInstant());
+        System.out.println("LocalDate = " + localDate);
+        System.out.println("Date = " + simpleDateFormat.format(ls));
     }
 
     /**
