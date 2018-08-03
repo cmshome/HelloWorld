@@ -37,9 +37,9 @@ public class StringTest {
         //testSplitPlus();
         //testNewStringArray();
         //testStringIntern();
-        //testManyArgs();
+        testManyArgs();
         //testTrim();
-        testAddress();
+        //testAddress();
     }
 
     /**
@@ -99,6 +99,8 @@ public class StringTest {
         System.out.println(isNotNullOrEmpty(d, "a"));
         System.out.println(isNotNullOrEmpty(d, "a", "b"));
         System.out.println(isNotNullOrEmpty(d, "a", "b", ""));
+        String str = concatString(new String[]{"a","b","c","d"});
+        System.out.println(str);
     }
 
     private static boolean isNotNullOrEmpty(int d, String... arg) {
@@ -109,6 +111,17 @@ public class StringTest {
             }
         }
         return true;
+    }
+
+    public static String concatString(String... strings) {
+        StringBuilder str = new StringBuilder();
+        for (int i = 0; i < strings.length; i++) {
+            str.append(strings[i]);
+            if (i != strings.length - 1) {
+                str.append("--");
+            }
+        }
+        return str.toString();
     }
 
     /**
