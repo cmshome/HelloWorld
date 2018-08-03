@@ -22,7 +22,7 @@ public class JsonTest {
         System.out.println(studentFromJson);
     }
 
-    private static Student getStudent() {
+    public static Student getStudent() {
         Dog dog1 = new Dog("大师兄的dog", true, true);
         Dog dog2 = new Dog("大师兄的dog", false, false);
         List<Dog> dogs = Lists.newArrayList();
