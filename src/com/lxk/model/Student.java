@@ -1,9 +1,11 @@
 package com.lxk.model;
 
+import java.io.Serializable;
+
 /**
  * @author lxk on 2017/3/23
  */
-public class Student implements Cloneable {
+public class Student implements Cloneable, Serializable {
     private String name;
     private Car car;
 

@@ -2,15 +2,24 @@ package com.lxk.model;
 
 import com.google.common.base.Objects;
 
+import java.io.Serializable;
+
 /**
  * 测试boolean属性的getter和setter
  * <p>
  * @author lxk on 2016/12/23
  */
-public class Dog {
+public class Dog implements Serializable {
     private String name;
-    private boolean isLoyal;//是忠诚的
-    private boolean alive;//活蹦乱跳的
+    /**
+     * 忠诚的
+     */
+    private boolean isLoyal;
+    /**
+     * 活蹦乱跳的
+     */
+    private boolean alive;
+
 
     public Dog() {
     }

@@ -2,9 +2,10 @@ package com.lxk.model;
 
 import com.google.common.collect.Lists;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Car implements Cloneable, Comparable<Car> {
+public class Car implements Cloneable, Comparable<Car> , Serializable {
     private String sign;
     private int price;
     private List<Dog> myDog;
