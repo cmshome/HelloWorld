@@ -14,7 +14,9 @@ public class ImmutableMapTest {
      * 测试 guava ImmutableMap
      */
     private static void immutableMapTest() {
-        Integer key = 30;
-        System.out.println("key = " + key + "的提示语是：" + ConstantMap.INTEGER_STRING_MAP.get(key));
+        Integer keyValue = 30;
+        System.out.println("keyValue = " + keyValue + "的提示语是：" + ConstantMap.INTEGER_STRING_MAP.get(keyValue));
+
+        ConstantMap.MAP.forEach((key,value) -> System.out.println("key：" + key + " value：" + value));
     }
 }

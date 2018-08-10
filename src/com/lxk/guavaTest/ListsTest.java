@@ -30,6 +30,17 @@ public class ListsTest {
         Joiner joiner = Joiner.on(",").skipNulls();
         String s = joiner.join(list);
         System.out.println(s);
+        List<String> a = Lists.newArrayList();
+        List<String> b = Lists.newArrayList();
+        b.addAll(a);
+
+        List<String> ss = Lists.newArrayList("1", "2", "3", "4", "5");
+        System.out.println(ss.toString());
+        ss = ss.subList(1,5);
+        System.out.println(ss.toString());
+        ss.add("2333");
+        System.out.println(ss.toString());
+
     }
 
 

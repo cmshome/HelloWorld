@@ -20,8 +20,9 @@ public class ForTest {
      * 测试不同for的效率问题
      */
     private static void testForEfficiency() {
-        List<String> arrayList = CollectionUtil.getArrayList();
-        List<String> linkedList = CollectionUtil.getLinkedList();
+        int size = 1000000;
+        List<String> arrayList = CollectionUtil.getArrayList(size);
+        List<String> linkedList = CollectionUtil.getLinkedList(size);
         testForI(arrayList, linkedList);
         testForEach(arrayList, linkedList);
         testForLambda(arrayList, linkedList);

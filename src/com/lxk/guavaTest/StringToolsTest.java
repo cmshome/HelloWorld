@@ -2,6 +2,9 @@ package com.lxk.guavaTest;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
+import com.google.common.primitives.Ints;
+
+import java.util.Arrays;
 
 /**
  * 测试 String处理相关的几个工具
@@ -51,10 +54,17 @@ public class StringToolsTest {
      * (处理字符串序列中有null)
      */
     private static String toolJoinerTest() {
-        Joiner joiner = Joiner.on("-").skipNulls();//跳过null
-        //joiner.join(Arrays.asList(1,2,3,4,5));//可以传集合类型参数
-        Joiner joiner_ = Joiner.on("-").useForNull("*");//替换null为*
-        return joiner_.join("大", null, "师", null, "胸", null, "！");
+        //跳过null
+        Joiner joiner = Joiner.on("-").skipNulls();
+        //可以传集合类型参数
+        String join = joiner.join(Arrays.asList(1, 2, 3, 4, 5));
+        System.out.println(join);
+        //替换null为*
+        Joiner useForNull = Joiner.on("-").useForNull("*");
+        int[] numbers = { 1, 2, 3, 4, 5 };
+        String numbersAsString = Joiner.on(";").join(Ints.asList(numbers));
+        System.out.println(numbersAsString);
+        return useForNull.join("大", null, "师", null, "胸", null, "！");
     }
 
 }
