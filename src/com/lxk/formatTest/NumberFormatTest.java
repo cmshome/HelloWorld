@@ -35,6 +35,14 @@ public class NumberFormatTest {
         BigDecimal bd = new BigDecimal("1.1920928955078125e-7");
         String str = bd.toPlainString();
         System.out.println(str);
+
+        BigDecimal bds = new BigDecimal("5.1623245E7");
+        String strs = bds.toPlainString();
+        System.out.println(strs);
+
+        String sss = "12344.33";
+        System.out.println(sss.contains("."));
+
     }
 
     private static void beforeTestGroup() {
