@@ -3,7 +3,11 @@ package com.lxk.threadTest.wayToThread;
 import java.util.concurrent.FutureTask;
 
 /**
- * 线程测试（实现多线程的几种方式）
+ * 实现多线程的 四 种方式
+ * 1，继承Thread类
+ * 2，实现runnable接口
+ * 3，实现callable接口
+ * 4，线程池
  * <p>
  * @author lxk on 2016/11/12
  */
@@ -22,9 +26,9 @@ public class Main {
      * 实现接口的优点：可以方便扩展
      */
     private static void newThreadWay1() {
-        ThreadWay1 threadWay1 = new ThreadWay1();
-        new Thread(threadWay1).start();
-        //new Thread(new ThreadWay1()).start();//等于上面的2行代码
+        RunnableWay runnableWay = new RunnableWay();
+        new Thread(runnableWay).start();
+        //new Thread(new RunnableWay()).start();//等于上面的2行代码
         System.out.println(Thread.currentThread().getName() + "...implements Runnable way");
     }
 
@@ -34,9 +38,9 @@ public class Main {
      * 继承Thread类，重写run函数
      */
     private static void newThreadWay2() {
-        ThreadWay2 threadWay2 = new ThreadWay2();
-        threadWay2.start();
-        //new ThreadWay2().start();//等于上面的2行代码
+        ExtendWay extendWay = new ExtendWay();
+        extendWay.start();
+        //new ExtendWay().start();//等于上面的2行代码
         System.out.println(Thread.currentThread().getName() + "...extends way");
     }
 
@@ -47,8 +51,8 @@ public class Main {
     private static void newThreadWay3() {
         int resultFromThread;
         try {
-            ThreadWay3 threadWay3 = new ThreadWay3();
-            FutureTask<Integer> future = new FutureTask<>(threadWay3);
+            CallableWay callableWay = new CallableWay();
+            FutureTask<Integer> future = new FutureTask<>(callableWay);
             new Thread(future).start();
             Thread.sleep(5000);// 可能做一些事情
             //注意：

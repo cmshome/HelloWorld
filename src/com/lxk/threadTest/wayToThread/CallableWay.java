@@ -11,7 +11,7 @@ import java.util.concurrent.Callable;
  * <p>
  * @author lxk on 2017/6/27
  */
-public class ThreadWay3 implements Callable<Integer> {
+public class CallableWay implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {

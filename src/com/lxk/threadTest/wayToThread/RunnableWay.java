@@ -5,7 +5,7 @@ package com.lxk.threadTest.wayToThread;
  * 创建线程方式1实现
  * 实现Runnable接口，重写run方法
  */
-public class ThreadWay1 implements Runnable {
+public class RunnableWay implements Runnable {
     @Override
     public void run() {
         for (; ; ) {

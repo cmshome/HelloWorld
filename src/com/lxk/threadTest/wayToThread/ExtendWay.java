@@ -5,7 +5,7 @@ package com.lxk.threadTest.wayToThread;
  * 创建线程方式2实现
  * 继承Thread类，重写run函数
  */
-public class ThreadWay2 extends Thread {
+public class ExtendWay extends Thread {
     @Override
     public void run() {
         for (; ; ) {
