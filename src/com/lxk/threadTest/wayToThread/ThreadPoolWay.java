@@ -22,7 +22,7 @@ public class ThreadPoolWay {
         // 创建多个有返回值的任务
         List<Future> list = new ArrayList<>();
         for (int i = 0; i < taskSize; i++) {
-            Callable c = new MyCallable(i + " ");
+            Callable<String> c = new MyCallable(i + " ");
             // 执行任务并获取Future对象
             Future f = pool.submit(c);
             // System.out.println(">>>" + f.get().toString());
@@ -42,7 +42,7 @@ public class ThreadPoolWay {
     }
 }
 
-class MyCallable implements Callable<Object> {
+class MyCallable implements Callable<String> {
     private String taskNum;
 
     MyCallable(String taskNum) {
@@ -50,7 +50,7 @@ class MyCallable implements Callable<Object> {
     }
 
     @Override
-    public Object call() throws Exception {
+    public String call() throws Exception {
         System.out.println(">>>" + taskNum + "任务启动");
         Date dateTmp1 = new Date();
         Thread.sleep(1000);
