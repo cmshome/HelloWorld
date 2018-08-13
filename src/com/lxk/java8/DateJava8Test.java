@@ -18,14 +18,15 @@ public class DateJava8Test {
         //java8DateTest();
         //dateTimeFormatterTest();
         //easyTest();
-        //getBetweenDay();
-        getYMD();
+        getBetweenDay();
+        //getYMD();
     }
 
     /**
      * Date 和 LocalDate 互相转换。
      */
     private static void getYMD() {
+        //Date -> LocalDate
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy MM dd HH mm ss");
         System.out.println(simpleDateFormat.format(date));
@@ -36,10 +37,17 @@ public class DateJava8Test {
         System.out.println(localDate);
 
 
+        //LocalDate ->Date
         ZonedDateTime zdt = localDate.atStartOfDay(zoneId);
         Date ls = Date.from(zdt.toInstant());
         System.out.println("LocalDate = " + localDate);
         System.out.println("Date = " + simpleDateFormat.format(ls));
+
+        //out format date out
+        System.out.println("--------");
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter sf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        System.out.println(localDateTime.format(sf));
     }
 
     /**
