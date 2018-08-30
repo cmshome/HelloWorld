@@ -2,11 +2,12 @@ package com.lxk.guavaTest;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 import com.lxk.model.Car;
 import com.lxk.model.Dog;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * guava Lists 测试实例
@@ -18,9 +19,52 @@ public class ListsTest {
     public static void main(String[] args) {
         //emptyListToArray();
         //objectListToString();
-        simpleListToString();
+        //simpleListToString();
         //testLists();
+        //listCompare();
+        addIndexTest();
 
+    }
+
+    /**
+     * add(int index, E element);
+     * 这个方法竟然不是替换掉index位置的元素，而是让index位置的元素向后靠，还在list里面。
+     */
+    private static void addIndexTest() {
+        List<String> list = Lists.newArrayList();
+
+        //bug ,,  IndexOutOfBoundsException
+        //System.out.println(list.get(0));
+
+        list.add(0, "0");
+        list.add(0, "1");
+        list.add(0, "2");
+        list.add(0, "3");
+        //输出：[3, 2, 1, 0]
+        System.out.println(list.toString());
+
+        List<String> list1 = new ArrayList<>();
+        list1.add(0, "0");
+        list1.add(0, "1");
+        list1.add(0, "2");
+        list1.add(0, "3");
+        System.out.println(list1);
+
+        LinkedHashMap<String, String> linkedHashMap = Maps.newLinkedHashMap();
+        linkedHashMap.put("1", null);
+        linkedHashMap.put("0", null);
+        linkedHashMap.put("2", null);
+        linkedHashMap.put("3", null);
+        linkedHashMap.put("4", null);
+        linkedHashMap.keySet().forEach(System.out::println);
+
+        LinkedHashSet set = Sets.newLinkedHashSet();
+    }
+
+    /**
+     * 把list转成set去比较交并补集
+     */
+    private static void listCompare() {
     }
 
     private static void simpleListToString() {
