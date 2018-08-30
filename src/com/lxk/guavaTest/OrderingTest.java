@@ -1,5 +1,6 @@
 package com.lxk.guavaTest;
 
+import com.google.common.base.Function;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Ordering;
 import com.google.common.primitives.Ints;
@@ -27,8 +28,27 @@ public class OrderingTest {
         //classCompare();
         //sortedCopy();
         //arbitrary();
-        sortTwoWay();
+        //sortTwoWay();
         //testListSort();
+        testFunction();
+    }
+
+    private static void testFunction() {
+        Ordering<Person> ordering = Ordering.natural().nullsFirst().onResultOf(new Function<Person, String>() {
+            @Override
+            public String apply(Person person) {
+                return person.getName();
+            }
+        });
+
+        List<Person> persons = Lists.newArrayListWithExpectedSize(4);
+        persons.add(new Person(11, "周星驰"));
+        persons.add(new Person(99, "陈世美"));
+        persons.add(new Person(21, "潘金莲"));
+        persons.add(new Person(15, "阿姆斯特丹"));
+        persons.sort(ordering);
+        persons.forEach(person -> System.out.print(person.getName() + " "));
+
     }
 
     /**
