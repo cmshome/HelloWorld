@@ -3,7 +3,7 @@ package com.lxk.commonTest;
 import com.google.common.collect.Lists;
 import com.lxk.model.Car;
 import com.lxk.model.Dog;
-import com.lxk.model.Person_;
+import com.lxk.model.Person;
 import com.lxk.model.Student;
 
 import java.io.*;
@@ -67,10 +67,10 @@ public class CloneTest {
      * 基本简单类型肯定不是地址传递啦，但是要是引用类型的话，就是地址传递啦。
      */
     private static void testCloneEasy() {
-        Person_ lxk = new Person_(18, "lxk");
-        List<Person_> list = Lists.newArrayList();
+        Person lxk = new Person(18, "lxk");
+        List<Person> list = Lists.newArrayList();
         list.add(lxk);
-        Person_ clone = lxk.clone();
+        Person clone = lxk.clone();
         lxk.setAge(100);
         System.out.println(clone.getAge());
 

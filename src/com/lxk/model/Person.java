@@ -7,12 +7,12 @@ import java.io.Serializable;
  * <p>
  * @author lxk on 2016/11/25
  */
-public class Person_ implements Serializable, Cloneable {
+public class Person implements Serializable, Cloneable {
     private static final long serialVersionUID = 1L;
     private int age;
     private String name;
 
-    public Person_(int age, String name) {
+    public Person(int age, String name) {
         this.age = age;
         this.name = name;
     }
@@ -42,10 +42,10 @@ public class Person_ implements Serializable, Cloneable {
     }
 
     @Override
-    public Person_ clone() {
-        Person_ person_ = null;
+    public Person clone() {
+        Person person_ = null;
         try {
-            person_ = (Person_) super.clone();
+            person_ = (Person) super.clone();
         } catch (CloneNotSupportedException ignored) {
         }
         return person_;

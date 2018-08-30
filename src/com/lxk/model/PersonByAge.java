@@ -7,10 +7,10 @@ import java.util.Comparator;
  * <p>
  * @author lxk on 2016/11/25
  */
-public class PersonByAge implements Comparator<Person_> {
+public class PersonByAge implements Comparator<Person> {
 
     @Override
-    public int compare(Person_ o1, Person_ o2) {
+    public int compare(Person o1, Person o2) {
         //这可以修改来升序或者降序
         //return o2.getAge() - o1.getAge();//降序
         return o1.getAge() - o2.getAge();//升序
