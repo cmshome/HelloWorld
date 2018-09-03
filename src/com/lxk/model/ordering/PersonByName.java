@@ -1,4 +1,6 @@
-package com.lxk.model;
+package com.lxk.model.ordering;
+
+import com.lxk.model.Person;
 
 import java.util.Comparator;
 
