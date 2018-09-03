@@ -32,7 +32,27 @@ public class OrderingTest {
         //sortTwoWay();
         //testListSort();
         //testFunction();
-        from();
+        //from();
+        whenNull();
+    }
+
+    /**
+     * 可见在出现null或者empty的时候，处理的不是很完美。还是自己在compare方法里面手动处理比较稳妥。
+     */
+    private static void whenNull() {
+        List<Person> persons = Lists.newArrayListWithExpectedSize(4);
+        persons.add(new Person(11, "周星驰"));
+        persons.add(new Person(99, "陈世美"));
+        persons.add(new Person(21, "潘金莲"));
+        persons.add(new Person(15, "阿姆斯特丹"));
+        persons.add(new Person(15, ""));
+        persons.add(new Person(15, null));
+        persons.add(null);
+        persons.add(new Person(15, "阿姆斯特丹"));
+        persons.add(new Person(15, "阿姆斯特丹"));
+        persons.sort(OrderingConstants.NAME_ORDERING.nullsLast());
+        persons.forEach(person -> System.out.print(person == null ? null : "[" + person.getName() + "] "));
+        //[] [阿姆斯特丹] [阿姆斯特丹] [阿姆斯特丹] [陈世美] [潘金莲] [周星驰] [null]
     }
 
     private static void from() {
