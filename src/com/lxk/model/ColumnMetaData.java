@@ -2,13 +2,20 @@
 package com.lxk.model;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Objects;
 
 /**
  * Column metadata.
  *
- * @author panjuan
+ * @author lxk
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public final class ColumnMetaData {
     
     private String columnName;
@@ -16,28 +23,6 @@ public final class ColumnMetaData {
     private String columnType;
     
     private boolean primaryKey;
-
-
-    public ColumnMetaData() {
-    }
-
-    public ColumnMetaData(String columnName, String columnType, boolean primaryKey) {
-        this.columnName = columnName;
-        this.columnType = columnType;
-        this.primaryKey = primaryKey;
-    }
-
-    public String getColumnName() {
-        return columnName;
-    }
-
-    public String getColumnType() {
-        return columnType;
-    }
-
-    public boolean isPrimaryKey() {
-        return primaryKey;
-    }
 
     @Override
     public boolean equals(Object o) {

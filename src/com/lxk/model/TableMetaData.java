@@ -1,44 +1,25 @@
 package com.lxk.model;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.Objects;
 
 /**
  * Table metadata.
  *
- * @author panjuan
+ * @author lxk
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class TableMetaData {
     
     private Collection<ColumnMetaData> columnMetaData;
     
-    /**
-     * Get all column names.
-     *
-     * @return column names
-     */
-    public Collection<String> getAllColumnNames() {
-        Collection<String> result = new LinkedList<>();
-        for (ColumnMetaData each : columnMetaData) {
-            result.add(each.getColumnName().toLowerCase());
-        }
-        return result;
-    }
-
-    public TableMetaData(Collection<ColumnMetaData> columnMetaData) {
-        this.columnMetaData = columnMetaData;
-    }
-
-    public Collection<ColumnMetaData> getColumnMetaData() {
-        return columnMetaData;
-    }
-
-    public void setColumnMetaData(Collection<ColumnMetaData> columnMetaData) {
-        this.columnMetaData = columnMetaData;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
