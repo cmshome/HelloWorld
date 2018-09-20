@@ -36,8 +36,8 @@ public class StringTest {
         //testIndexOf();
         //testSplitPlus();
         //testNewStringArray();
-        //testStringIntern();
-        testManyArgs();
+        testStringIntern();
+        //testManyArgs();
         //testTrim();
         //testAddress();
     }
@@ -74,7 +74,7 @@ public class StringTest {
         System.out.println(s1 == s10);
 
         String s11 = HEL_ + LO_;
-        // true s11也是加出来的，但是后面的2个是通过静态代码块赋值的，静态代码块，只有在类加载的时候，才执行。所以，后面的2个是不确定值。
+        // false s11也是加出来的，但是后面的2个是通过静态代码块赋值的，静态代码块，只有在类加载的时候，才执行。所以，后面的2个是不确定值。
         System.out.println(s1 == s11);
 
 
@@ -126,6 +126,9 @@ public class StringTest {
 
     /**
      * intern方法测试，讲字符串加入到常量池 native 方法。
+     * s1 s2 声明完之后，就在常量池啦，因为这个常量声明方法。
+     * 再intern方法，他已经存在啦，此方法就把池里面的返回啦。
+     * 所以，比较地址，就是自己跟自己比，就相等啦。
      */
     private static void testStringIntern() {
         String s1 = "go" + "od";
