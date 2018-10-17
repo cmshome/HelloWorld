@@ -3,6 +3,7 @@ package com.lxk.collectionTest;
 import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -10,11 +11,20 @@ import java.util.List;
  * @author lxk on 2017/2/13
  */
 public class ArrayListTest {
-    public static void main(String[] args) {
+    public void main(String[] args) {
         //test1();
         //testSortList();
         //testAddAllNull();
-        haveSameMember();
+        //haveSameMember();
+        myToString();
+    }
+
+    /**
+     * 数组初始化，以及打印输出数组的内容。
+     */
+    private void myToString() {
+        int[] ints = new int[]{1,1,1,1,1,1,1,1};
+        System.out.println(Arrays.toString(ints));
     }
 
     /**
