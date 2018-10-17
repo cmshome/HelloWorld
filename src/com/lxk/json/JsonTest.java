@@ -20,6 +20,9 @@ public class JsonTest {
         System.out.println(studentJson);
         Student studentFromJson = JsonUtils.parseJsonToObj(studentJson, Student.class);
         System.out.println(studentFromJson);
+
+        System.out.println(JsonUtils.toJSONString(student));
+        System.out.println(JsonUtils.toNoFormatJSONString(student));
     }
 
     public static Student getStudent() {
