@@ -11,9 +11,15 @@ import java.util.concurrent.TimeUnit;
  *
  * @author lxk on 2018/4/18
  */
-public class Scheduled {
+public class ScheduledThreadPool {
     public static void main(String[] args) {
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(5);
+
+        //return new FinalizableDelegatedExecutorService
+        //        (new ThreadPoolExecutor(1, 1,
+        //                0L, TimeUnit.MILLISECONDS,
+        //                new LinkedBlockingQueue<Runnable>()));
+
         System.out.println("5秒后第一次执行，之后每隔3秒执行一次");
         Runnable task = () -> System.out.println("HeartBeat.........................");
         //Runnable task = new Runnable() {
@@ -24,6 +30,7 @@ public class Scheduled {
         //
         //};
         //5秒后第一次执行，之后每隔3秒执行一次
+
         executor.scheduleAtFixedRate(task, 5, 3, TimeUnit.SECONDS);
         //executor.shutdown();
     }

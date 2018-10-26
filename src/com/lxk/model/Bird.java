@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -15,7 +16,9 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Bird {
+public class Bird implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @JSONField(ordinal = 6, name = "内容是json字符串的属性", jsonDirect = true)
     private String dog1;
 
