@@ -20,6 +20,26 @@ public class DateJava8Test {
         //easyTest();
         getBetweenDay();
         //getYMD();
+        //secondToJava8Date();
+    }
+
+    /**
+     * 由秒数转成Java8时间类操作对象
+     */
+    private static void secondToJava8Date() {
+        long second = System.currentTimeMillis() / 1000;
+        System.out.println(second);
+        ZoneId zoneId = ZoneOffset.systemDefault();
+        //之所以这么初始化，是因为根据传入的时间进行操作
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochSecond(second), zoneId);
+        LocalDateTime dateTime = localDateTime.plusDays(-1);
+        long second1 = dateTime.atZone(zoneId).toEpochSecond();
+        System.out.println(second1);
+        DateTimeFormatter sf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        System.out.println(localDateTime.format(sf));
+        System.out.println(dateTime.format(sf));
+
     }
 
     /**
