@@ -29,13 +29,13 @@ public class NumberFormatTest {
         NumberFormat formatter;
         formatter = NumberFormat.getNumberInstance();
         formatter.setGroupingUsed(false);
-        formatter.setRoundingMode(RoundingMode.HALF_UP);
+        formatter.setRoundingMode(RoundingMode.FLOOR);
         formatter.setMaximumFractionDigits(2);
-
-        System.out.println(formatter.format(responseTime));
-        float v = Float.parseFloat(formatter.format(responseTime));
+        String format = formatter.format(responseTime);
+        System.out.println(format);
+        BigDecimal bigDecimal = new BigDecimal(responseTime + "");
+        float v = Float.parseFloat(formatter.format(bigDecimal));
         System.out.println(v);
-
     }
 
     /**
