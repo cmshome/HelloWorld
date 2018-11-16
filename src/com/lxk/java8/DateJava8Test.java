@@ -21,6 +21,17 @@ public class DateJava8Test {
         getBetweenDay();
         //getYMD();
         //secondToJava8Date();
+
+        turnSecondsToData();
+    }
+
+    /**
+     * 将秒数格式化成日期字符串输出
+     */
+    private static void turnSecondsToData() {
+        DateTimeFormatter sf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        ZoneId zoneId = ZoneOffset.systemDefault();
+        System.out.println(LocalDateTime.ofInstant(Instant.ofEpochSecond(System.currentTimeMillis() / 1000), zoneId).format(sf));
     }
 
     /**
