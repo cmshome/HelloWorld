@@ -1,5 +1,6 @@
 package com.lxk.commonTest;
 
+import com.google.common.collect.Lists;
 import com.lxk.util.DoubleUtil;
 import com.lxk.util.PrintUtil;
 
@@ -17,7 +18,52 @@ public class DoubleTest {
         //testDouble();
         //PrintUtil.divideLine();
         //testDoubleExact();
-        testBigDecimal();
+        //testBigDecimal();
+        //testCompare();
+        testAdd();
+    }
+
+    private static void testAdd() {
+        Number number = 12.1233;
+        System.out.println(number.longValue());
+        System.out.println(number.intValue());
+        Double d1 = 1D;
+        Double d2 = 1.22D;
+        System.out.println(d1 + d2);
+        System.out.println(DoubleUtil.add(d1,d2));
+        String count = "100";
+        Long totalCount = 200L;
+        Double label = Double.parseDouble(count) / totalCount;
+        System.out.println(label);
+        System.out.println(Lists.newArrayList("ssssss".split(",")));
+
+        //空集合，直接get 0 会 数组下标越界
+        //List<String> a = Lists.newArrayList();
+        //a.get(0);
+    }
+
+
+    /**
+     * 测试结果不是很理想啊。
+     */
+    private static void testCompare() {
+        Double d = 100D;
+        //这个时候，运行结果，都是0，
+        //Double d2 = 100.00000000000000001D;
+        //这个时候，就能对比出来谁大谁小啦。
+        Double d2 = 100.0001D;
+
+        System.out.println(0.1D > 0);
+        // 0
+        System.out.println(d.compareTo(d2));
+        System.out.println(d2.compareTo(d));
+        BigDecimal b1 = new BigDecimal(d + "");
+        BigDecimal b2 = new BigDecimal(d2 + "");
+        // 0
+        System.out.println(b1.compareTo(b2));
+        // 0
+        System.out.println(b2.compareTo(b1));
+        System.out.println();
     }
 
 
@@ -46,11 +92,16 @@ public class DoubleTest {
         Double d = 0.81d;
         System.out.println(d);
         PrintUtil.divideLine();
-        System.out.println("0.05 + 0.01 = " + (0.05 + 0.01));//0.060000000000000005
-        System.out.println("1.0 - 0.42 = " + (1.0 - 0.42));//0.5800000000000001
-        System.out.println("4.015 * 100 = " + (4.015 * 100));//401.49999999999994
-        System.out.println("123.3 / 100 = " + (123.3 / 100));//1.2329999999999999
-        System.out.println(new DecimalFormat("0.00").format(4.025d));//4.03 四舍五入
+        //0.060000000000000005
+        System.out.println("0.05 + 0.01 = " + (0.05 + 0.01));
+        //0.5800000000000001
+        System.out.println("1.0 - 0.42 = " + (1.0 - 0.42));
+        //401.49999999999994
+        System.out.println("4.015 * 100 = " + (4.015 * 100));
+        //1.2329999999999999
+        System.out.println("123.3 / 100 = " + (123.3 / 100));
+        //4.03 四舍五入
+        System.out.println(new DecimalFormat("0.00").format(4.025d));
     }
 
     /**
@@ -60,8 +111,10 @@ public class DoubleTest {
         System.out.println("0.05 + 0.01 = " + DoubleUtil.add(0.05, 0.01));
         System.out.println("1.0 - 0.42 = " + DoubleUtil.sub(1.0, 0.42));
         System.out.println("4.015 * 100 = " + DoubleUtil.mul(4.015, 100d));
-        System.out.println("123.3 / 100 = " + DoubleUtil.divide(123.3, 100d));//保留两位
-        System.out.println("123.3 / 100 = " + DoubleUtil.divide(123.3, 100d, 3));//保留三位
+        //保留两位
+        System.out.println("123.3 / 100 = " + DoubleUtil.divide(123.3, 100d));
+        //保留三位
+        System.out.println("123.3 / 100 = " + DoubleUtil.divide(123.3, 100d, 3));
         System.out.println(DoubleUtil.round(4.025d, 2));
     }
 }
