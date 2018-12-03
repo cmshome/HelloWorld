@@ -6,6 +6,7 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.lxk.model.Car;
 import com.lxk.model.Dog;
+import com.lxk.throwable.ExceptionTest;
 
 import java.util.*;
 
@@ -23,6 +24,13 @@ public class ListsTest {
         //testLists();
         //listCompare();
         addIndexTest();
+        //concurrentModificationException();
+    }
+
+    /**
+     * {@link ExceptionTest#modCountTest()}
+     */
+    private static void concurrentModificationException() {
 
     }
 
