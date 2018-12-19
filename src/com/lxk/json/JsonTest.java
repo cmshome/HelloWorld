@@ -1,10 +1,8 @@
 package com.lxk.json;
 
+import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
-import com.lxk.model.Bird;
-import com.lxk.model.Car;
-import com.lxk.model.Dog;
-import com.lxk.model.Student;
+import com.lxk.model.*;
 import com.lxk.util.JsonUtils;
 
 import java.util.Date;
@@ -21,7 +19,17 @@ public class JsonTest {
         //Student student = getStudent();
         //obj2Json(student);
         //formatJson(student);
-        testJsonField();
+        //testJsonField();
+        testOrdered();
+    }
+
+    /**
+     * 测试json的有序
+     */
+    private static void testOrdered() {
+        House house = new House(180, 180, "lxk", 180);
+        //如果不使用注解（），不排序，json字符串的属性按字母顺序排序，不按model里面属性的顺序。
+        System.out.println(JSON.toJSONString(house));
     }
 
     /**
