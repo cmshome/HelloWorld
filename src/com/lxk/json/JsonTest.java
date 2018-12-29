@@ -59,8 +59,8 @@ public class JsonTest {
      * 格式化和非格式化输出json字符串
      */
     private static void formatJson(Object obj) {
-        System.out.println(JsonUtils.toFormatJSONString(obj));
-        System.out.println(JsonUtils.toNoFormatJSONString(obj));
+        System.out.println(JsonUtils.parseObjToFormatJson(obj));
+        System.out.println(JsonUtils.parseObjToNoFormatJson(obj));
     }
 
     /**
