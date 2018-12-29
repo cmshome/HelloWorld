@@ -3,6 +3,8 @@ package com.lxk.test;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
+import com.lxk.model.Cup;
+import com.lxk.util.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,10 +40,26 @@ public class NoGroupTest {
             testValueOfAndParseX();
             testHashSet();
             testArrayReverse();
-            testSortTwoSortedArray();
-        } else {
             testRandom();
+        } else {
+            //testSortTwoSortedArray();
+            testCup();
         }
+    }
+
+    /**
+     * 很轻松就堆溢出异常啦。StackOverflowError
+     */
+    private static void testCup() {
+        //生效的值
+        Cup cup = new Cup("black","18cm","30",null);
+        //待复核待对象的值
+        Cup cup2 = new Cup("red","28cm","40",null);
+        //正常应该这么操作
+        cup.setSelf(cup2);
+        //要是异常操作就是这么，自己赋值给自己的属性
+        //cup.setSelf(cup);
+        System.out.println(JsonUtils.parseObjToFormatJson(cup));
     }
 
     /**
@@ -67,15 +85,18 @@ public class NoGroupTest {
     /**
      * 两个有序数组的合并排序
      * (默认2个有序数组都是升序)
+     * 代码有问题
      */
     private static void testSortTwoSortedArray() {
-        int[] a = {12, 32, 63, 84, 105};
-        int[] b = {12, 32, 53, 74, 95};
+        int[] a =  {1,4,6,7,9};
+        int[] b = {1,2,4,4,5,8};
         int length1 = a.length;
         int length2 = b.length;
         int newArrayLength = length1 + length2;
         int[] result = new int[newArrayLength];
-        int i = 0, j = 0, k = 0;   //i:用于标示a数组    j：用来标示b数组  k：用来标示传入的数组
+        System.out.println(Arrays.toString(result));
+        //i:用于标示a数组    j：用来标示b数组  k：用来标示传入的数组
+        int i = 0, j = 0, k = 0;
 
         while (i < length1 && j < length2) {
             /* 元素不管重复与否，直接给合并到一起 */
