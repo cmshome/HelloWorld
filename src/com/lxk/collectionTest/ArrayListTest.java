@@ -12,11 +12,23 @@ import java.util.List;
  */
 public class ArrayListTest {
     public static void main(String[] args) {
-        setIndexValue();
+        //setIndexValue();
+        setIndexValue2();
         //testSortList();
         //testAddAllNull();
         //haveSameMember();
         //myToString();
+    }
+
+    /**
+     * Collections.nCopies(int n, T o)  创建一个n个重复元素o的集合
+     * 测试可以随意使用这个 set(int index, E element)
+     * 想设置index是n的value
+     */
+    private static void setIndexValue2() {
+        List<String> list = new ArrayList(Collections.nCopies(5, ""));
+        list.set(3,"999");
+        System.out.println(list.toString());
     }
 
     /**
