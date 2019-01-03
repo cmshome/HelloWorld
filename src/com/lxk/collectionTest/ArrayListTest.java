@@ -21,12 +21,14 @@ public class ArrayListTest {
     }
 
     /**
-     * Collections.nCopies(int n, T o)  创建一个n个重复元素o的集合
+     * Collections.nCopies(int n, T o)  创建一个包含n个重复元素o的集合
      * 测试可以随意使用这个 set(int index, E element)
-     * 想设置index是n的value
+     * 随意设置index是n的value，而不会出现 IndexOutOfBoundsException 异常
      */
+    @SuppressWarnings("unchecked")
     private static void setIndexValue2() {
-        List<String> list = new ArrayList(Collections.nCopies(5, ""));
+        List<String> list = new ArrayList(Collections.nCopies(5, "123"));
+        System.out.println(list.toString());
         list.set(3,"999");
         System.out.println(list.toString());
     }
