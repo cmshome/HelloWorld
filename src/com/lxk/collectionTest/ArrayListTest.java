@@ -11,19 +11,19 @@ import java.util.List;
  * @author lxk on 2017/2/13
  */
 public class ArrayListTest {
-    public void main(String[] args) {
-        //test1();
+    public static void main(String[] args) {
+        setIndexValue();
         //testSortList();
         //testAddAllNull();
         //haveSameMember();
-        myToString();
+        //myToString();
     }
 
     /**
      * 数组初始化，以及打印输出数组的内容。
      */
-    private void myToString() {
-        int[] ints = new int[]{1,1,1,1,1,1,1,1};
+    private static void myToString() {
+        int[] ints = new int[]{1, 2, 3, 4, 5, 6, 7, 8};
         System.out.println(Arrays.toString(ints));
     }
 
@@ -45,17 +45,24 @@ public class ArrayListTest {
         System.out.println(list);
     }
 
-    private static void test1() {
+    /**
+     * 注意在使用 set(int index, E element) 一个不注意，就会异常。
+     * size()表示当前集合包含的element的个数
+     * add（index ， element）。这个不仅仅是把index位置的数据给替换啦，而且把之前这个位置的数据给依次向后移动啦
+     * set(int index, E element)。这个index要是大于等于size，就报异常啦。
+     */
+    private static void setIndexValue() {
         List<String> list = new ArrayList<>(2);
         System.out.println("list大小为：" + list.size());
         list.add("12");
         System.out.println("list大小为：" + list.size());
+        //这个时候，size为1，要是set index == 1 地方的值，就异常啦。IndexOutOfBoundsException
         list.set(1, "sss");
         list.add(1, "放在下标为1的位置");
         list.add("22");
         System.out.println("list大小为：" + list.size());
         System.out.println(list.toString());
-        list.add(1, "放在下标为1的位置");
+        list.add(1, "放在下标为1的位置2");
         System.out.println("list大小为：" + list.size());
         System.out.println(list.toString());
     }
