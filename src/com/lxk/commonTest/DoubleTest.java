@@ -5,7 +5,9 @@ import com.lxk.util.DoubleUtil;
 import com.lxk.util.PrintUtil;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 /**
  * float和double只能用来做科学计算或者是工程计算.
@@ -20,7 +22,39 @@ public class DoubleTest {
         //testDoubleExact();
         //testBigDecimal();
         //testCompare();
-        testAdd();
+        //testAdd();
+        testInfinity();
+    }
+
+    /**
+     * 测试值为 infinity（无穷 ∞ ） 的情况
+     */
+    private static void testInfinity() {
+        Double ss = 1.0D / 0.0D;
+        System.out.println(ss);
+        System.out.println(ss.doubleValue());
+
+        Double yy = 0.0D / 0.0D;
+        System.out.println(yy);
+        //0.0d / 0.0
+        System.out.println(Double.NaN);
+        //-1.0 / 0.0
+        System.out.println(Double.NEGATIVE_INFINITY);
+        //1.0 / 0.0
+        System.out.println(Double.POSITIVE_INFINITY);
+
+        if(ss.isInfinite()){
+            return;
+        }
+
+        NumberFormat formatter = NumberFormat.getNumberInstance();
+        formatter.setGroupingUsed(false);
+        formatter.setRoundingMode(RoundingMode.HALF_UP);
+        formatter.setMaximumFractionDigits(2);
+        BigDecimal bigDecimal = new BigDecimal(ss + "");
+
+        System.out.println(formatter.format(bigDecimal));
+
     }
 
     private static void testAdd() {
