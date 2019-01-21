@@ -31,6 +31,13 @@ public class DoubleTest {
      */
     private static void testInfinity() {
         Double ss = 1.0D / 0.0D;
+        System.out.println(Double.isInfinite(ss));
+        System.out.println(Double.isFinite(ss));
+
+        System.out.println("-----");
+
+
+
         System.out.println(ss);
         System.out.println(ss.doubleValue());
 
