@@ -22,7 +22,7 @@ public class DateJava8Test {
         //getYMD();
         //secondToJava8Date();
 
-        turnSecondsToData();
+        //turnSecondsToData();
     }
 
     /**
@@ -85,6 +85,7 @@ public class DateJava8Test {
      * 计算两个时间点之间的天数
      */
     private static void getBetweenDay() {
+        //阴历，腊月27早上出生🐣，28，29，30。距离过年三天
         LocalDate start = LocalDate.of(2018, 2, 12);
         LocalDate now = LocalDate.now();
         System.out.println("儿子今天是 " + TimesUtils.getBetweenDay(start, now) + " 天啦。");
