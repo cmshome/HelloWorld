@@ -4,6 +4,8 @@ import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Lists;
 import com.lxk.util.PrintUtil;
 
+import java.util.Set;
+
 /**
  * HashMultiset的测试
  * 虽然叫set，但是元素是可以重复的。统计某个值出现的次数
@@ -50,6 +52,14 @@ public class HashMultisetTest {
         hashMultiset.forEach(System.out::print);
 
         System.out.println();
+        PrintUtil.divideLine();
+
+        //得到所有的去重的结果。
+        Set<String> set = hashMultiset.elementSet();
+        set.forEach(System.out::print);
+
+        System.out.println();
+
     }
 
 }
