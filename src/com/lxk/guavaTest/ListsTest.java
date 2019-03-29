@@ -7,6 +7,7 @@ import com.google.common.collect.Sets;
 import com.lxk.model.Car;
 import com.lxk.model.Dog;
 import com.lxk.throwable.ExceptionTest;
+import com.lxk.util.CollectionUtil;
 
 import java.util.*;
 
@@ -23,8 +24,26 @@ public class ListsTest {
         //simpleListToString();
         //testLists();
         //listCompare();
-        addIndexTest();
+        //addIndexTest();
         //concurrentModificationException();
+        testStringList();
+    }
+
+    /**
+     * 修改字符串list里面的值，是值传递。
+     */
+    private static void testStringList() {
+        List<String> list = CollectionUtil.getArrayList(5);
+        System.out.println(list.toString());
+        for (String o : list) {
+            o = "222";
+        }
+        System.out.println(list);
+
+        for (int i = 0; i < list.size(); i++) {
+            list.set(i,list.get(i)+ "aaaa");
+        }
+        System.out.println(list);
     }
 
     /**

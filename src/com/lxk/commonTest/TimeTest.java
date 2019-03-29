@@ -22,9 +22,22 @@ public class TimeTest {
         //System.out.println(t.toString());
         //System.out.println("\r<br> 执行耗时 : " + (System.currentTimeMillis() - a) / 1000f + " 秒 ");
         //testCalendar();
-        testStringToDate();
+        //testStringToDate();
         //turnLongToDate();
         //testGetTime();
+        getIntegerMinute();
+
+    }
+
+    /**
+     * 对给的秒数取整分
+     */
+    private static void getIntegerMinute() {
+        long now = 1551945564L;
+        long yes = now/60 * 60;
+        System.out.println(now);
+        System.out.println(yes);
+        System.out.println(yes + 60);
     }
 
     /**

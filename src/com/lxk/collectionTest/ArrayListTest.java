@@ -31,6 +31,10 @@ public class ArrayListTest {
         System.out.println(list.toString());
         list.set(3,"999");
         System.out.println(list.toString());
+        for (String s : list) {
+            System.out.println(s);
+        }
+        System.out.println("sss");
     }
 
     /**

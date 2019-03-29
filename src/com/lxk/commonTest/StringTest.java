@@ -2,6 +2,7 @@ package com.lxk.commonTest;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
 import java.util.Arrays;
@@ -23,6 +24,7 @@ public class StringTest {
         HEL_ = "Hel";
         LO_ = "lo";
     }
+
     public static void main(String[] args) {
         //testValueAndAddressTransmit();
         //testStringBufferAndStringBuilder();
@@ -36,10 +38,128 @@ public class StringTest {
         //testIndexOf();
         //testSplitPlus();
         //testNewStringArray();
-        testStringIntern();
+        //testStringIntern();
         //testManyArgs();
         //testTrim();
-        //testAddress();
+        testAddress();
+        //testReplace();
+        //String[] split = "link:\"10.0.14.133:19291-10.0.2.87:10041\"".split(":");
+        //Arrays.stream(split).filter(s1 -> !"OR".equals(s1)).forEach(System.out::println);
+        //Arrays.stream("sda.sda".split("\\.")).forEach(System.out::println);
+
+    }
+    static List<String> METRIC_IN_VISUAL_QUERY_STRING =
+            new ImmutableList.Builder<String>()
+
+                    .add("src_ip")
+                    .add("sport")
+                    .add("dst_ip")
+                    .add("dport")
+                    .add("trans_id")
+                    .add("probe_name")
+                    .add("link")
+                    .add("src_ip_province")
+                    .add("latency_msec")
+                    .add("rtt")
+                    .add("trans_ref")
+                    .add("ret_code")
+
+                    .build();
+
+    private static String adapterQueryString(String queryString) {
+        if (Strings.isNullOrEmpty(queryString)) {
+            return queryString;
+        }
+        String splitString = " ";
+        String prefix = "_";
+        List<String> notMetricList = Lists.newArrayList("AND", "OR", "NOT");
+        //准备删除的旧数据
+        List<String> remove = Lists.newArrayList();
+
+        String[] split = queryString.split(splitString);
+        for (int i = 0; i < split.length; i++) {
+            //value可能是配置的值或者连接符（AND、OR、NOT）
+            String value = split[i];
+            if (Strings.isNullOrEmpty(value)) {
+                continue;
+            }
+            //连接符
+            if (notMetricList.contains(value)) {
+                continue;
+            }
+            //不管指标怎么样，都给去掉开头的下划线
+            if (value.startsWith(prefix)) {
+                value = value.replaceFirst(prefix, "");
+            }
+
+            //下面考虑删除掉4.1不存在的指标.
+            String[] split1 = value.split(":");
+            String metric = split1[0];
+
+
+            if (metric.contains(".")) {
+                metric = metric.split("\\.")[0];
+            }
+            //既不是4.1的指标，也不是连接符。
+            if (!METRIC_IN_VISUAL_QUERY_STRING.contains(metric)) {
+                if (i - 1 > -1) {
+                    String before = split[i - 1];
+                    remove.add(" " + before + " " +value);
+                } else {
+                    remove.add(value);
+                }
+            }
+            //更新数组的值
+            split[i] = value;
+        }
+
+        Joiner joiner = Joiner.on(" ").skipNulls();
+        queryString = joiner.join(split);
+
+        for (String s : remove) {
+            queryString = queryString.replace(s, "");
+        }
+
+        List<String> special = Lists.newArrayList(" OR ", " NOT ", " AND ");
+        for (String s : special) {
+            if (queryString.startsWith(s)) {
+                queryString = queryString.replaceFirst(s, "");
+            }
+        }
+
+        return queryString;
+    }
+    private static void testReplace() {
+        String s = "_protocol:6 OR _link:\"10.0.14.133:19291-10.0.2.87:10041\" OR _probe_name:PROBE_ETH0_1 OR _trans_ref.TT:09003000005 OR _ret_code.ProcessState:OK OR _latency_msec:22 OR _trans_transfer_ms:24 OR _out_bytes:2283 OR _in_bytes:2426 OR _out_pkts:22 OR _in_pkts OR _rtt:0 OR _tot_syn:0 OR _tot_fin_s:3 OR _tot_fin:2 OR _tot_synack:0 OR _tot_rst:1 OR _tot_rst_s:1 OR _out_ooo:0 OR _out_retran:46 OR _in_retran:2 OR _tot_zero_client:0 OR _tot_zero_server:0 OR _in_ooo:0";
+
+        List<String> list = Lists.newArrayList();
+        list.add("1");
+        list.add("1");
+        list.add("1");
+        list.add("1");
+        list.add("1");
+        list.add("1");
+        String string = adapterQueryString(s);
+        System.out.println(s);
+        System.out.println(string);
+
+        //String[] split = s.split(" ");
+        //Arrays.stream(split).filter(s1 -> !"OR".equals(s1)).forEach(System.out::println);
+        //for (int i = 0; i < split.length; i++) {
+        //    String s1 = split[i];
+        //    if (s1.startsWith("_")) {
+        //        s1 = s1.replaceFirst("_", "");
+        //        split[i] = s1;
+        //    }
+        //}
+        //System.out.println();
+        //Arrays.stream(split).filter(s1 -> !"OR".equals(s1)).forEach(System.out::println);
+        //Joiner joiner = Joiner.on(" ").skipNulls();
+        //String join = joiner.join(split);
+        //
+        //System.out.println(s);
+        //System.out.println(join);
+
     }
 
     /**
@@ -78,7 +198,6 @@ public class StringTest {
         System.out.println(s1 == s11);
 
 
-
     }
 
     /**
@@ -99,7 +218,7 @@ public class StringTest {
         System.out.println(isNotNullOrEmpty(d, "a"));
         System.out.println(isNotNullOrEmpty(d, "a", "b"));
         System.out.println(isNotNullOrEmpty(d, "a", "b", ""));
-        String str = concatString(new String[]{"a","b","c","d"});
+        String str = concatString(new String[]{"a", "b", "c", "d"});
         System.out.println(str);
     }
 
