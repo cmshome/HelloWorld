@@ -3,7 +3,7 @@
     <div id="b">
         <a  href="https://blog.csdn.net/qq_27093465/article/details/78491807" target="_blank"><img title="刚刚毕业，好好学习。" src="http://forum.csdn.net/PointForum/ui/scripts/csdn/Plugin/003/onion/41.gif" alt=""></a>
         <a  href="https://blog.csdn.net/qq_27093465/article/details/78491807" target="_blank"><img title="渐入佳境，高调装逼。" src="http://forum.csdn.net/PointForum/ui/scripts/csdn/Plugin/003/onion/83.gif" alt=""></a>
-        <a  href="/https://blog.csdn.net/qq_27093465/article/details/78491807" target="_blank"><img title="最高境界，低调低调。" src="http://forum.csdn.net/PointForum/ui/scripts/csdn/Plugin/003/onion/2.gif" alt=""></a>
+        <a  href="https://blog.csdn.net/qq_27093465/article/details/78491807" target="_blank"><img title="最高境界，低调低调。" src="http://forum.csdn.net/PointForum/ui/scripts/csdn/Plugin/003/onion/2.gif" alt=""></a>
     </div>
 </div>
 <ul id="c">
