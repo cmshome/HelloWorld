@@ -12,7 +12,10 @@ import java.lang.reflect.Method;
  * @author lxk on 2016/11/25
  */
 public class MyInterceptor implements MethodInterceptor {
-    private Object target;//目标类
+    /**
+     * 目标类
+     */
+    private Object target;
 
     public MyInterceptor(Object target) {
         this.target = target;
@@ -24,7 +27,8 @@ public class MyInterceptor implements MethodInterceptor {
      */
     public Object createProxy() {
         Enhancer enhancer = new Enhancer();
-        enhancer.setCallback(this);//回调函数  拦截器
+        //回调函数  拦截器
+        enhancer.setCallback(this);
         //设置代理对象的父类,可以看到代理对象是目标对象的子类。所以这个接口类就可以省略了。
         enhancer.setSuperclass(this.target.getClass());
         return enhancer.create();
@@ -36,12 +40,16 @@ public class MyInterceptor implements MethodInterceptor {
      */
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-        if(true){//不要在意这为什么是恒成立的条件语句，为的是说明一个aop的概念：切入点。
-            System.out.println("aaaaa");//切面方法a();
+        if(true){
+            //不要在意这为什么是恒成立的条件语句，为的是说明一个aop的概念：切入点。
+            //切面方法a();
+            System.out.println("aaaaa");
             //。。。
-            method.invoke(this.target, objects);//调用目标类的目标方法
+            //调用目标类的目标方法
+            method.invoke(this.target, objects);
             //。。。
-            System.out.println("bbbbb");//切面方法f();
+            //切面方法f();
+            System.out.println("bbbbb");
         }
         return null;
     }

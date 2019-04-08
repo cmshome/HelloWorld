@@ -9,7 +9,10 @@ import java.lang.reflect.Method;
  * @author lxk on 2016/11/25
  */
 public class MyInterceptor implements InvocationHandler {
-    private Object target;//目标类
+    /**
+     * 目标类
+     */
+    private Object target;
 
     public MyInterceptor(Object target) {
         this.target = target;
@@ -21,11 +24,14 @@ public class MyInterceptor implements InvocationHandler {
      */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("aaaaa");//切面方法a();
+        //切面方法a();
+        System.out.println("aaaaa");
         //。。。
-        method.invoke(this.target, args);//调用目标类的目标方法
+        //调用目标类的目标方法
+        method.invoke(this.target, args);
         //。。。
-        System.out.println("bbbbb");//切面方法f();
+        //切面方法f();
+        System.out.println("bbbbb");
         return null;
     }
 }
