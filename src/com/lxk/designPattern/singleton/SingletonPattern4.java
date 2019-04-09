@@ -16,6 +16,9 @@ public class SingletonPattern4 {
     }
 
     private SingletonPattern4() {
+        if (Holder.singleton != null) {
+            throw new IllegalStateException();
+        }
     }
 
     public static SingletonPattern4 getSingletonInstance() {
