@@ -26,7 +26,26 @@ public class ListsTest {
         //listCompare();
         //addIndexTest();
         //concurrentModificationException();
-        testStringList();
+        //testStringList();
+        List<Car> list = Lists.newArrayList();
+        list.add(new Car("x", 11, Lists.newArrayList(new Dog())));
+        list.add(new Car("xy", 12));
+        list.add(new Car("xyz", 13));
+        System.out.println(list.toString());
+        modifyList(list);
+        System.out.println(list.toString());
+    }
+
+    /**
+     * 虽然list当参数是地址传递，但是，list里面的对象的字符串属性的修改是值传递，要改的话，还的set一下。
+     */
+    private static void modifyList(List<Car> list) {
+        for (Car s : list) {
+            if (s.getMyDog() != null) {
+                Dog dog = s.getMyDog().get(0);
+                dog.setName("wawdawda");
+            }
+        }
     }
 
     /**
