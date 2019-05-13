@@ -17,7 +17,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Builder(toBuilder = true)
 public class Bird implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -40,7 +40,8 @@ public class Bird implements Serializable {
     private String size;
 
     @JSONField(ordinal = 1, name = "年龄")
-    private int age;
+    @Builder.Default
+    private int age = 100;
     /**
      * 反序列化false，那么在反序列化的时候，就不会把json的值转给对象的这个属性。
      */
