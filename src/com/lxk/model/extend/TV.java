@@ -1,8 +1,10 @@
 package com.lxk.model.extend;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 /**
  * TV
@@ -12,6 +14,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@SuperBuilder(toBuilder = true)
+@Builder(toBuilder = true)
 public class TV {
     private String id;
     private String name;

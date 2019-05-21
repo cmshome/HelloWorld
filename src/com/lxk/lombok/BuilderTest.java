@@ -1,6 +1,7 @@
 package com.lxk.lombok;
 
 import com.lxk.model.Bird;
+import com.lxk.model.extend.TCL;
 import com.lxk.util.JsonUtils;
 
 import java.util.Date;
@@ -12,9 +13,18 @@ import java.util.Date;
  */
 public class BuilderTest {
     public static void main(String[] args) {
-        testConstructor();
-        testDefaultValue();
-        testUpdateField();
+        //testConstructor();
+        //testDefaultValue();
+        //testUpdateField();
+        testExtend();
+    }
+
+    /**
+     * 测试继承
+     */
+    private static void testExtend() {
+        TCL tcl1 = TCL.builder().build();
+        System.out.println(tcl1);
     }
 
     /**
