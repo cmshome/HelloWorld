@@ -41,13 +41,58 @@ public class StringTest {
         //testStringIntern();
         //testManyArgs();
         //testTrim();
-        testAddress();
+        //testAddress();
         //testReplace();
         //String[] split = "link:\"10.0.14.133:19291-10.0.2.87:10041\"".split(":");
         //Arrays.stream(split).filter(s1 -> !"OR".equals(s1)).forEach(System.out::println);
         //Arrays.stream("sda.sda".split("\\.")).forEach(System.out::println);
 
+        testCleanString();
+
     }
+
+    private static void testCleanString() {
+        String s = "\"1234\"";
+        cleanString(s);
+        s = "'1234'";
+        cleanString(s);
+        s = "1234";
+        cleanString(s);
+        s = "123123'";
+        cleanString(s);
+        s = "123123\'";
+        cleanString(s);
+        s = "123123\"\"";
+        cleanString(s);
+    }
+
+    /**
+     * 字符串如果包含了""或者''，去掉最外层的引号。
+     *
+     * @param value 值
+     * @return 字符串值
+     */
+    private static String cleanString(String value) {
+        System.out.println(value);
+        if ((value == null) || (value.isEmpty())) {
+            return null;
+        }
+        int length = value.length();
+        int lastIndex = length - 1;
+        char firstChar = value.charAt(0);
+        char lastChar = value.charAt(lastIndex);
+        //是被双引号引住的字符串
+        boolean containDouble = firstChar == '"' && lastChar == '"';
+        //是被单引号引住的字符串
+        boolean containSingle = firstChar == '\'' && lastChar == '\'';
+        if (containDouble || containSingle) {
+            value = value.substring(1, lastIndex);
+        }
+        System.out.println(value);
+        System.out.println();
+        return value;
+    }
+
     static List<String> METRIC_IN_VISUAL_QUERY_STRING =
             new ImmutableList.Builder<String>()
 
@@ -370,7 +415,9 @@ public class StringTest {
      */
     private static void testSplit() {
         String ss = ",aa,bb,cc,dd,,,";
-        String[] array = ss.split(",");
+        ss = "1|2|3||7|4";
+        String[] array = ss.split("\\|");
+        System.out.println(array.toString());
 
         //结果是5，而不是预想中的8
         System.out.println(array.length);
