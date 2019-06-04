@@ -1,10 +1,12 @@
 package com.lxk.guavaTest;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -12,17 +14,34 @@ import java.util.Set;
  */
 public class SetsTest {
     public static void main(String[] args) {
-        List<String> big = Lists.newArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9");
-        List<String> small = Lists.newArrayList("1", "2", "3", "3", "2", "1", "0");
+        //List<String> big = Lists.newArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9");
+        //List<String> small = Lists.newArrayList("1", "2", "3", "3", "2", "1", "0");
         //long a = System.currentTimeMillis();
         //List<String> guava = getDifferenceSetByGuava(big, small);
-        List<String> guava = getDifferenceSetByGuava(small, big);
+        //List<String> guava = getDifferenceSetByGuava(small, big);
         //System.out.println("执行耗时 : " + (System.currentTimeMillis() - a) / 1000f + " 秒 ");
         ////为了显示一致，我给集合排个序，因为guava是按newHashSet集合来整的，newHashSet又是无序的,so ...
         //Collections.sort(guava);
         //System.out.println(guava.toString());
         //testAddAllToSet();
         //testSetAddFailed();
+
+        testAddNull();
+
+    }
+
+    private static void testAddNull() {
+        Set<String> set = Sets.newHashSet();
+        set.add(null);
+        set.add("1");
+        System.out.println(set.toString());
+
+        Map<String,Object> map = Maps.newHashMap();
+        map.put(null, "lxk");
+        map.put("", "sq");
+        System.out.println(map.toString());
+        System.out.println(map.get(null));
+        System.out.println(map.get(""));
     }
 
     /**
