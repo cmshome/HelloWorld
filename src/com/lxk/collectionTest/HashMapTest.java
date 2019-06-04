@@ -4,13 +4,24 @@ import com.google.common.collect.Maps;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 /**
  * @author lxk on 2017/4/11
  */
 public class HashMapTest {
     public static void main(String[] args) {
-        testIterator();
+        //testIterator();
+        putAllEmpty();
+    }
+
+    private static void putAllEmpty() {
+        Map<String, String> map = Maps.newHashMap();
+        HashMap<String, String> maps = Maps.newHashMap();
+
+        map.putAll(maps);
+        System.out.println(map);
+
     }
 
     /**
