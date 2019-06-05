@@ -21,7 +21,19 @@ public class CollectionUtil {
         size = (size == null || size <= 0) ? SIZE : size;
         List<String> list = Lists.newArrayListWithExpectedSize(size);
         for (Integer i = 0; i < size; i++) {
-            list.add(i.toString());
+            list.add(i.toString() + "1234567890");
+        }
+        return list;
+    }
+
+    /**
+     * 获得底层是数组的数组
+     */
+    public static String[] getArray(Integer size) {
+        size = (size == null || size <= 0) ? SIZE : size;
+        String[] list = new String[size];
+        for (Integer i = 0; i < size; i++) {
+            list[i] = (i.toString() + "1234567890");
         }
         return list;
     }
@@ -33,7 +45,7 @@ public class CollectionUtil {
         size = (size == null || size <= 0) ? SIZE : size;
         List<String> list = Lists.newArrayListWithExpectedSize(size);
         for (Integer i = 0; i < size; i++) {
-            list.add(i.toString());
+            list.add(i.toString() + "1234567890");
         }
         return list;
     }
