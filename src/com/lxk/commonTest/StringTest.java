@@ -4,6 +4,7 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
+import com.lxk.util.StringTokenizer;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +23,7 @@ public class StringTest {
 
     private static final char DOUBLE_QUOTATION_MARKS = '"';
     private static final char SINGLE_QUOTATION_MARK = '\'';
-
+    private static final String ttm = "0|probeName_lxk|188.188.8.118|10999|10.188.16.110|40998|grcb8583|{\"number\":\"78\",\"convers_id\": 12864829, \"msg_size\": 876, \"mti\": \"\", \"STAN\": \"  3133\", \"F38\": \"交易成功\", \"RC\": \"0000\", \"F41\": \"文件(PHPFG0),业务种类(000)\", \"mid\": \"\"}|||1|876|0|0|0|0|0|8|0|0|0|0|0|0|0|0|0|0|1536646259|1536646259923|2018-09-11T06:10:59|3166439542|180097134|6|0|7";
     static {
         HEL_ = "Hel";
         LO_ = "lo";
@@ -50,8 +51,34 @@ public class StringTest {
         //Arrays.stream(split).filter(s1 -> !"OR".equals(s1)).forEach(System.out::println);
         //Arrays.stream("sda.sda".split("\\.")).forEach(System.out::println);
 
-        testEfficiency();
+        //testEfficiency();
 
+        //test1();
+        test();
+    }
+
+    private static void test() {
+        while (true){
+            test1();
+            test2();
+        }
+    }
+
+    private static void test2() {
+        String[] split = ttm.split("\\|");
+        int length = split.length;
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            stringBuilder.append(split[i]);
+        }
+    }
+
+    private static void test1() {
+        StringTokenizer stringTokenizer = new StringTokenizer(ttm, "\\|");
+        StringBuilder stringBuilder = new StringBuilder();
+        while (stringTokenizer.hasMoreElements()) {
+            stringBuilder.append(stringTokenizer.nextToken());
+        }
     }
 
     /**
