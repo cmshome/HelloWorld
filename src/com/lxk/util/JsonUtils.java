@@ -2,6 +2,7 @@ package com.lxk.util;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 
 /**
  * JSON 转换
@@ -18,7 +19,7 @@ public final class JsonUtils {
         String string = null;
         try {
             string = JSON.toJSONString(object);
-            //string = JSONObject.toJSONString(object);
+            //string = JSONObject.parseObjToFormatJson(object);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -42,5 +43,19 @@ public final class JsonUtils {
             System.out.println(e.getMessage());
         }
         return null;
+    }
+
+    /**
+     * 输出格式化的json字符串
+     */
+    public static <T> String parseObjToFormatJson(T object) {
+        return JSON.toJSONString(object, SerializerFeature.DisableCircularReferenceDetect, SerializerFeature.PrettyFormat);
+    }
+
+    /**
+     *  不格式化Json数据
+     */
+    public static <T> String parseObjToNoFormatJson(T object) {
+        return JSON.toJSONString(object, SerializerFeature.DisableCircularReferenceDetect);
     }
 }

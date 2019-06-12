@@ -1,11 +1,9 @@
 package com.lxk.collectionTest;
 
-import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,22 +12,16 @@ import java.util.Map;
 public class HashMapTest {
     public static void main(String[] args) {
         //testIterator();
-        testReference();
+        putAllEmpty();
     }
 
-    private static void testReference() {
-        Map<String,Object> map = Maps.newHashMap();
-        map.put("1",12);
-        map.put("12",12);
-        List<Map<String,Object>> list = Lists.newArrayList();
-        list.add(map);
-        map = Maps.newHashMap();
-        map.put("13",12);
-        map.put("123",12);
-        list.add(map);
-        for (Map<String, Object> objectMap : list) {
-            System.out.println(objectMap);
-        }
+    private static void putAllEmpty() {
+        Map<String, String> map = Maps.newHashMap();
+        HashMap<String, String> maps = Maps.newHashMap();
+
+        map.putAll(maps);
+        System.out.println(map);
+
     }
 
     /**

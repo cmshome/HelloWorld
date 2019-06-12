@@ -4,9 +4,6 @@ import com.lxk.model.TimeFormatModel;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -28,24 +25,19 @@ public class TimeTest {
         //testStringToDate();
         //turnLongToDate();
         //testGetTime();
-        testSecondAndMillisecond();
+        getIntegerMinute();
+
     }
 
     /**
-     * 获得当前时间的秒数和毫秒数
+     * 对给的秒数取整分
      */
-    private static void testSecondAndMillisecond() {
-        long millisecond = System.currentTimeMillis();
-        System.out.println(millisecond);
-        long second  = millisecond / 1000 ;
-        System.out.println(second);
-        LocalDateTime localDateTime = LocalDateTime.now();
-
-        long epochSecond = localDateTime.atZone(ZoneOffset.systemDefault()).toEpochSecond();
-        System.out.println(epochSecond);
-
-        Instant now = Instant.now();
-        System.out.println(now.getEpochSecond());
+    private static void getIntegerMinute() {
+        long now = 1551945564L;
+        long yes = now/60 * 60;
+        System.out.println(now);
+        System.out.println(yes);
+        System.out.println(yes + 60);
     }
 
     /**

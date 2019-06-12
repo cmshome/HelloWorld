@@ -1,9 +1,11 @@
 package com.lxk.java8;
 
 import com.google.common.collect.Lists;
+import com.lxk.util.CollectionUtil;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 根据条件，删除集合中的元素
@@ -13,7 +15,22 @@ import java.util.List;
 public class RemoveIfTest {
     public static void main(String[] args) {
         //removeIfTest();
-        beforeRemove();
+        //beforeRemove();
+        mapRemoveIf();
+    }
+
+    private static void mapRemoveIf() {
+        Map<String, String> map = CollectionUtil.getMap(4);
+        System.out.println(map.toString());
+        Iterator<String> iterator = map.keySet().iterator();
+        while (iterator.hasNext()){
+            String key = iterator.next();
+            String value = map.get(key);
+            if (key.equals("1")){
+                iterator.remove();
+            }
+        }
+        System.out.println(map.toString());
     }
 
     /**

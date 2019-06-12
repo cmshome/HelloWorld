@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class PoiTest {
     public static void main(String[] args) {
-        List<Integer> all = getListData();
+        List<String> all = getListData();
         poiTest(all);
     }
 
@@ -23,7 +23,7 @@ public class PoiTest {
      *
      * @param all 导出数据集合
      */
-    private static void poiTest(List<Integer> all) {
+    private static void poiTest(List<String> all) {
         HSSFWorkbook workbook = new HSSFWorkbook();
         // 创建工作表对象并命名
         HSSFSheet sheet = workbook.createSheet("sheet1");
@@ -102,10 +102,10 @@ public class PoiTest {
     /**
      * 获得导出数据集合
      */
-    private static List<Integer> getListData() {
-        List<Integer> all = Lists.newArrayList();
+    private static List<String> getListData() {
+        List<String> all = Lists.newArrayList();
         for (int i = 0; i < 10; i++) {
-            all.add(i);
+            all.add("小花" + i);
         }
         return all;
     }

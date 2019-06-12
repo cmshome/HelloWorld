@@ -2,9 +2,11 @@ package com.lxk.java8;
 
 import com.lxk.util.TimesUtils;
 
+import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
+import java.util.Date;
 
 /**
  * 测试 Java 1.8 日期 API 的使用
@@ -17,14 +19,73 @@ public class DateJava8Test {
         //dateTimeFormatterTest();
         //easyTest();
         getBetweenDay();
-        //localTimeTest();
+        //getYMD();
+        //secondToJava8Date();
+
+        //turnSecondsToData();
+    }
+
+    /**
+     * 将秒数格式化成日期字符串输出
+     */
+    private static void turnSecondsToData() {
+        DateTimeFormatter sf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        ZoneId zoneId = ZoneOffset.systemDefault();
+        System.out.println(LocalDateTime.ofInstant(Instant.ofEpochSecond(System.currentTimeMillis() / 1000), zoneId).format(sf));
+    }
+
+    /**
+     * 由秒数转成Java8时间类操作对象
+     */
+    private static void secondToJava8Date() {
+        long second = System.currentTimeMillis() / 1000;
+        System.out.println(second);
+        ZoneId zoneId = ZoneOffset.systemDefault();
+        //之所以这么初始化，是因为根据传入的时间进行操作
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochSecond(second), zoneId);
+        LocalDateTime dateTime = localDateTime.plusDays(-1);
+        long second1 = dateTime.atZone(zoneId).toEpochSecond();
+        System.out.println(second1);
+        DateTimeFormatter sf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        System.out.println(localDateTime.format(sf));
+        System.out.println(dateTime.format(sf));
+
+    }
+
+    /**
+     * Date 和 LocalDate 互相转换。
+     */
+    private static void getYMD() {
+        //Date -> LocalDate
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy MM dd HH mm ss");
+        System.out.println(simpleDateFormat.format(date));
+        Instant instant = date.toInstant();
+        ZoneId zoneId = ZoneId.systemDefault();
+        // atZone()方法返回在指定时区从此Instant生成的ZonedDateTime。
+        LocalDate localDate = instant.atZone(zoneId).toLocalDate();
+        System.out.println(localDate);
+
+
+        //LocalDate ->Date
+        ZonedDateTime zdt = localDate.atStartOfDay(zoneId);
+        Date ls = Date.from(zdt.toInstant());
+        System.out.println("LocalDate = " + localDate);
+        System.out.println("Date = " + simpleDateFormat.format(ls));
+
+        //out format date out
+        System.out.println("--------");
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter sf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        System.out.println(localDateTime.format(sf));
     }
 
     /**
      * 计算两个时间点之间的天数
-     * LocalDate start = LocalDate.of(1990, 8, 17);
      */
     private static void getBetweenDay() {
+        //阴历，腊月27早上出生🐣，28，29，30。距离过年三天
         LocalDate start = LocalDate.of(2018, 2, 12);
         LocalDate now = LocalDate.now();
         System.out.println("儿子今天是 " + TimesUtils.getBetweenDay(start, now) + " 天啦。");
@@ -176,11 +237,8 @@ public class DateJava8Test {
         long epochSecond = System.currentTimeMillis() / 1000L;
         //默认使用系统时区
         ZoneId zoneId = ZoneOffset.systemDefault();
-        /*
-         * 之所以这么初始化，是因为根据传入的时间进行操作(从秒数实例化LocalDateTime对象)
-         */
+        //之所以这么初始化，是因为根据传入的时间进行操作
         LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochSecond(epochSecond), zoneId);
-
         //LocalDateTime.now();//也可以这么获得当前时间
         System.out.println("localDateTime 初始化值：" + localDateTime);
         System.out.println("getYear：" + localDateTime.getYear());

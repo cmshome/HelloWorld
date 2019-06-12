@@ -21,6 +21,7 @@ public class EncodingTest {
             //prop.load(in);//直接这么写，如果properties文件中有汉子，则汉字会乱码。因为未设置编码格式。
             inputStreamReader = new InputStreamReader(inputStream, "utf-8");
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            bufferedReader.readLine();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

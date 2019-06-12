@@ -1,6 +1,7 @@
 package com.lxk.guavaTest;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
 
 import java.util.Map;
 
@@ -27,4 +28,12 @@ interface ConstantMap {
                     .put(43, "输入接口snmp(input_snmp)")
 
                     .build();
+
+    /**
+     * 这个最多支持5对，不能再多啦。
+     */
+    ImmutableMap<String,String> MAP = ImmutableMap.of("key1", "value1", "key2", "value2");
+
+    ImmutableMap<String,String> MAP_ = ImmutableMap.copyOf(Maps.newHashMap());
+
 }

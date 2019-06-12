@@ -2,7 +2,9 @@ package com.lxk.commonTest;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
+import com.lxk.util.StringTokenizer;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,11 +16,24 @@ import java.util.List;
  * @author lxk on 2017/2/8
  */
 public class StringTest {
+    private static final String HEL = "Hel";
+    private static final String LO = "lo";
+    private static final String HEL_;
+    private static final String LO_;
+
+    private static final char DOUBLE_QUOTATION_MARKS = '"';
+    private static final char SINGLE_QUOTATION_MARK = '\'';
+    private static final String ttm = "0|probeName_lxk|188.188.8.118|10999|10.188.16.110|40998|grcb8583|{\"number\":\"78\",\"convers_id\": 12864829, \"msg_size\": 876, \"mti\": \"\", \"STAN\": \"  3133\", \"F38\": \"交易成功\", \"RC\": \"0000\", \"F41\": \"文件(PHPFG0),业务种类(000)\", \"mid\": \"\"}|||1|876|0|0|0|0|0|8|0|0|0|0|0|0|0|0|0|0|1536646259|1536646259923|2018-09-11T06:10:59|3166439542|180097134|6|0|7";
+    static {
+        HEL_ = "Hel";
+        LO_ = "lo";
+    }
+
     public static void main(String[] args) {
         //testValueAndAddressTransmit();
         //testStringBufferAndStringBuilder();
         //testStringNewLine();
-        testSplit();
+        //testSplit();
         //testStringPool2();
         //testListToString();
         //testReverseString();
@@ -28,14 +43,339 @@ public class StringTest {
         //testSplitPlus();
         //testNewStringArray();
         //testStringIntern();
-        //testManyArgs()
-        // testTrim();
+        //testManyArgs();
+        //testTrim();
+        //testAddress();
+        //testReplace();
+        //String[] split = "link:\"10.0.14.133:19291-10.0.2.87:10041\"".split(":");
+        //Arrays.stream(split).filter(s1 -> !"OR".equals(s1)).forEach(System.out::println);
+        //Arrays.stream("sda.sda".split("\\.")).forEach(System.out::println);
+
+        //testEfficiency();
+
+        //test1();
+        test();
     }
 
+    private static void test() {
+        while (true){
+            test1();
+            test2();
+        }
+    }
+
+    private static void test2() {
+        String[] split = ttm.split("\\|");
+        int length = split.length;
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            stringBuilder.append(split[i]);
+        }
+    }
+
+    private static void test1() {
+        StringTokenizer stringTokenizer = new StringTokenizer(ttm, "\\|");
+        StringBuilder stringBuilder = new StringBuilder();
+        while (stringTokenizer.hasMoreElements()) {
+            stringBuilder.append(stringTokenizer.nextToken());
+        }
+    }
+
+    /**
+     * 测试下面三个处理字符串的效率问题
+     * cleanString ：cleanString2：cleanString3 = 32.9 : 23.9 : 30.2
+     * 可见 cleanString2 效率高。
+     */
+    private static void testEfficiency() {
+        while (true) {
+            testCleanString();
+            testCleanString2();
+            testCleanString3();
+        }
+    }
+
+    private static void testCleanString() {
+        String s = "\"1234\"";
+        cleanString(s);
+
+        s = "'1234'";
+        cleanString(s);
+
+        s = "1234";
+        cleanString(s);
+
+        s = "123123'";
+        cleanString(s);
+
+        s = "12315623\'";
+        cleanString(s);
+
+        s = "123123\"\"";
+        cleanString(s);
+    }
+
+    private static void testCleanString2() {
+        String s = "\"1234\"";
+        cleanString2(s);
+
+        s = "'1234'";
+        cleanString2(s);
+
+        s = "1234";
+        cleanString2(s);
+
+        s = "123123'";
+        cleanString2(s);
+
+        s = "12315623\'";
+        cleanString2(s);
+
+        s = "123123\"\"";
+        cleanString2(s);
+    }
+
+    private static void testCleanString3() {
+        String s = "\"1234\"";
+        cleanString3(s);
+
+        s = "'1234'";
+        cleanString3(s);
+
+        s = "1234";
+        cleanString3(s);
+
+        s = "123123'";
+        cleanString3(s);
+
+        s = "12315623\'";
+        cleanString3(s);
+
+        s = "123123\"\"";
+        cleanString3(s);
+    }
+
+    private static String cleanString3(String value) {
+        if ((value == null) || (value.isEmpty())) {
+            return null;
+        }
+        if ((value.startsWith("\"") && value.endsWith("\""))
+                || (value.startsWith("'") && value.endsWith("'"))) {
+            value = value.substring(1, value.length() - 1);
+        }
+        return value;
+    }
+
+    /**
+     * 相比下面的，判断次数是减少了，效率提高啦。
+     * 字符串如果包含了""或者''，去掉最外层的引号。
+     *
+     * @param value 值
+     * @return 字符串值
+     */
+    private static String cleanString2(String value) {
+        if ((value == null) || (value.isEmpty())) {
+            return null;
+        }
+        char firstChar = value.charAt(0);
+        if (firstChar == DOUBLE_QUOTATION_MARKS) {
+            int lastIndex = value.length() - 1;
+            char lastChar = value.charAt(lastIndex);
+            if (lastChar == DOUBLE_QUOTATION_MARKS) {
+                return value.substring(1, lastIndex);
+            }
+        } else if (firstChar == SINGLE_QUOTATION_MARK) {
+            int lastIndex = value.length() - 1;
+            char lastChar = value.charAt(lastIndex);
+            if (lastChar == SINGLE_QUOTATION_MARK) {
+                return value.substring(1, lastIndex);
+            }
+        }
+        return value;
+    }
+
+    /**
+     * 字符串如果包含了""或者''，去掉最外层的引号。
+     *
+     * @param value 值
+     * @return 字符串值
+     */
+    private static String cleanString(String value) {
+        if ((value == null) || (value.isEmpty())) {
+            return null;
+        }
+        int length = value.length();
+        int lastIndex = length - 1;
+        char firstChar = value.charAt(0);
+        char lastChar = value.charAt(lastIndex);
+        //是被双引号引住的字符串
+        boolean containDouble = firstChar == '"' && lastChar == '"';
+        //是被单引号引住的字符串
+        boolean containSingle = firstChar == '\'' && lastChar == '\'';
+        if (containDouble || containSingle) {
+            value = value.substring(1, lastIndex);
+        }
+        return value;
+    }
+
+    static List<String> METRIC_IN_VISUAL_QUERY_STRING =
+            new ImmutableList.Builder<String>()
+
+                    .add("src_ip")
+                    .add("sport")
+                    .add("dst_ip")
+                    .add("dport")
+                    .add("trans_id")
+                    .add("probe_name")
+                    .add("link")
+                    .add("src_ip_province")
+                    .add("latency_msec")
+                    .add("rtt")
+                    .add("trans_ref")
+                    .add("ret_code")
+
+                    .build();
+
+    private static String adapterQueryString(String queryString) {
+        if (Strings.isNullOrEmpty(queryString)) {
+            return queryString;
+        }
+        String splitString = " ";
+        String prefix = "_";
+        List<String> notMetricList = Lists.newArrayList("AND", "OR", "NOT");
+        //准备删除的旧数据
+        List<String> remove = Lists.newArrayList();
+
+        String[] split = queryString.split(splitString);
+        for (int i = 0; i < split.length; i++) {
+            //value可能是配置的值或者连接符（AND、OR、NOT）
+            String value = split[i];
+            if (Strings.isNullOrEmpty(value)) {
+                continue;
+            }
+            //连接符
+            if (notMetricList.contains(value)) {
+                continue;
+            }
+            //不管指标怎么样，都给去掉开头的下划线
+            if (value.startsWith(prefix)) {
+                value = value.replaceFirst(prefix, "");
+            }
+
+            //下面考虑删除掉4.1不存在的指标.
+            String[] split1 = value.split(":");
+            String metric = split1[0];
+
+
+            if (metric.contains(".")) {
+                metric = metric.split("\\.")[0];
+            }
+            //既不是4.1的指标，也不是连接符。
+            if (!METRIC_IN_VISUAL_QUERY_STRING.contains(metric)) {
+                if (i - 1 > -1) {
+                    String before = split[i - 1];
+                    remove.add(" " + before + " " +value);
+                } else {
+                    remove.add(value);
+                }
+            }
+            //更新数组的值
+            split[i] = value;
+        }
+
+        Joiner joiner = Joiner.on(" ").skipNulls();
+        queryString = joiner.join(split);
+
+        for (String s : remove) {
+            queryString = queryString.replace(s, "");
+        }
+
+        List<String> special = Lists.newArrayList(" OR ", " NOT ", " AND ");
+        for (String s : special) {
+            if (queryString.startsWith(s)) {
+                queryString = queryString.replaceFirst(s, "");
+            }
+        }
+
+        return queryString;
+    }
+    private static void testReplace() {
+        String s = "_protocol:6 OR _link:\"10.0.14.133:19291-10.0.2.87:10041\" OR _probe_name:PROBE_ETH0_1 OR _trans_ref.TT:09003000005 OR _ret_code.ProcessState:OK OR _latency_msec:22 OR _trans_transfer_ms:24 OR _out_bytes:2283 OR _in_bytes:2426 OR _out_pkts:22 OR _in_pkts OR _rtt:0 OR _tot_syn:0 OR _tot_fin_s:3 OR _tot_fin:2 OR _tot_synack:0 OR _tot_rst:1 OR _tot_rst_s:1 OR _out_ooo:0 OR _out_retran:46 OR _in_retran:2 OR _tot_zero_client:0 OR _tot_zero_server:0 OR _in_ooo:0";
+
+        List<String> list = Lists.newArrayList();
+        list.add("1");
+        list.add("1");
+        list.add("1");
+        list.add("1");
+        list.add("1");
+        list.add("1");
+        String string = adapterQueryString(s);
+        System.out.println(s);
+        System.out.println(string);
+
+        //String[] split = s.split(" ");
+        //Arrays.stream(split).filter(s1 -> !"OR".equals(s1)).forEach(System.out::println);
+        //for (int i = 0; i < split.length; i++) {
+        //    String s1 = split[i];
+        //    if (s1.startsWith("_")) {
+        //        s1 = s1.replaceFirst("_", "");
+        //        split[i] = s1;
+        //    }
+        //}
+        //System.out.println();
+        //Arrays.stream(split).filter(s1 -> !"OR".equals(s1)).forEach(System.out::println);
+        //Joiner joiner = Joiner.on(" ").skipNulls();
+        //String join = joiner.join(split);
+        //
+        //System.out.println(s);
+        //System.out.println(join);
+
+    }
+
+    /**
+     * 测试经典的字符串常量池问题。
+     */
+    private static void testAddress() {
+        String s1 = "Hello";
+        String s2 = "Hello";
+        String s3 = "Hel" + "lo";
+        String s4 = "Hel" + new String("lo");
+        String s5 = new String("Hello");
+        String s6 = s5.intern();
+        String s7 = "H";
+        String s8 = "ello";
+        String s9 = s7 + s8;
+
+        // true 都是字面量，编译期间就可以确定值
+        System.out.println(s1 == s2);
+        // true 同理，字面量，编译期间可以确定值
+        System.out.println(s1 == s3);
+        // false 但new String("lo")这部分不是已知字面量，是一个不可预料的部分，编译器不会优化，必须等到运行时才可以确定结果，
+        System.out.println(s1 == s4);
+        // false  虽然s7、s8在赋值的时候使用的字符串字面量，但是拼接成s9的时候，s7、s8作为两个变量，都是不可预料的
+        System.out.println(s1 == s9);
+        // false 都是new出来的，肯定不会相等的
+        System.out.println(s4 == s5);
+        // true  ，intern方法会尝试将Hello字符串添加到常量池中，并返回其在常量池中的地址
+        System.out.println(s1 == s6);
+
+        String s10 = HEL + LO;
+        // true s10是虽然是加出来的，但是a0和a1都是static final 编译期间，就已经知道啦。所以，s10，也是常量。
+        System.out.println(s1 == s10);
+
+        String s11 = HEL_ + LO_;
+        // false s11也是加出来的，但是后面的2个是通过静态代码块赋值的，静态代码块，只有在类加载的时候，才执行。所以，后面的2个是不确定值。
+        System.out.println(s1 == s11);
+
+
+    }
+
+    /**
+     * 测试：trim返回新的字符串，不修改原来的字符串。
+     */
     private static void testTrim() {
-        String abc = "   lxk  sls    ";
-        //lxk  sls
-        System.out.println(abc.trim());
+        String s = "     123     ";
+        System.out.println(s.trim());
+        System.out.println(s);
     }
 
     /**
@@ -47,6 +387,8 @@ public class StringTest {
         System.out.println(isNotNullOrEmpty(d, "a"));
         System.out.println(isNotNullOrEmpty(d, "a", "b"));
         System.out.println(isNotNullOrEmpty(d, "a", "b", ""));
+        String str = concatString(new String[]{"a", "b", "c", "d"});
+        System.out.println(str);
     }
 
     private static boolean isNotNullOrEmpty(int d, String... arg) {
@@ -59,8 +401,22 @@ public class StringTest {
         return true;
     }
 
+    public static String concatString(String... strings) {
+        StringBuilder str = new StringBuilder();
+        for (int i = 0; i < strings.length; i++) {
+            str.append(strings[i]);
+            if (i != strings.length - 1) {
+                str.append("--");
+            }
+        }
+        return str.toString();
+    }
+
     /**
      * intern方法测试，讲字符串加入到常量池 native 方法。
+     * s1 s2 声明完之后，就在常量池啦，因为这个常量声明方法。
+     * 再intern方法，他已经存在啦，此方法就把池里面的返回啦。
+     * 所以，比较地址，就是自己跟自己比，就相等啦。
      */
     private static void testStringIntern() {
         String s1 = "go" + "od";
@@ -89,20 +445,26 @@ public class StringTest {
         String string = "aaa456ac";
 
         //查找指定字符是在字符串中的下标。在则返回所在字符串下标；不在则返回-1.
-        System.out.println(string.indexOf("b"));//indexOf(String str)；返回结果：-1，"b"不存在
+        //indexOf(String str)；返回结果：-1，"b"不存在
+        System.out.println(string.indexOf("b"));
 
         // 从第四个字符位置开始往后继续查找，包含当前位置
-        System.out.println(string.indexOf("a", 3));//indexOf(String str, int fromIndex)；返回结果：6
+        //indexOf(String str, int fromIndex)；返回结果：6
+        System.out.println(string.indexOf("a", 3));
 
         //（与之前的差别：上面的参数是 String 类型，下面的参数是 int 类型）参考数据：a-97,b-98,c-99
 
         // 从头开始查找是否存在指定的字符
-        System.out.println(string.indexOf(99));//indexOf(int ch)；返回结果：7
-        System.out.println(string.indexOf('c'));//indexOf(int ch)；返回结果：7
+        //indexOf(int ch)；返回结果：7
+        System.out.println(string.indexOf(99));
+        //indexOf(int ch)；返回结果：7
+        System.out.println(string.indexOf('c'));
 
         //从fromIndex查找ch，这个是字符型变量，不是字符串。字符a对应的数字就是97。
-        System.out.println(string.indexOf(97, 3));//indexOf(int ch, int fromIndex)；返回结果：6
-        System.out.println(string.indexOf('a', 3));//indexOf(int ch, int fromIndex)；返回结果：6
+        //indexOf(int ch, int fromIndex)；返回结果：6
+        System.out.println(string.indexOf(97, 3));
+        //indexOf(int ch, int fromIndex)；返回结果：6
+        System.out.println(string.indexOf('a', 3));
 
         //这个就是灵活运用String类提供的方法，拆分提供的字符串。
         String s = "D:\\Android\\sdk\\add-ons";
@@ -140,7 +502,8 @@ public class StringTest {
         }
         System.out.println(sb.toString().substring(0, sb.lastIndexOf(",")));
         System.out.println("等效的快捷方式");
-        Joiner joiner = Joiner.on(",").skipNulls();//跳过null
+        //跳过null
+        Joiner joiner = Joiner.on(",").skipNulls();
         //System.out.println(joiner.join(s));
         System.out.println(joiner.join(s.toArray()));
     }
@@ -176,15 +539,15 @@ public class StringTest {
      */
     private static void testSplit() {
         String ss = ",aa,bb,cc,dd,,,";
-        String[] array = ss.split(",");
+        ss = "1|2|3||7|4";
+        String[] array = ss.split("\\|");
+        System.out.println(array.toString());
 
-        System.out.println(array.length);//结果是5，而不是预想中的8
+        //结果是5，而不是预想中的8
+        System.out.println(array.length);
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i]);
         }
-        String a = "as|sad";
-        String[] split = a.split("\\|");
-        System.out.println(Arrays.toString(split));
     }
 
     /**

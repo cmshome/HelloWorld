@@ -2,11 +2,14 @@ package com.lxk.guavaTest;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 import com.lxk.model.Car;
 import com.lxk.model.Dog;
+import com.lxk.throwable.ExceptionTest;
+import com.lxk.util.CollectionUtil;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * guava Lists 测试实例
@@ -18,9 +21,96 @@ public class ListsTest {
     public static void main(String[] args) {
         //emptyListToArray();
         //objectListToString();
-        simpleListToString();
+        //simpleListToString();
         //testLists();
+        //listCompare();
+        //addIndexTest();
+        //concurrentModificationException();
+        //testStringList();
+        List<Car> list = Lists.newArrayList();
+        list.add(new Car("x", 11, Lists.newArrayList(new Dog())));
+        list.add(new Car("xy", 12));
+        list.add(new Car("xyz", 13));
+        System.out.println(list.toString());
+        modifyList(list);
+        System.out.println(list.toString());
+    }
 
+    /**
+     * 虽然list当参数是地址传递，但是，list里面的对象的字符串属性的修改是值传递，要改的话，还的set一下。
+     */
+    private static void modifyList(List<Car> list) {
+        for (Car s : list) {
+            if (s.getMyDog() != null) {
+                Dog dog = s.getMyDog().get(0);
+                dog.setName("wawdawda");
+            }
+        }
+    }
+
+    /**
+     * 修改字符串list里面的值，是值传递。
+     */
+    private static void testStringList() {
+        List<String> list = CollectionUtil.getArrayList(5);
+        System.out.println(list.toString());
+        for (String o : list) {
+            o = "222";
+        }
+        System.out.println(list);
+
+        for (int i = 0; i < list.size(); i++) {
+            list.set(i,list.get(i)+ "aaaa");
+        }
+        System.out.println(list);
+    }
+
+    /**
+     * {@link ExceptionTest#modCountTest()}
+     */
+    private static void concurrentModificationException() {
+
+    }
+
+    /**
+     * add(int index, E element);
+     * 这个方法竟然不是替换掉index位置的元素，而是让index位置的元素向后靠，还在list里面。
+     */
+    private static void addIndexTest() {
+        List<String> list = Lists.newArrayList();
+
+        //bug ,,  IndexOutOfBoundsException
+        //System.out.println(list.get(0));
+
+        list.add(0, "0");
+        list.add(0, "1");
+        list.add(0, "2");
+        list.add(0, "3");
+        //输出：[3, 2, 1, 0]
+        System.out.println(list.toString());
+
+        List<String> list1 = new ArrayList<>();
+        list1.add(0, "0");
+        list1.add(0, "1");
+        list1.add(0, "2");
+        list1.add(0, "3");
+        System.out.println(list1);
+
+        LinkedHashMap<String, String> linkedHashMap = Maps.newLinkedHashMap();
+        linkedHashMap.put("1", null);
+        linkedHashMap.put("0", null);
+        linkedHashMap.put("2", null);
+        linkedHashMap.put("3", null);
+        linkedHashMap.put("4", null);
+        linkedHashMap.keySet().forEach(System.out::println);
+
+        LinkedHashSet set = Sets.newLinkedHashSet();
+    }
+
+    /**
+     * 把list转成set去比较交并补集
+     */
+    private static void listCompare() {
     }
 
     private static void simpleListToString() {
@@ -30,6 +120,17 @@ public class ListsTest {
         Joiner joiner = Joiner.on(",").skipNulls();
         String s = joiner.join(list);
         System.out.println(s);
+        List<String> a = Lists.newArrayList();
+        List<String> b = Lists.newArrayList();
+        b.addAll(a);
+
+        List<String> ss = Lists.newArrayList("1", "2", "3", "4", "5");
+        System.out.println(ss.toString());
+        ss = ss.subList(1,5);
+        System.out.println(ss.toString());
+        ss.add("2333");
+        System.out.println(ss.toString());
+
     }
 
 

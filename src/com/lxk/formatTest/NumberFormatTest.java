@@ -3,6 +3,7 @@ package com.lxk.formatTest;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 /**
  * 数字格式化测试
@@ -13,13 +14,49 @@ import java.text.DecimalFormat;
 public class NumberFormatTest {
     public static void main(String[] args) {
         //beforeTestGroup();
-        scientificNumber();
+        //scientificNumber();
+        //bigDecimalTest();
+        floatFormatTest();
+    }
+
+    /**
+     * 2.3F经过格式化，竟然变成2.99啦。what the fuck .
+     * float类型的时候，值是2.3，但是一经变成Double，值就变成2.99999啦。
+     * 这个format的参数是double类型的。所以，在传入参数的时候，就变成了对2.299999952316284进行操作。返回就过就是2.99
+     */
+    private static void floatFormatTest() {
+        float responseTime = 2.3F;
+        NumberFormat formatter;
+        formatter = NumberFormat.getNumberInstance();
+        formatter.setGroupingUsed(false);
+        formatter.setRoundingMode(RoundingMode.FLOOR);
+        formatter.setMaximumFractionDigits(2);
+        String format = formatter.format(responseTime);
+        System.out.println(format);
+        BigDecimal bigDecimal = new BigDecimal(responseTime + "");
+        float v = Float.parseFloat(formatter.format(bigDecimal));
+        System.out.println(v);
+    }
+
+    /**
+     * 数字字符串要是带空格就会转BigDecimal失败。
+     */
+    private static void bigDecimalTest() {
+        BigDecimal bigDecimal = new BigDecimal(11.12121212121);
+        //11.12121212121000013439697795547544956207275390625
+        System.out.println(bigDecimal.toPlainString());
+        bigDecimal = new BigDecimal("11.12121212121        ".trim());
+        //11.12121212121
+        System.out.println(bigDecimal.toPlainString());
+
     }
 
     /**
      * 科学计数法的还原
      */
     private static void scientificNumber() {
+        long ll = 1234567845134321L;
+        System.out.println(ll);
         double bigValue = 6.21482E+18D;
         System.out.println(bigValue);
 
@@ -35,6 +72,14 @@ public class NumberFormatTest {
         BigDecimal bd = new BigDecimal("1.1920928955078125e-7");
         String str = bd.toPlainString();
         System.out.println(str);
+
+        BigDecimal bds = new BigDecimal("5.1623245E7");
+        String strs = bds.toPlainString();
+        System.out.println(strs);
+
+        String sss = "12344.33";
+        System.out.println(sss.contains("."));
+
     }
 
     private static void beforeTestGroup() {

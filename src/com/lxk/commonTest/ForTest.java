@@ -1,7 +1,6 @@
 package com.lxk.commonTest;
 
 import com.lxk.util.CollectionUtil;
-import com.lxk.util.PrintUtil;
 
 import java.util.List;
 
@@ -11,98 +10,103 @@ import java.util.List;
  * @author lxk on 2017/4/21
  */
 public class ForTest {
+    private static final int SIZE = 40;
+
     public static void main(String[] args) {
         //testFor();
         testForEfficiency();
+        //test();
     }
+
 
     /**
      * 测试不同for的效率问题
      */
     private static void testForEfficiency() {
-        List<String> arrayList = CollectionUtil.getArrayList();
-        List<String> linkedList = CollectionUtil.getLinkedList();
-        testForI(arrayList, linkedList);
-        testForEach(arrayList, linkedList);
-        testForLambda(arrayList, linkedList);
+        String[] array = CollectionUtil.getArray(SIZE);
+        List<String> arrayList = CollectionUtil.getArrayList(SIZE);
+        List<String> linkedList = CollectionUtil.getLinkedList(SIZE);
+
+        while (true) {
+            testArray(array);
+            testArrayList(arrayList);
+            testLinkedList(linkedList);
+        }
+
     }
 
     /**
-     * for i
-     *
-     * @param arrayList  arrayList
-     * @param linkedList linkedList
+     * arrayList 在使用forI循环，forEach循环和lambda循环的效率测试
      */
-    private static void testForI(List<String> arrayList, List<String> linkedList) {
-        int size = arrayList.size();
-        StringBuilder sb = new StringBuilder();
-        long a = System.currentTimeMillis();
-        for (int i = 0; i < size; i++) {
-            sb.append(arrayList.get(i));
-        }
-        PrintUtil.printRunTime(a, "for i for arrayList");
-
-        size = linkedList.size();
-        sb = new StringBuilder();
-        a = System.currentTimeMillis();
-        for (int i = 0; i < size; i++) {
-            sb.append(linkedList.get(i));
-        }
-        PrintUtil.printRunTime(a, "for i for linkedList");
+    private static void testArrayList(List<String> arrayList) {
+        testForI(arrayList);
+        testForEach(arrayList);
+        testLambda(arrayList);
     }
 
     /**
-     * for each
-     *
-     * @param arrayList  arrayList
-     * @param linkedList linkedList
+     * array 在使用forI循环的效率测试
      */
-    private static void testForEach(List<String> arrayList, List<String> linkedList) {
+    private static void testArray(String[] array) {
+        testForI(array);
+    }
+
+    private static void testForI(String[] array) {
         StringBuilder sb = new StringBuilder();
-        long a = System.currentTimeMillis();
+        for (int i = 0; i < SIZE; i++) {
+            sb.append(array[i]);
+        }
+    }
+
+    /**
+     * linkedList 在使用forI循环，forEach循环和lambda循环的效率测试
+     */
+    private static void testLinkedList(List<String> linkedList) {
+        testForI(linkedList);
+        testForEach(linkedList);
+        testLambda(linkedList);
+    }
+
+    private static void testLambda(List<String> arrayList) {
+        StringBuilder sb = new StringBuilder();
+        arrayList.forEach(sb::append);
+    }
+
+    private static void testForEach(List<String> arrayList) {
+        StringBuilder sb = new StringBuilder();
         for (String s : arrayList) {
             sb.append(s);
         }
-        PrintUtil.printRunTime(a, "for each for arrayList");
-
-        sb = new StringBuilder();
-        a = System.currentTimeMillis();
-        for (String s : linkedList) {
-            sb.append(s);
-        }
-        PrintUtil.printRunTime(a, "for each for linkedList");
     }
 
-    /**
-     * Java 8 的for循环
-     *
-     * @param arrayList  arrayList
-     * @param linkedList linkedList
-     */
-    private static void testForLambda(List<String> arrayList, List<String> linkedList) {
+    private static void testForI(List<String> arrayList) {
         StringBuilder sb = new StringBuilder();
-        long a = System.currentTimeMillis();
-        arrayList.forEach(sb::append);
-        PrintUtil.printRunTime(a, "Lambda for arrayList");
+        for (int i = 0; i < SIZE; i++) {
+            sb.append(arrayList.get(i));
+        }
+    }
 
-        sb = new StringBuilder();
-        a = System.currentTimeMillis();
-        linkedList.forEach(sb::append);
-        PrintUtil.printRunTime(a, "Lambda for linkedList");
+    private static void forIAfter() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < SIZE; i++) {
+            sb.append(i);
+        }
+    }
+
+    private static void forIBefore() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < SIZE; ++i) {
+            sb.append(i);
+        }
     }
 
     /**
-     * 测试for循环，第三个条件是i++和++i的差别
-     * 发现效果是一样的
+     * 前后使用++对效率没影响，都是百分之五十的比例。
      */
-    private static void testFor() {
-        int max = 5;
-        for (int i = 0; i < max; i++) {
-            System.out.print(i);
-        }
-        System.out.println();
-        for (int i = 0; i < max; ++i) {
-            System.out.print(i);
+    private static void test() {
+        while (true) {
+            forIAfter();
+            forIBefore();
         }
     }
 }

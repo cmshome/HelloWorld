@@ -13,7 +13,19 @@ public class IntegerTest {
         //testIntegerCache();
         //testIntAndIntegerCache();
         //valueIsNumber("ewq");
-        testRandom();
+        //testRandom();
+        testMax();
+    }
+
+    /**
+     * 测试一个int数字一直加，会变成负数
+     */
+    private static void testMax() {
+        int start = 1;
+        while (start > 0){
+            start++;
+        }
+        System.out.println(start);
     }
 
     /**

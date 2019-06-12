@@ -128,7 +128,7 @@ public class ExceptionTest {
     }
 
     /**
-     * 第一种：会抛ConcurrentModificationException的异常方法
+     * 第一种：会抛 ConcurrentModificationException 的异常方法
      */
     private static void wrongWay0(List<String> list) {
         Iterator<String> iterator = list.iterator();

@@ -2,9 +2,7 @@ package com.lxk.util;
 
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
+import java.time.*;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -211,5 +209,16 @@ public class TimesUtils {
         to_date = to_date - to_date % TimesUtils.SECOND_IN_MINUTE;
 
         return to_date;
+    }
+
+    /**
+     * 当前时间戳 加/减 n天之后的时间戳
+     *
+     * @param second 时间，秒数
+     * @param day    天数
+     * @return 时间戳
+     */
+    static Long plusDays(Long second, int day, ZoneId zoneId) {
+        return LocalDateTime.ofInstant(Instant.ofEpochSecond(second), zoneId).plusDays(day).atZone(zoneId).toEpochSecond();
     }
 }

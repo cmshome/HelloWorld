@@ -1,6 +1,8 @@
 package com.lxk.commonTest;
 
+import com.lxk.json.JsonTest;
 import com.lxk.model.Dog;
+import com.lxk.model.Student;
 
 import java.util.Arrays;
 
@@ -14,13 +16,13 @@ public class ArraysTest {
     public static void main(String[] args) {
         String order = "1128";
         if (!"1128".equals(order)) {
-            testArraysCopy();
             testArrayInit();
             testJavaBeanArray();
-        } else {
             int[] arr = {1, 2, 3, 4, 5};
             changeValue(arr);
             System.out.println(Arrays.toString(arr));
+        } else {
+            testArraysCopy();
         }
     }
 
@@ -59,12 +61,23 @@ public class ArraysTest {
 
     /**
      * 数组复制：Arrays.copyOf()用法
+     * 这个方法是浅拷贝，是地址传递。
      */
     private static void testArraysCopy() {
         Object[] numbers = {1, "ss", 3, 4, 5};
         Object[] numbersCopy = Arrays.copyOf(numbers, 5);
         numbersCopy[0] = 11;
-        System.out.println(Arrays.toString(numbersCopy));
-        System.out.println(Arrays.toString(numbers));
+        System.out.println("numbers      " + Arrays.toString(numbers));
+        System.out.println("numbersCopy  " + Arrays.toString(numbersCopy));
+
+        System.out.println();
+
+        Student[] students = {JsonTest.getStudent(), JsonTest.getStudent(), JsonTest.getStudent()};
+        System.out.println("修改之前的源数组：" + Arrays.toString(students));
+        Student[] studentsCopy = Arrays.copyOf(students,3);
+        studentsCopy[0].setName("这个是复制之后的修改第0个学生第名字。");
+        System.out.println("修改之后的copy ：" + Arrays.toString(studentsCopy));
+        System.out.println("修改之后的源数组：" + Arrays.toString(students));
+
     }
 }

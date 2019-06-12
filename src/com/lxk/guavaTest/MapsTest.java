@@ -1,6 +1,7 @@
 package com.lxk.guavaTest;
 
-import com.google.common.collect.Maps;
+import com.google.common.collect.*;
+import com.lxk.util.CollectionUtil;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -14,7 +15,57 @@ import java.util.Map;
 public class MapsTest {
     public static void main(String[] args) {
         //testMaps();
-        mapRemoveTest();
+        //mapRemoveTest();
+        //mapCompare();
+        //multiMapTest();
+        biMapTest();
+    }
+
+    /**
+     * 双向map的使用
+     */
+    private static void biMapTest() {
+        BiMap<Integer, String> biMap = HashBiMap.create();
+        biMap.put(1,"a.log");
+        biMap.put(2,"b.log");
+        biMap.put(3,"c.log");
+        System.out.println(biMap);
+        System.out.println(biMap.inverse());
+    }
+
+    private static void multiMapTest() {
+        Multimap<String, String> multimap = ArrayListMultimap.create();
+    }
+
+    /**
+     * 比较2个map的交集，并集，差集等等的操作。
+     */
+    private static void mapCompare() {
+        Map<String, String> mapA = CollectionUtil.getMap(3);
+        mapA.put("-1","-1");
+        mapA.put("9","99");
+        Map<String, String> mapB = CollectionUtil.getMap(5);
+        mapB.put("9","9");
+
+        System.out.println("mapA：" + mapA.toString());
+        System.out.println("mapB：" + mapB.toString());
+
+        MapDifference differenceMap = Maps.difference(mapA, mapB);
+        System.out.println("mapA is equal mapB: " + differenceMap.areEqual());
+
+        Map entriesDiffering = differenceMap.entriesDiffering();
+        System.out.println("key在两边都有，但是值却不同：" + entriesDiffering);
+
+        Map entriesOnlyOnLeft = differenceMap.entriesOnlyOnLeft();
+        System.out.println("左边独有的键值对：" + entriesOnlyOnLeft);
+
+        Map entriesOnlyOnRight = differenceMap.entriesOnlyOnRight();
+        System.out.println("右边独有的键值对：" + entriesOnlyOnRight);
+
+        Map entriesInCommon = differenceMap.entriesInCommon();
+        System.out.println("共同的键值对：" + entriesInCommon);
+
+
     }
 
     /**
@@ -61,6 +112,8 @@ public class MapsTest {
         System.out.println("map3：" + map3);
 
         outMapKeyValue(map3);
+
+
     }
 
     /**

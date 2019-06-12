@@ -3,10 +3,8 @@ package com.lxk.test;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import com.lxk.model.Car;
-import com.lxk.model.PersonByAge;
-import com.lxk.model.PersonByName;
-import com.lxk.model.Person_;
+import com.lxk.model.Cup;
+import com.lxk.util.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,7 +12,10 @@ import java.io.*;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.SoftReference;
 import java.lang.ref.WeakReference;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 /**
  * 最开始新建的测试类，各种测试都有。
@@ -24,7 +25,6 @@ import java.util.*;
 public class NoGroupTest {
     public static void main(String[] args) {
         if (getNum() == 1) {
-            testListSort();
             testArrayList();
             testCloseFileStream();
             testChar("aa", "aa");
@@ -40,10 +40,26 @@ public class NoGroupTest {
             testValueOfAndParseX();
             testHashSet();
             testArrayReverse();
-            testSortTwoSortedArray();
-        } else {
             testRandom();
+        } else {
+            //testSortTwoSortedArray();
+            testCup();
         }
+    }
+
+    /**
+     * 很轻松就堆溢出异常啦。StackOverflowError
+     */
+    private static void testCup() {
+        //生效的值
+        Cup cup = new Cup("black","18cm","30",null);
+        //待复核待对象的值
+        Cup cup2 = new Cup("red","28cm","40",null);
+        //正常应该这么操作
+        cup.setSelf(cup2);
+        //要是异常操作就是这么，自己赋值给自己的属性
+        //cup.setSelf(cup);
+        System.out.println(JsonUtils.parseObjToFormatJson(cup));
     }
 
     /**
@@ -69,15 +85,18 @@ public class NoGroupTest {
     /**
      * 两个有序数组的合并排序
      * (默认2个有序数组都是升序)
+     * 代码有问题
      */
     private static void testSortTwoSortedArray() {
-        int[] a = {12, 32, 63, 84, 105};
-        int[] b = {12, 32, 53, 74, 95};
+        int[] a =  {1,4,6,7,9};
+        int[] b = {1,2,4,4,5,8};
         int length1 = a.length;
         int length2 = b.length;
         int newArrayLength = length1 + length2;
         int[] result = new int[newArrayLength];
-        int i = 0, j = 0, k = 0;   //i:用于标示a数组    j：用来标示b数组  k：用来标示传入的数组
+        System.out.println(Arrays.toString(result));
+        //i:用于标示a数组    j：用来标示b数组  k：用来标示传入的数组
+        int i = 0, j = 0, k = 0;
 
         while (i < length1 && j < length2) {
             /* 元素不管重复与否，直接给合并到一起 */
@@ -460,73 +479,6 @@ public class NoGroupTest {
         System.out.println("list_.get(0) == ints_[0]：" + list_.get(0).equals(ints_[0]));
     }
 
-    /**
-     * 测试model集合按某属性排序
-     */
-    private static void testListSort() {
-        System.out.println("Person 集合：第二个方法要求实现一个java.util.Comparator接口。");
-        Person_ p1 = new Person_(11, "adf");
-        Person_ p2 = new Person_(99, "ggf");
-        Person_ p3 = new Person_(21, "444");
-        Person_ p4 = new Person_(15, "yrf");
-
-        //集合初始化的时候，若大小可知，应初始化固定大小的集合，也是个好习惯。
-        List<Person_> persons = Lists.newArrayListWithCapacity(4);
-        persons.add(p1);
-        persons.add(p2);
-        persons.add(p3);
-        persons.add(p4);
-
-        //注释是因为这个产生的列表有序啦。
-        //代码里面有很多的空行是为了把不同功能的代码段分开，良好的编码习惯。
-        // 写完代码记得格式化一下，也是习惯。
-        //每个方法每个类都得带Java doc文档注释也是好习惯，当然我就不加了，提醒一下读者的你。
-        //for (int i = 0; i < 4; i++) {
-        //    persons.add(new Person(i, "cms" + i));
-        //}
-        System.out.println("persons原来的默认顺序如下：");
-        for (Person_ p : persons) {
-            System.out.println(p.toString());
-        }
-
-        System.out.println("------下面按 age int 类型排序-----升序-------");
-        Comparator<Person_> ascComparatorByAge = new PersonByAge();
-        Collections.sort(persons, ascComparatorByAge);
-        for (Person_ p : persons) {
-            System.out.println(p.toString());
-        }
-
-        System.out.println("-------下面按 name string类型排序----Java升序-------");
-        Comparator<Person_> ascComparatorByName = new PersonByName();
-        Collections.sort(persons, ascComparatorByName);
-        for (Person_ p : persons) {
-            System.out.println(p.toString());
-        }
-
-
-        System.out.println("Car 集合：第一个方法要求所排序的元素类必须实现java.lang.Comparable接口。");
-
-        Car car1 = new Car("ben", 1000);
-        Car car2 = new Car("qqq", 1);
-        Car car3 = new Car("bmw", 10000);
-        Car car4 = new Car("wow", 100);
-        List<Car> cars = Lists.newArrayListWithCapacity(4);
-        cars.add(car1);
-        cars.add(car2);
-        cars.add(car3);
-        cars.add(car4);
-
-        System.out.println("cars原来的默认顺序如下：");
-        for (Car car : cars) {
-            System.out.println(car.toString());
-        }
-
-        System.out.println("------下面按 price int 类型排序--升序----------");
-        Collections.sort(cars);
-        for (Car car : cars) {
-            System.out.println(car.toString());
-        }
-    }
 
 }
 
