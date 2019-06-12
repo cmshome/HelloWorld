@@ -28,8 +28,11 @@ public class ForTest {
         List<String> linkedList = CollectionUtil.getLinkedList(SIZE);
 
         while (true) {
+            //array 7%
             testArray(array);
+            //for each : for i : lambda = 19% : 13% : 13%
             testArrayList(arrayList);
+            //for each : for i : lambda = 19% : 13% : 13%
             testLinkedList(linkedList);
         }
 
