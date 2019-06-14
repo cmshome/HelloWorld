@@ -10,7 +10,7 @@ import java.util.List;
  * @author lxk on 2017/4/21
  */
 public class ForTest {
-    private static final int SIZE = 40;
+    private static final int SIZE = 40000;
 
     public static void main(String[] args) {
         //testFor();
@@ -28,14 +28,23 @@ public class ForTest {
         List<String> linkedList = CollectionUtil.getLinkedList(SIZE);
 
         while (true) {
-            //array 7%
+            //array 0.5% 0.5%
             testArray(array);
-            //for each : for i : lambda = 19% : 13% : 13%
+            //for each : for i : lambda = 1.2% : 0.8% : 0.9%
             testArrayList(arrayList);
-            //for each : for i : lambda = 19% : 13% : 13%
+            //for each : for i : lambda = 1.2% : 94% : 0.9%
             testLinkedList(linkedList);
         }
 
+    }
+
+    /**
+     * array 在使用forI循环的效率测试
+     * 对数组来说，for i 和for each 效率是一样的
+     */
+    private static void testArray(String[] array) {
+        testForI(array);
+        testForEach(array);
     }
 
     /**
@@ -48,10 +57,12 @@ public class ForTest {
     }
 
     /**
-     * array 在使用forI循环的效率测试
+     * linkedList 在使用forI循环，forEach循环和lambda循环的效率测试
      */
-    private static void testArray(String[] array) {
-        testForI(array);
+    private static void testLinkedList(List<String> linkedList) {
+        testForI(linkedList);
+        testForEach(linkedList);
+        testLambda(linkedList);
     }
 
     private static void testForI(String[] array) {
@@ -61,18 +72,17 @@ public class ForTest {
         }
     }
 
-    /**
-     * linkedList 在使用forI循环，forEach循环和lambda循环的效率测试
-     */
-    private static void testLinkedList(List<String> linkedList) {
-        testForI(linkedList);
-        testForEach(linkedList);
-        testLambda(linkedList);
-    }
-
-    private static void testLambda(List<String> arrayList) {
+    private static void testForEach(String[] array) {
         StringBuilder sb = new StringBuilder();
-        arrayList.forEach(sb::append);
+        for (String s : array) {
+            sb.append(s);
+        }
+    }
+    private static void testForI(List<String> arrayList) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < SIZE; i++) {
+            sb.append(arrayList.get(i));
+        }
     }
 
     private static void testForEach(List<String> arrayList) {
@@ -82,11 +92,9 @@ public class ForTest {
         }
     }
 
-    private static void testForI(List<String> arrayList) {
+    private static void testLambda(List<String> arrayList) {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < SIZE; i++) {
-            sb.append(arrayList.get(i));
-        }
+        arrayList.forEach(sb::append);
     }
 
     private static void forIAfter() {
