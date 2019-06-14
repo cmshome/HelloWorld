@@ -3,13 +3,15 @@ package com.lxk.threadTest.callable;
 import java.util.concurrent.*;
 
 /**
+ * 使用Callable+Future获取执行结果
+ *
  * @author lxk on 2018/3/22
  */
 public class FutureTest {
     public static void main(String[] args) {
         ExecutorService executor = Executors.newCachedThreadPool();
-        Task task = new Task();
-        Future<Integer> result = executor.submit(task);
+        MyTask myTask = new MyTask();
+        Future<Integer> result = executor.submit(myTask);
         executor.shutdown();
 
         try {

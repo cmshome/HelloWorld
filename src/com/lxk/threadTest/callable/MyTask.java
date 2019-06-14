@@ -5,7 +5,7 @@ import java.util.concurrent.Callable;
 /**
  * @author lxk on 2018/3/22
  */
-class Task implements Callable<Integer> {
+class MyTask implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
         System.out.println("子线程在进行计算");

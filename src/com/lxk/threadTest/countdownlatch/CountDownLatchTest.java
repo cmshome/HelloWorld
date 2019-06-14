@@ -1,7 +1,10 @@
 package com.lxk.threadTest.countdownlatch;
 
+import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.*;
 
@@ -37,12 +40,14 @@ public class CountDownLatchTest {
                 namedThreadFactory,
                 new ThreadPoolExecutor.AbortPolicy());
         //ExecutorService executor = new ThreadPoolExecutor(6, 10, 5, TimeUnit.SECONDS, new SynchronousQueue<>());
+        List<String> list = Collections.synchronizedList(Lists.newArrayList());
         for (int i = 0; i < THREAD_COUNT_NUM; i++) {
             int index = i;
             executor.execute(() -> {
                 try {
                     System.out.println("第" + index + "颗龙珠已经收集到！");
                     Thread.sleep(new Random().nextInt(3000));
+                    list.add(index + "");
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
@@ -52,6 +57,7 @@ public class CountDownLatchTest {
         }
         countDownLatch.await();
         System.out.println("集齐七龙珠，召唤神龙！");
+        System.out.println(list.toString());
         executor.shutdown();
     /*
         public ThreadPoolExecutor(int corePoolSize,
