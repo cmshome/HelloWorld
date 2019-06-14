@@ -43,7 +43,7 @@ public class CollectionUtil {
      */
     public static List<String> getLinkedList(Integer size) {
         size = (size == null || size <= 0) ? SIZE : size;
-        List<String> list = Lists.newArrayListWithExpectedSize(size);
+        List<String> list = Lists.newLinkedList();
         for (Integer i = 0; i < size; i++) {
             list.add(i.toString() + "1234567890");
         }

@@ -13,9 +13,14 @@ import java.util.concurrent.*;
  *
  * @author lxk on 2018/4/18
  */
-public class Fixed {
+public class FixedThreadPool {
     public static void main(String[] args) {
         ExecutorService service = Executors.newFixedThreadPool(2);
+
+        //return new ThreadPoolExecutor(nThreads, nThreads,
+        //        0L, TimeUnit.MILLISECONDS,
+        //        new LinkedBlockingQueue<Runnable>());
+
         ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("BasicThreadPoolJob-CachedThreadPool-%d").build();
         ExecutorService executor = new ThreadPoolExecutor(6,
                 10,
@@ -24,7 +29,9 @@ public class Fixed {
                 new SynchronousQueue<>(),
                 namedThreadFactory,
                 new ThreadPoolExecutor.AbortPolicy());
+
         service.execute(() -> System.out.println("HeartBeat........................."));
+        service.shutdown();
 
 
 
