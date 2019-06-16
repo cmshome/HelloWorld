@@ -23,7 +23,7 @@ public class StringTest {
 
     private static final char DOUBLE_QUOTATION_MARKS = '"';
     private static final char SINGLE_QUOTATION_MARK = '\'';
-    private static final String ttm = "0|probeName_lxk|188.188.8.118|10999|10.188.16.110|40998|grcb8583|{\"number\":\"78\",\"convers_id\": 12864829, \"msg_size\": 876, \"mti\": \"\", \"STAN\": \"  3133\", \"F38\": \"交易成功\", \"RC\": \"0000\", \"F41\": \"文件(PHPFG0),业务种类(000)\", \"mid\": \"\"}|||1|876|0|0|0|0|0|8|0|0|0|0|0|0|0|0|0|0|1536646259|1536646259923|2018-09-11T06:10:59|3166439542|180097134|6|0|7";
+    private static final String TTM = "0|probeName_lxk|188.188.8.118|10999|10.188.16.110|40998|grcb8583|{\"number\":\"78\",\"convers_id\": 12864829, \"msg_size\": 876, \"mti\": \"\", \"STAN\": \"  3133\", \"F38\": \"交易成功\", \"RC\": \"0000\", \"F41\": \"文件(PHPFG0),业务种类(000)\", \"mid\": \"\"}|||1|876|0|0|0|0|0|8|0|0|0|0|0|0|0|0|0|0|1536646259|1536646259923|2018-09-11T06:10:59|3166439542|180097134|6|0|7";
     static {
         HEL_ = "Hel";
         LO_ = "lo";
@@ -54,7 +54,56 @@ public class StringTest {
         //testEfficiency();
 
         //test1();
-        test();
+        //test();
+        testStringContact();
+
+    }
+
+    private static void testStringContact() {
+        String[] split = TTM.split("\\|");
+        int length =split.length;
+        while (true){
+            //56%
+            String s = testAdd(split, length);
+            //13.8%
+            String s1 = testStringBuilderAppend(split, length);
+            //14.4%
+            String s2 = testStringBufferAppend(split, length);
+            //15.8%
+            String s3 = testContact(split, length);
+        }
+    }
+
+    private static String testContact(String[] split, int length) {
+        String result = "";
+        for (int i = 0; i < length; i++) {
+            result = result.concat(split[i]);
+        }
+        return result;
+    }
+
+    private static String testStringBufferAppend(String[] split, int length) {
+        StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 0; i < length; i++) {
+            stringBuffer.append(split[i]);
+        }
+        return stringBuffer.toString();
+    }
+
+    private static String testStringBuilderAppend(String[] split, int length) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            stringBuilder.append(split[i]);
+        }
+        return stringBuilder.toString();
+    }
+
+    private static String testAdd(String[] split, int length) {
+        String result = null;
+        for (int i = 0; i < length; i++) {
+            result +=split[i];
+        }
+        return result;
     }
 
     private static void test() {
@@ -65,7 +114,7 @@ public class StringTest {
     }
 
     private static void test2() {
-        String[] split = ttm.split("\\|");
+        String[] split = TTM.split("\\|");
         int length = split.length;
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < length; i++) {
@@ -74,7 +123,7 @@ public class StringTest {
     }
 
     private static void test1() {
-        StringTokenizer stringTokenizer = new StringTokenizer(ttm, "\\|");
+        StringTokenizer stringTokenizer = new StringTokenizer(TTM, "\\|");
         StringBuilder stringBuilder = new StringBuilder();
         while (stringTokenizer.hasMoreElements()) {
             stringBuilder.append(stringTokenizer.nextToken());
