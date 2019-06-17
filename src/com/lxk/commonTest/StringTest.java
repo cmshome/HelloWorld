@@ -55,8 +55,39 @@ public class StringTest {
 
         //test1();
         //test();
-        testStringContact();
+        //testStringContact();
+        testSplitEfficiency();
 
+    }
+
+    /**
+     * 测试字符串分割的效率问题 StringTokenizer 和 split 的对比。
+     */
+    private static void testSplitEfficiency() {
+        while (true){
+            //4.7%
+            split();
+            //95.3%
+            stringTokenizer();
+        }
+    }
+
+    private static void stringTokenizer() {
+        StringTokenizer st = new StringTokenizer(TTM, "\\|");
+        StringBuilder stringBuilder = new StringBuilder();
+        while(st.hasMoreTokens()) {
+            stringBuilder.append(st.nextToken());
+        }
+        String s = stringBuilder.toString();
+    }
+
+    private static void split() {
+        String[] split = TTM.split("\\|");
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String s : split) {
+            stringBuilder.append(s);
+        }
+        String s = stringBuilder.toString();
     }
 
     private static void testStringContact() {
