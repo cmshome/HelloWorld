@@ -4,10 +4,10 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-import com.lxk.util.StringTokenizer;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * String字符串测试
@@ -65,9 +65,9 @@ public class StringTest {
      */
     private static void testSplitEfficiency() {
         while (true){
-            //4.7%
+            //29.4%
             split();
-            //95.3%
+            //70.5%
             stringTokenizer();
         }
     }
