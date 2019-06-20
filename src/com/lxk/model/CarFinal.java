@@ -1,5 +1,6 @@
 package com.lxk.model;
 
+
 import com.google.common.collect.Lists;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,22 +9,27 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * 使用final的Car类
+ *
+ * @author LiXuekai on 2019/6/20
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Car implements Cloneable, Comparable<Car> , Serializable {
+public final class CarFinal implements Cloneable, Comparable<Car>, Serializable {
     private String sign;
     private int price;
     private List<Dog> myDog;
     private List<String> boys;
 
 
-    public Car(String sign, int price) {
+    public CarFinal(String sign, int price) {
         this.sign = sign;
         this.price = price;
     }
 
-    public Car(String sign, int price, List<Dog> myDog) {
+    public CarFinal(String sign, int price, List<Dog> myDog) {
         this.sign = sign;
         this.price = price;
         this.myDog = myDog;
