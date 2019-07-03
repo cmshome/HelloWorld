@@ -12,13 +12,17 @@
 
 ## 必须的配置，求你了！配置一下吧！
 *  [IntelliJ IDEA 详细图解最常用的配置 ，适合刚刚用的新人。](http://blog.csdn.net/qq_27093465/article/details/52918873) 
+*  [IntelliJ IDEA 修改内存大小，使得idea运行更流畅。](https://blog.csdn.net/qq_27093465/article/details/81947933) 
 
 ## Debug
 *  [Intellij IDEA 2017 debug断点调试技巧与总结详解篇](http://blog.csdn.net/qq_27093465/article/details/64124330) 
 
 ## 版本控制相关：SVN；Git，Github
 *  [IntelliJ IDEA 下的svn配置及使用的非常详细的图文总结](http://blog.csdn.net/qq_27093465/article/details/74898489) 
+*  [mac 上 IntelliJ IDEA 的svn 无法保存密码，每次使用，都得输入的详细图解](https://blog.csdn.net/qq_27093465/article/details/82382256) 
+*  [IntelliJ IDEA SVN 版本管理，怎么回退单个文件或者整个项目到之前的某个特定版本](https://blog.csdn.net/qq_27093465/article/details/86612093) 
 *  [IntelliJ IDEA 中TortoiseSVN修改服务器地址的方法](http://blog.csdn.net/qq_27093465/article/details/51580290) 
+*  [在 IntelliJ IDEA 中，如何使用 SVN 拉分支](http://blog.csdn.net/qq_27093465/article/details/79033204) 
 *  [IntelliJ IDEA incoming partial](http://blog.csdn.net/qq_27093465/article/details/51699973) 
 *  [IntelliJ IDEA 中如何设置30分钟自动刷新svn](http://blog.csdn.net/qq_27093465/article/details/51970927) 
 *  [IntelliJ IDEA + GitHub(git) 详细图解 如何实现项目的版本控制和管理（on win 7 64 bit）](http://blog.csdn.net/qq_27093465/article/details/52847300) 
@@ -30,6 +34,7 @@
 
 ## 你可能会问
 *  [IntelliJ IDEA 中怎么查看方法说明](http://blog.csdn.net/qq_27093465/article/details/50774144) 
+*  [IntelliJ IDEA 中看到 classes, sources, javadocs 三种jar的区别和各自的作用](https://blog.csdn.net/qq_27093465/article/details/86239039) 
 *  [IntelliJ IDEA 中怎么查看文件中所有方法(类似eclipse里面的outline)](http://blog.csdn.net/qq_27093465/article/details/50853429) 
 *  [IntelliJ IDEA 中怎么恢复本地代码](http://blog.csdn.net/qq_27093465/article/details/50910897) 
 *  [IntelliJ IDEA 中怎么全局搜索替换(整个项目)(Eclipse)](http://blog.csdn.net/qq_27093465/article/details/50965389) 
@@ -47,6 +52,7 @@
 *  [IntelliJ IDEA 中如何设置同时打开多个文件且分行显示---即如何设置tabs](http://blog.csdn.net/qq_27093465/article/details/52537364)
 *  [IntelliJ IDEA 中如何设置如：sys直接输出一行等等的快捷编辑操作----即：代码的快捷编辑模板(Live Templates)设置](http://blog.csdn.net/qq_27093465/article/details/52691572)
 *  [IntelliJ IDEA 中怎么修改新建文件时,自动生成的注释的user的默认值](http://blog.csdn.net/qq_27093465/article/details/52789232)
+* [IntelliJ IDEA 中创建类的时候，可以直接自动给类加注释的设置，以及对方法的自动生成Java doc 注释的示范。](https://blog.csdn.net/qq_27093465/article/details/83510884)
 *  [IntelliJ IDEA 中如何配置多个jdk版本即(1.7和1.8两个jdk都可用)](http://blog.csdn.net/qq_27093465/article/details/52796892)
 *  [IntelliJ IDEA (JetBrains PyCharm)中 设置字体大小，除了文本编辑的字体大小，还有显示log的字体大小](http://blog.csdn.net/qq_27093465/article/details/54929135)
 *  [IntelliJ IDEA 版本更新后，如何关闭参数提示。](http://blog.csdn.net/qq_27093465/article/details/54970000)
@@ -56,6 +62,9 @@
 *  [Lombok Requires Annotation Processing Annotation processing seems to be disabled for the project "xx](http://blog.csdn.net/qq_27093465/article/details/53490490)
 *  [Intellij IDEA findbugs 插件 下载、安装、使用详解(2017年实测mac和windows都可用)](http://blog.csdn.net/qq_27093465/article/details/64923239)
 *  [IntelliJ IDEA 插件 阿里巴巴Java开发手册（Alibaba Java Coding Guidelines）](http://blog.csdn.net/qq_27093465/article/details/78338932)
+*  [JRebel 7.1.5 插件下载 安装 激活 结合 IntelliJ IDEA ，处理 hot swap failed 的问题。是真的热部署。）](http://blog.csdn.net/qq_27093465/article/details/79148498)
+*  [JRebel 7.1.5 结合 IntelliJ IDEA ，单模块项目和多模块项目的热部署示范。）](https://blog.csdn.net/qq_27093465/article/details/84570637)
+*  [IntelliJ IDEA mac系统 jprofiler 插件安装）](https://blog.csdn.net/qq_27093465/article/details/89153450)
 
 ## 项目相关
 *  [IntelliJ IDEA 中创建HelloWorld项目示例(非Maven项目)](http://blog.csdn.net/qq_27093465/article/details/52795186)
