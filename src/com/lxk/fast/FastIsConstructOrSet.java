@@ -3,6 +3,7 @@ package com.lxk.fast;
 import com.google.common.collect.Lists;
 import com.lxk.model.Car;
 import com.lxk.model.Dog;
+import org.junit.Test;
 
 /**
  * 测试谁快 直接构造或者一个个set，他们的效率差多少
@@ -10,14 +11,12 @@ import com.lxk.model.Dog;
  * @author LiXuekai on 2019/6/18
  */
 public class FastIsConstructOrSet {
-    public static void main(String[] args) {
-        testFast();
-    }
 
     /**
      * 使用JProfiler看时间占比
      */
-    private static void testFast() {
+    @Test
+    public void testFast() {
         while (true) {
             //27.4%
             set();
@@ -25,6 +24,33 @@ public class FastIsConstructOrSet {
             construct();
         }
     }
+
+    /**
+     * 使用JProfiler看时间占比
+     */
+    @Test
+    public void testFast2() {
+        while (true) {
+            //33%
+            set();
+            //12.4%
+            construct();
+            //54.6%
+            builder();
+        }
+    }
+
+    /**
+     * 使用lombok的 builder 模式来赋值
+     */
+    private static void builder() {
+        Car car = Car.builder()
+                .sign("0000")
+                .price(100)
+                .myDog(Lists.newArrayList(Dog.builder().name("aaa").alive(true).isLoyal(true).build()))
+                .build();
+    }
+
 
     /**
      * 构造函数来给属性赋值

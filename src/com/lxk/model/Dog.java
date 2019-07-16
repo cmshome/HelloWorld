@@ -1,6 +1,7 @@
 package com.lxk.model;
 
 import com.google.common.base.Objects;
+import lombok.Builder;
 
 import java.io.Serializable;
 
@@ -9,6 +10,7 @@ import java.io.Serializable;
  * <p>
  * @author lxk on 2016/12/23
  */
+@Builder
 public class Dog implements Serializable {
     private String name;
     /**
