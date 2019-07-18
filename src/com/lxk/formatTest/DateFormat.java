@@ -17,7 +17,19 @@ public class DateFormat {
     public static void main(String[] args) {
         //dateTest();
         //formatDataTest();
-        noGroup();
+        //noGroup();
+        formatTime();
+    }
+
+    /**
+     * 格式化输出时间 _2019-07-18_15
+     */
+    private static void formatTime() {
+        String formatString = "_yyyy-MM-dd_HH";
+        SimpleDateFormat sdf = new SimpleDateFormat(formatString);
+        String dateString = sdf.format(new Date());
+        //_2019-07-18_15
+        System.out.println(dateString);
     }
 
     private static void formatDataTest() {
