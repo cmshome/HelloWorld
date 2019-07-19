@@ -9,6 +9,7 @@
 *  [Java 代码优化: 使用构造函数和使用一个个setter的效率差别][5]
 *  [Java 代码优化: Java final 修饰类或者方法能提高性能？还50%？老铁，你试了吗？][6]
 *  [Java 代码优化: switch case 和 if else 语句的效率比较，使用JProfiler比下两者的效率][7]
+*  [Java 代码优化: 关于 说“try catch 放在 for/while 循环之外，会提高效率 优化代码”的测试][8]
 
 ## 要不要感谢下大师兄呢？
 *  [听说有些老铁，要感谢下大师兄？传送门在此。][0] 
@@ -24,7 +25,4 @@
 [5]: https://blog.csdn.net/qq_27093465/article/details/92763548
 [6]: https://blog.csdn.net/qq_27093465/article/details/93056702
 [7]: https://blog.csdn.net/qq_27093465/article/details/93205825
-[8]:
-[9]:
-[10]:
-[11]:
+[8]: https://blog.csdn.net/qq_27093465/article/details/96491466
