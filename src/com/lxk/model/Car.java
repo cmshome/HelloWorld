@@ -1,18 +1,24 @@
 package com.lxk.model;
 
 import com.google.common.collect.Lists;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Car implements Cloneable, Comparable<Car> , Serializable {
     private String sign;
     private int price;
     private List<Dog> myDog;
     private List<String> boys;
 
-    public Car() {
-    }
 
     public Car(String sign, int price) {
         this.sign = sign;
@@ -23,45 +29,6 @@ public class Car implements Cloneable, Comparable<Car> , Serializable {
         this.sign = sign;
         this.price = price;
         this.myDog = myDog;
-    }
-
-    public Car(String sign, int price, List<Dog> myDog, List<String> boys) {
-        this.sign = sign;
-        this.price = price;
-        this.myDog = myDog;
-        this.boys = boys;
-    }
-
-    public String getSign() {
-        return sign;
-    }
-
-    public void setSign(String sign) {
-        this.sign = sign;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public List<Dog> getMyDog() {
-        return myDog;
-    }
-
-    public void setMyDog(List<Dog> myDog) {
-        this.myDog = myDog;
-    }
-
-    public List<String> getBoys() {
-        return boys;
-    }
-
-    public void setBoys(List<String> boys) {
-        this.boys = boys;
     }
 
     @Override
@@ -95,5 +62,25 @@ public class Car implements Cloneable, Comparable<Car> , Serializable {
             System.out.println(ignored.getMessage());
         }
         return car;
+    }
+
+    public void run() {
+        for (int i = 0; i < 1000; i++) {
+            func();
+        }
+    }
+
+    public final void finalRun() {
+        for (int i = 0; i < 1000; i++) {
+            func1();
+        }
+    }
+
+    final void func1() {
+        String s = this.toString();
+    }
+
+    void func() {
+        String s = this.toString();
     }
 }
