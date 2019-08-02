@@ -39,6 +39,9 @@ public class Bird implements Serializable {
     @JSONField(ordinal = 2, name = "体型大小")
     private String size;
 
+    /**
+     * 使用 @Builder.Default 使得在使用builder的时候，支持默认值。不使用这个注解的话，使用builder的时候，就无法设置默认值了。
+     */
     @JSONField(ordinal = 1, name = "年龄")
     @Builder.Default
     private int age = 100;
