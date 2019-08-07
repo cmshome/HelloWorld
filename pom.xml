@@ -16,7 +16,7 @@
         <org.spring-data-mongodb-version>2.1.1.RELEASE</org.spring-data-mongodb-version>
         <org.aspectj-version>1.6.10</org.aspectj-version>
         <jackson.version>2.9.5</jackson.version>
-        <fastjson-verison>1.2.21</fastjson-verison>
+        <fastjson-verison>1.2.58</fastjson-verison>
         <lombok-verison>1.18.8</lombok-verison>
         <poi-version>3.11</poi-version>
     </properties>
