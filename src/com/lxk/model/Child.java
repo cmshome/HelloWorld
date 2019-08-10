@@ -23,4 +23,12 @@ public class Child extends Parent {
         System.out.println(super.age);
         System.out.println(this.age);
     }
+
+    /**
+     *
+     */
+    @Override
+    protected void eatApple() {
+        System.out.println("Child eat apple");
+    }
 }

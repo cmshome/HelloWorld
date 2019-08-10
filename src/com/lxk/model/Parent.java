@@ -4,6 +4,7 @@ package com.lxk.model;
  * @author lxk on 2017/4/26
  */
 public class Parent {
+    protected  String lastName = "李";
     public int age = 18;
 
     private String name = "lxk";
@@ -22,6 +23,19 @@ public class Parent {
 
     public void sayHello() {
         System.out.println("this is parent sayHello !");
+    }
+
+    public void eat(){
+        eatApple();
+        eatRice();
+    }
+
+    private void eatRice() {
+        System.out.println("parent eat rice。");
+    }
+
+    protected void eatApple() {
+        System.out.println("parent eat apple");
     }
 
 }
