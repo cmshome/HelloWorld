@@ -10,7 +10,7 @@ import java.io.Serializable;
  * <p>
  * @author lxk on 2016/12/23
  */
-@Builder
+@Builder(toBuilder = true)
 public class Dog implements Serializable {
     private String name;
     /**

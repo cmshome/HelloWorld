@@ -1,6 +1,7 @@
 package com.lxk.lombok;
 
 import com.lxk.model.Bird;
+import com.lxk.model.Dog;
 import com.lxk.model.extend.TCL;
 import com.lxk.util.JsonUtils;
 
@@ -16,7 +17,19 @@ public class BuilderTest {
         //testConstructor();
         //testDefaultValue();
         //testUpdateField();
-        testExtend();
+        //testExtend();
+        test();
+    }
+
+    private static void test() {
+        //boolean 默认都是false
+        System.out.println(JsonUtils.parseObjToJson(Dog.builder().build()));
+        //改了一个true
+        Dog dog = Dog.builder().isLoyal(true).name("000").build();
+        System.out.println(JsonUtils.parseObjToJson(dog));
+        //新new一个dog
+        Dog xxx = dog.toBuilder().isLoyal(false).alive(true).build();
+        System.out.println(JsonUtils.parseObjToJson(xxx));
     }
 
     /**
@@ -65,4 +78,6 @@ public class BuilderTest {
         bird.toBuilder().name("lxk").build();
         System.out.println(bird.getName());
     }
+
+
 }
