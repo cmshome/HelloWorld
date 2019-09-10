@@ -19,7 +19,7 @@
 
     <context:annotation-config/>
 
-    <bean id="person" class="com.lxk.atInterfaceTest.Person"/>
-    <bean id="ss" class="com.lxk.atInterfaceTest.Student"/>
+    <bean id="person" class="com.lxk.interfaceTest.Person"/>
+    <bean id="ss" class="com.lxk.interfaceTest.Student"/>
 
 </beans>

@@ -1,4 +1,4 @@
-package com.lxk.atInterfaceTest;
+package com.lxk.interfaceTest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
