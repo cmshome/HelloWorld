@@ -19,6 +19,34 @@ public class ScannerTest {
     @Test
     public void read() {
         try {
+            String path = System.getProperty("user.dir") + "/resources/source";
+            File file = new File(path);
+            String[] fileArray = file.list();
+            if (fileArray == null) {
+                return;
+            }
+            for (String fileName : fileArray) {
+                List<String> list = readFile(path + "/" + fileName);
+                List<List<String>> all = Lists.newArrayListWithExpectedSize(list.size());
+                String split = "\u001C";
+                //String split = "\u001C\u001D";
+                //String split = "\u001C\u001D";
+                list.forEach(s1 -> all.add(Lists.newArrayList(s1.split(split))));
+                all.forEach(strings -> {
+                    strings.forEach(s ->  System.out.print(s + " "));
+                    System.out.println();
+                });
+                System.out.println();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Test
+    public void readAndWrite() {
+        try {
             String s = System.getProperty("user.dir") + "/resources/source";
             File file = new File(s);
             String[] fileArray = file.list();
