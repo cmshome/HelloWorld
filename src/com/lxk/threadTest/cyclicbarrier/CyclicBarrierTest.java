@@ -1,5 +1,6 @@
 package com.lxk.threadTest.cyclicbarrier;
 
+import java.util.Random;
 import java.util.concurrent.CyclicBarrier;
 
 /**
@@ -24,14 +25,15 @@ public class CyclicBarrierTest {
             int index = i;
             new Thread(() -> {
                 try {
-                    System.out.println("召集第" + index + "个法师");
+                    int sleepInt = new Random().nextInt(3000);
+                    Thread.sleep(sleepInt);
+                    System.out.println("召集第" + index + "个法师 sleep " + sleepInt);
                     callMasterBarrier.await();
                 } catch (Exception e) {
 
                 }
             }).start();
         }
-
     }
 
     private static void summonDragon() {
@@ -45,7 +47,9 @@ public class CyclicBarrierTest {
             int index = i;
             new Thread(() -> {
                 try {
-                    System.out.println("第" + index + "个龙珠已经收集到。");
+                    int sleepInt = new Random().nextInt(3000);
+                    Thread.sleep(sleepInt);
+                    System.out.println("第" + index + "个龙珠已经收集到。 sleep " + sleepInt);
                     summonDragonBarrier.await();
                 } catch (Exception e) {
 

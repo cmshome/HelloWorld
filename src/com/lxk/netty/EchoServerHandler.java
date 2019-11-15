@@ -35,7 +35,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
         });
     }
 
-    /*
+    /**
         * channelAction
         *
         * channel 通道 action 活跃的
@@ -48,7 +48,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
 
     }
 
-    /*
+    /**
      * channelInactive
      *
      * channel 通道 Inactive 不活跃的

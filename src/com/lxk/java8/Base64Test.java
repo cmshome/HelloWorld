@@ -22,6 +22,34 @@ public class Base64Test {
     private static final String UTF_8 = "utf-8";
     private static final int MAX = 10;
 
+    private static final String LXK = "POST /auth-api-gateway/auth-service-cups/auth-service-cups/CUP1008 HTTP/1.1\n" +
+            "Accept: application/json, application/*+json\n" +
+            "x-route-type: D\n" +
+            "x-route-key: 6226880168218188\n" +
+            "Content-Type: application/json;charset=UTF-8\n" +
+            "X-B3-TraceId: d085ee432143c1db\n" +
+            "X-B3-SpanId: e6f86865cc19a52f\n" +
+            "X-B3-ParentSpanId: 222e6036c6a69cef\n" +
+            "X-B3-Sampled: 1\n" +
+            "Content-Length: 1055\n" +
+            "Host: starcard-auth.cymgw.khx.cc:80\n" +
+            "Connection: Keep-Alive\n" +
+            "User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_152)\n" +
+            "Cookie: 4791f5b9ce26812edc90c6be392cae0b=a6811b181686ec8e1d77d9f40cb6d78c\n" +
+            "X-Forwarded-For: 25.128.1.6\n" +
+            "\n" +
+            "{\"hdlgth\":351,\"processingCode\":\"003000\",\"transDateTime\":\"1011112458\",\"acqInstId\":\"49008084\",\"cup063Data\":\"VEswNTQBATECEDYyNTE2NDEwNjc5ODE3NjUDBDIzMDMEAjgwBQIwMQYLNjIwMDAwMDAxMTIIBDGAMEI=\",\"terminalId\":\"91444347\",\"mcc\":\"7997\",\"retrivlRefNum\":\"901257901576\",\"merchantNameLoc\":\"西安市长安区卢佳红拳健身会所            \",\"currcyCodeTrans\":\"156\",\"cib122Data\":\"1103020000000000\",\"authTrxnCode\":\"CUP1008\",\"messageType\":\"0200\",\"merchantId\":\"010100099990012\",\"dateExpr\":\"2303\",\"cib125Data\":\"000006000314000000004012102\",\"frontSeq\":\"BNK0011570764299276925622\",\"cib112Data\":\"900808479970036\",\"pan\":\"6226880168218188\",\"subChannelId\":\"ESA\",\"channelId\":\"CUP\",\"posCondCode\":\"00\",\"amtTrans\":\"000000100000\",\"fwdInstId\":\"49000000\",\"frontDate\":\"20191011\",\"dateLocalTrans\":\"1011\",\"messageHead\":{\"cnvp_iso_h_cnl\":\"ISO12\",\"cnvp_iso_h_ver\":\" \",\"cnvp_host_id\":\"01\",\"cnvp_cups_tran_flag\":\"2\",\"c|\n";
+
+
+    @Test
+    public void toBase64() throws UnsupportedEncodingException {
+        String s = Base64.getEncoder().encodeToString(LXK.getBytes(UTF_8));
+        System.out.println(s);
+    }
+
+
+
+
     @Test
     public void base64() throws UnsupportedEncodingException {
         test();
