@@ -1,5 +1,6 @@
 package com.lxk.util;
 
+import com.google.common.base.Strings;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,15 +30,45 @@ import static org.apache.http.HttpStatus.SC_OK;
  * @date 2018-12-17.
  */
 public class HttpClientUtils {
-    /** 编码格式 */
+    /**
+     * 编码格式
+     */
     private static final String ENCODING = "UTF-8";
 
-    /** 连接超时时间, 单位毫秒 */
+    /**
+     * 连接超时时间, 单位毫秒
+     */
     private static final int CONNECT_TIME = 10000;
 
-    /** 请求获取数据的超时时间, 单位毫秒 */
+    /**
+     * 请求获取数据的超时时间, 单位毫秒
+     */
     private static final int SOCKET_TIME = 10000;
 
+
+    /**
+     * get请求
+     *
+     * @param url 请求路径
+     */
+    public static HttpClientResult doGet(String url, String tokenKey, String tokenValue) throws IOException {
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        HttpGet httpGet = new HttpGet(url);
+        if (!Strings.isNullOrEmpty(tokenKey) && !Strings.isNullOrEmpty(tokenValue)) {
+            httpGet.setHeader("Cookie", tokenKey + "=" + tokenValue);
+        }
+        RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(CONNECT_TIME).setSocketTimeout(SOCKET_TIME).build();
+        httpGet.setConfig(requestConfig);
+
+        CloseableHttpResponse httpResponse = null;
+
+        try {
+            return getHttpClientResult(httpClient, httpResponse, httpGet);
+        } finally {
+            // 释放资源
+            release(httpClient, httpResponse);
+        }
+    }
 
     /**
      * get请求
@@ -64,7 +95,7 @@ public class HttpClientUtils {
      * post请求
      * 无请求头
      *
-     * @param url 请求路径
+     * @param url    请求路径
      * @param params 请求参数
      */
     public static HttpClientResult doPost(String url, Map<String, String> params) throws IOException {
@@ -74,9 +105,9 @@ public class HttpClientUtils {
     /**
      * post请求
      *
-     * @param url 请求路径
+     * @param url     请求路径
      * @param headers 请求头
-     * @param params 请求参数
+     * @param params  请求参数
      */
     public static HttpClientResult doPost(String url, Map<String, String> headers, Map<String, String> params) throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -105,7 +136,8 @@ public class HttpClientUtils {
 
     /**
      * 封装请求头
-     * @param params 请求头参数集合
+     *
+     * @param params  请求头参数集合
      * @param request 请求
      */
     private static void packageHeader(Map<String, String> params, HttpRequestBase request) {
@@ -119,7 +151,8 @@ public class HttpClientUtils {
 
     /**
      * 封装请求参数
-     * @param params 请求参数集合
+     *
+     * @param params  请求参数集合
      * @param request 请求
      */
     private static void packageParams(Map<String, String> params, HttpEntityEnclosingRequestBase request) throws UnsupportedEncodingException {
@@ -173,10 +206,14 @@ public class HttpClientUtils {
     @AllArgsConstructor
     public static class HttpClientResult {
 
-        /** 响应状态码 */
+        /**
+         * 响应状态码
+         */
         private int code;
 
-        /** 响应数据 */
+        /**
+         * 响应数据
+         */
         private String content;
 
         public HttpClientResult(int code) {
