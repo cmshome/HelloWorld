@@ -18,7 +18,7 @@
         <jackson.version>2.9.9.2</jackson.version>
         <fastjson-verison>1.2.58</fastjson-verison>
         <lombok-verison>1.18.8</lombok-verison>
-        <poi-version>3.11</poi-version>
+        <poi-version>4.1.2</poi-version>
     </properties>
 
     <dependencies>
